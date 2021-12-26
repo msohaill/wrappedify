@@ -1,0 +1,48 @@
+{% extends 'pages/pre_base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'styles/start_view.css' %}">
+{% endblock %}
+{% block title %}Get started{% endblock %}
+{% block bannerlink %}href="/"{% endblock %}
+
+{% block main %}
+<h1>Let's get started.</h1>
+<div id="step-1">
+    <div id="info-container">
+        <h2 class="step-titles"># 1</h2>
+        <p class="info">To understand your listening, you must download your Spotify data. This guide walks you through step-by-step. First, login on the  <a style="color:white" href="https://www.spotify.com/" target="_blank" rel="noopener noreferrer">Spotify Website<a/> and navigate to your <em>Account</em> page by clicking the <em>Profile</em> menu in the top right</p>
+    </div>
+    <img class="steps" src="{% static 'images/start-1.png' %}">
+</div>
+
+<div id="step-2">
+    <div id="info-container">
+        <h2 class="step-titles"># 2</h2>
+        <p class="info">Navigate to <em>Privacy settings</em> using the menu that appears on the left</p>
+    </div>
+    <img class="steps" src="{% static 'images/start-2.png' %}">
+</div>
+
+<div id="step-3">
+    <div id="info-container">
+        <h2 class="step-titles"># 3</h2>
+        <p class="info">Scroll down towards the bottom of the page and request your data. Now, simply wait a few days to recieve an e-mail from Spotify containing a link to download your personal data</p>
+    </div>
+    <img class="steps" src="{% static 'images/start-3.png' %}">
+</div>
+
+<div id="'final">
+    <h2 class="step-titles"># 4</h2>
+    <p class="info">Once you download the ZIP file, unzip it and select the unzipped folder below</p>
+</div>
+
+<a class="link-button">SELECT</a>
+
+<form method="POST"> {% csrf_token %}
+    <input type="file" id="fileselected">
+    <input type="submit">
+</form>
+
+{% endblock %}

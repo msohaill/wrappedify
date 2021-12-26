@@ -1,0 +1,55 @@
+#main-content {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+h1 {
+    border-bottom: 2px solid white;
+    padding-bottom: 50px;
+}
+
+#step-1, #step-3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#step-2 {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.steps {
+    margin: 50px;
+    height: 300px;
+    border-radius: 50%;
+}
+
+.info-container {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.step-titles {
+    margin: 80px;
+    margin-bottom: 0px;
+}
+
+.info {
+    margin: 80px;
+    margin-top: 10px;
+}
+
+.link-button {
+    margin-top: 0px;
+    align-self: center;
+    background: rgb(35, 47, 110);
+}
+
+.link-button:hover {
+    background: rgb(47, 64, 148);
+}
