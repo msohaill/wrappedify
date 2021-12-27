@@ -22,10 +22,11 @@
 } 
 
 @keyframes cover-slide {
-    0% {
+    from {
         transform: translateX(500px);
-      }
-      100% {
+    }
+    
+    to {
         transform: translateX(0);
       }
 }

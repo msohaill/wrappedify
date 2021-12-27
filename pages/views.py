@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import UploadFileForm
+from django.http import HttpResponseRedirect
 import spotipy, random, os
 
 # Create your views here.
@@ -29,14 +29,12 @@ def home_view(request):
 
 
 def start_view(request):
-    file_form = UploadFileForm()
 
     if request.method == "POST":
-        file_form = UploadFileForm(request.POST, request.FILES)
+        return HttpResponseRedirect('/processing')
 
-        if file_form.is_valid():
-            print(request.FILES)
+    return render(request, 'pages/start_view.html', {})
 
-    context = {'form': file_form}
 
-    return render(request, 'pages/start_view.html', context)
+def processing_view(request):
+    return render(request, 'pages/processing_view.html', {})

@@ -10,7 +10,7 @@
 {% block main %}
 <h1>Let's get started.</h1>
 <div id="step-1">
-    <div id="info-container">
+    <div class="info-container">
         <h2 class="step-titles">Step 1.</h2>
         <p class="info">To understand your listening, you must download your Spotify data. This guide walks you through step-by-step. First, login on the  <a style="color:white" href="https://www.spotify.com/" target="_blank" rel="noopener noreferrer">Spotify Website<a/> and navigate to your <em>Account</em> page by clicking the <em>Profile</em> menu in the top right.</p>
     </div>
@@ -18,7 +18,7 @@
 </div>
 
 <div id="step-2">
-    <div id="info-container">
+    <div class="info-container">
         <h2 class="step-titles">Step 2.</h2>
         <p class="info">Navigate to <em>Privacy settings</em> using the menu that appears on the left.</p>
     </div>
@@ -26,7 +26,7 @@
 </div>
 
 <div id="step-3">
-    <div id="info-container">
+    <div class="info-container">
         <h2 class="step-titles">Step 3.</h2>
         <p class="info">Scroll down towards the bottom of the page and request your data. Now, simply wait a few days to recieve an e-mail from Spotify containing a link to download your personal data.</p>
     </div>
@@ -38,11 +38,22 @@
     <p class="info">Once you download the ZIP file, unzip it and select all files following the naming format 'StreamingHistory#.json'. NOTE: It is important that you select <em>all</em> and <em>only</em> those files that follow the specified naming convention. </p>
 </div>
 
-<a class="link-button">SELECT</a>
+<form id="file-form" method="POST" enctype="multipart/form-data" style="text-align: center"> {% csrf_token %}
+    <input type="file" name="listening-files" id="listening-input" multiple="True" accept="application/json" onchange="validateInput(this)" hidden>
+    <label for="listening-input" class="link-button">SELECT FILES</label>
+</form> 
 
-<form method="POST" enctype="multipart/form-data"> {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit">
-</form>
+<div id="error-backdrop"></div>
+<div id="file-error">
+    <div style="display:flex; flex-direction:row; justify-content:space-between">
+        <div style="flex-grow:1; display:flex; flex-direction:row; justify-content:flex-start">
+            <img style="height: 50px;" src="{% static 'images/error.png' %}" alt="error icon">
+            <h2 id="error-title">Invalid files selected.</h2>
+        </div>
+        <span id="close">&#10005</span>
+    </div>
+    <p>The files uploaded either do not follow the specified naming format ('StreamingHistory#.json') or do not contain all such files.</p> 
+    <p>Please try again and make sure to select <em>all</em> files in your Spotify personal data folder that followed the specified naming convention.</p>
+</div>
 
 {% endblock %}

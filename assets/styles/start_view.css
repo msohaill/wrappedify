@@ -2,6 +2,7 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
+    align-content: center;
 }
 
 h1 {
@@ -45,10 +46,77 @@ h1 {
 
 .link-button {
     margin-top: 0px;
-    align-self: center;
     background: rgb(35, 47, 110);
+    display: inline-block;
+    cursor: pointer;
 }
 
 .link-button:hover {
     background: rgb(47, 64, 148);
+}
+
+#file-error {
+    z-index: 11;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -400px;
+    background: rgb(32, 31, 30);
+    width: 800px;
+    height: 400px;
+    border-radius: 30px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+#close {
+    cursor: pointer;
+}
+
+.error-animation {
+    animation-name: 'error-in';
+    animation-duration: 1s;
+}
+
+@keyframes error-in {
+    from {
+        transform: translateY(800px);
+      }
+    
+      to {
+        transform: translateY(0);
+      }
+}
+
+#error-backdrop {
+    z-index: 10;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.backdrop-animation {
+    animation-name: 'backdrop-in';
+    animation-duration: 1s;
+}
+
+@keyframes backdrop-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#error-title {
+    padding: 10px;
+    padding-left: 20px;
 }
