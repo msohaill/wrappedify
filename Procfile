@@ -1,1 +1,1 @@
-web: gunicorn wrappedify.wsgi:application --log-file -
+web: gunicorn wrappedify.wsgi --log-file -
