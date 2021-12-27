@@ -1,9 +1,11 @@
 from django.shortcuts import render
-import spotipy, random
+from .forms import UploadFileForm
+import spotipy, random, os
 
 # Create your views here.
-client_secret = '843c797b4a534deeaa1d6274e6697dca'
-client_id = 'ecc3ee32f1254bd3b0f405cfc120f40f'
+
+client_id = os.environ.get('client_id')
+client_secret = os.environ.get('client_secret')
 
 
 def home_view(request):
@@ -27,7 +29,14 @@ def home_view(request):
 
 
 def start_view(request):
+    file_form = UploadFileForm()
+
     if request.method == "POST":
-        print("wow")
-        print(request.FILES)
-    return render(request, 'pages/start_view.html', {})
+        file_form = UploadFileForm(request.POST, request.FILES)
+
+        if file_form.is_valid():
+            print(request.FILES)
+
+    context = {'form': file_form}
+
+    return render(request, 'pages/start_view.html', context)
