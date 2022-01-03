@@ -15,11 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from pages.views import home_view, start_view, processing_view
+from pages.views import home_view, start_view, processing_view, set_timezone, get_progress, data_view, sign_in
 
 urlpatterns = [
     path('', home_view),
     path('get-started/', start_view),
     path('processing/', processing_view),
+    path('your-data/', data_view),
+    path('ajax/timezone/', set_timezone),
+    path('ajax/progress/', get_progress),
+    path('sign-in/', sign_in),
     path('admin/', admin.site.urls),
 ]

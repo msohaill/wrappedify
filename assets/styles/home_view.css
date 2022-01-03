@@ -4,13 +4,12 @@
 }
 
 #main-content {
-    display: flex;
     justify-content: space-between;
     flex-direction: row;
 }
 
 #cover-holder {
-    animation-name: "cover-slide";
+    animation-name: cover-slide;
     animation-duration: 1s;
     margin: auto;
     margin-right: 0px;
@@ -32,7 +31,7 @@
 }
 
 body {
-    animation-name: "fade-in";
+    animation-name: fade-in;
     animation-duration: 3s;
 }
 

@@ -11,7 +11,7 @@
     <div id="info">
         <h1>Why wait a year to see how you listened.</h1>
         <p>We all love Spotify's Wrapped. But let's be honest, no one deserves to wait 365 days to understand their listening. Get started with Wrappedify below!</p>
-        <a href="/get-started/" class="link-button">ANALYSE YOUR LISTENING</a>
+        <a href="{{ button_link }}" class="link-button">ANALYSE YOUR LISTENING</a>
     </div>
 
     <div id="cover-holder">
@@ -21,4 +21,11 @@
 
         {% endfor %}
     </div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+    const csrftoken = getCookie('csrftoken');
+    $.post('/ajax/timezone/', {timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, csrfmiddlewaretoken: csrftoken});
+</script>
 {% endblock %}

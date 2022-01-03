@@ -9,6 +9,7 @@
 
 {% block main %}
 <h1>Let's get started.</h1>
+
 <div id="step-1">
     <div class="info-container">
         <h2 class="step-titles">Step 1.</h2>
@@ -52,8 +53,7 @@
         </div>
         <span id="close">&#10005</span>
     </div>
-    <p>The files uploaded either do not follow the specified naming format ('StreamingHistory#.json') or do not contain all such files.</p> 
-    <p>Please try again and make sure to select <em>all</em> files in your Spotify personal data folder that followed the specified naming convention.</p>
+    <p id="error-msg"></p>
 </div>
 
 {% endblock %}

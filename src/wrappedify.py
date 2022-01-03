@@ -1,7 +1,3 @@
-import datetime
-import os
-import shutil
-from tzlocal import get_localzone
 from analysis import SpotifyAPI, ListeningInformation, StreamingHistory, analyse_listening
 
 
@@ -39,37 +35,9 @@ def write_stats(sAPI: SpotifyAPI, li: ListeningInformation, sh: StreamingHistory
     wrapped_file.close()
 
 
-def wrapped() -> None:
+def wrapped(files: list, tz: str) -> None:
 
-    path = input("Enter the path to the directory containing your Spotify information: ")
-    username = input("Please enter your Spotify username: ")
-
-    try:
-        sh = StreamingHistory(path)
-    except FileNotFoundError:
-        print("Sorry, the folder you specified does not contain any listening information.")
-        return
-
+    sh = StreamingHistory(files, tz)
     li = ListeningInformation(sh)
-    sAPI = SpotifyAPI(username)
+    sAPI = SpotifyAPI()
 
-    if not os.path.exists("wrappedifyOut"):
-        os.mkdir("wrappedifyOut")
-        write_stats(sAPI, li, sh)
-
-        print("Analysis complete, view your data in the folder wrappedifyOut.")
-    else:
-        option = input("WARNING: It seems wrappedify already ran. Would you like to overwrite previous results? "
-                       "(y/Y/n/N): ")
-
-        match option:
-            case ("y" | "Y"):
-                shutil.rmtree("wrappedifyOut")
-                os.mkdir("wrappedifyOut")
-
-                write_stats(sAPI, li, sh)
-
-                print("Analysis complete, view your data in the folder wrappedifyOut.")
-
-            case _:
-                print("Terminating.")

@@ -1,13 +1,20 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
-import spotipy, random, os
+from django.http import HttpResponseRedirect, HttpResponse
+import spotipy, os, json, random, base64
+from .tasks import top_albums_genres_songs
+from celery.result import AsyncResult
+from src.analysis import StreamingHistory, ListeningInformation, analyse_listening
+from .models import Listening
+from wrappedify.settings import BASE_DIR
 
-# Create your views here.
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 client_id = os.environ.get('client_id')
 client_secret = os.environ.get('client_secret')
+redirect_uri = 'http://127.0.0.1:8000/sign-in/'
 
 
+@ensure_csrf_cookie
 def home_view(request):
     ccm = spotipy.SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
     sp = spotipy.Spotify(client_credentials_manager=ccm)
@@ -15,26 +22,137 @@ def home_view(request):
     covers = set()
 
     while len(covers) != 6:
-        i = random.randint(0, 49)
+        album = sp.playlist(playlist_id="37i9dQZF1DXcBWIGoYBM5M")['tracks']['items'][random.randint(0, 49)]['track'][
+            'album']
+        covers.add((album['images'][0]['url'], album['external_urls']['spotify']))
 
-        covers.add((sp.playlist(playlist_id="37i9dQZF1DXcBWIGoYBM5M")['tracks']['items'][i]['track']['album']
-                   ['images'][0]['url'], sp.playlist(playlist_id="37i9dQZF1DXcBWIGoYBM5M")['tracks']['items'][i]
-                                                     ['track']['album']['external_urls']['spotify']))
+    if request.session.get('data_state'):
+        if request.session.get('data_state') == "Processing":
+            button_link = "/processing/"
+        else:
+            button_link = "/your-data/"
+    else:
+        button_link = "/get-started/"
 
     context = {
-        'covers': covers
+        'covers': covers,
+        'button_link': button_link
     }
 
     return render(request, 'pages/home_view.html', context)
 
 
 def start_view(request):
+    if request.session.get('data_state') == "Processing":
+        return HttpResponseRedirect('/processing/')
+    elif request.session.get('data_state') == "Processed":
+        return HttpResponseRedirect('/your-data/')
 
     if request.method == "POST":
-        return HttpResponseRedirect('/processing')
+        files = request.FILES.getlist('listening-files')
+        files.sort(key=lambda a: int(a.name[16:-5]))
+
+        sh = StreamingHistory(files, request.session.get("timezone"))
+        li = ListeningInformation(sh)
+        analyse_listening(li, sh)
+
+        listening = Listening()
+        listening.args = [sh, li]
+        listening.save()
+        request.session['listening_id'] = listening.id
+        request.session['data_state'] = "Unprocessed"
+
+        return HttpResponseRedirect('/processing/')
 
     return render(request, 'pages/start_view.html', {})
 
 
 def processing_view(request):
+    if not request.session.get('data_state'):
+        return HttpResponseRedirect('/')
+
+    if request.session.get('data_state') == "Unprocessed":
+        r = top_albums_genres_songs.delay(request.session.get('listening_id'))
+        request.session['data_state'] = "Processing"
+        request.session['task_id'] = r.task_id
+
     return render(request, 'pages/processing_view.html', {})
+
+
+def set_timezone(request):
+    if request.META.get('HTTP_X_REQUESTED_WITH') != 'XMLHttpRequest' or request.method != "POST":
+        return HttpResponseRedirect('/')
+
+    request.session['timezone'] = request.POST.get('timezone')
+    request.session.modified = True
+    return HttpResponse("Okay")
+
+
+def get_progress(request):
+    if not request.session.get('task_id') or request.method != "GET":
+        return HttpResponseRedirect('/')
+
+    r = AsyncResult(request.session.get('task_id'))
+    response = {'state': r.state, 'details': r.info, 'success': False}
+
+    if r.successful():
+        r.forget()
+        response['success'] = True
+        request.session['data_state'] = "Processed"
+
+    return HttpResponse(json.dumps(response), content_type="application/json")
+
+
+def data_view(request):
+    if not request.session.get('data_state'):
+        return HttpResponseRedirect('/')
+
+    sh = Listening.objects.get(id__exact=request.session.get('listening_id')).args[0]
+    li = Listening.objects.get(id__exact=request.session.get('listening_id')).args[1]
+    spauth = spotipy.SpotifyOAuth(client_id=client_id, client_secret=client_secret, redirect_uri=redirect_uri,
+                                  scope="playlist-modify-public ugc-image-upload")
+
+    auth_url = spauth.get_authorize_url()
+
+    request.session['top_uris'] = [song[0][1]['uri'] for song in li.top_songs]
+
+    songA = li.top_songs[random.randint(0, len(li.top_songs) - 1)][0]
+    songB = li.top_songs[random.randint(0, len(li.top_songs) - 1)][0]
+
+    context = {
+        "endDate": sh.end,
+        "hoursListened": f'{sh.hours_listened:,}',
+        "minutesListened": f'{sh.minutes_listened:,}',
+        "songA": songA,
+        "songB": songB,
+        'top5': li.top_songs[:5],
+        "top_songs": li.top_songs[5:],
+        "auth_url": auth_url,
+        "total_songs": f'{len([(artist, song) for artist in li.data for song in li.data[artist][1]]):,}',
+        "total_artists": f'{len(li.data):,}',
+        "total_albums": f'{li.albums:,}',
+        'total_genres': f'{li.genres:,}',
+        'top_artists': li.top_artists
+    }
+
+    return render(request, 'pages/data_view.html', context)
+
+
+def sign_in(request):
+    if request.method != "GET" or not request.GET.get('code'):
+        HttpResponseRedirect('/')
+
+    spauth = spotipy.SpotifyOAuth(client_id=client_id, client_secret=client_secret, redirect_uri=redirect_uri,
+                                  scope="playlist-modify-public ugc-image-upload")
+    token = spauth.get_access_token(request.GET.get('code'))
+    sp = spotipy.Spotify(auth=token['access_token'])
+
+    playlist = sp.user_playlist_create(sp.me()['id'], "Your Top Songs of the Year",
+                                       description="Your top songs this year, courtesy of Wrappedify.")
+    sp.playlist_add_items(playlist_id=playlist['id'], items=request.session.get('top_uris'))
+
+    with open(os.path.join(BASE_DIR, 'assets/images/playlistcover.jpg'), "rb") as img:
+        im64 = base64.b64encode(img.read())
+        sp.playlist_upload_cover_image(playlist_id=playlist['id'], image_b64=im64)
+
+    return HttpResponseRedirect('/your-data/')

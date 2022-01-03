@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+    <head>
+        <link rel="icon" href="{% static 'images/favicon.png' %}">
+        <link rel="stylesheet" href="{% static 'styles/data_view.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <meta charset="UTF-8">
+        <title>Wrappedify - Your Data</title>
+    </head>
+
+    <body>
+
+        <div id="navigation">
+            <div>
+            <a href="/"><img id="banner" src="{% static 'images/banner.png' %}" alt="Wrappedify Banner"></a>
+            <p onclick="changeTab(0)" class="nav-link nav-active">Your Top Songs.</p>
+            <p onclick="changeTab(1)" class="nav-link">Albums, Artists, & More.</p>
+            <p onclick="changeTab(2)" class="nav-link">Your Activity.</p>
+            </div>
+            <p id="end-date">Wrapped up to {{ endDate }}</p>
+        </div>
+
+        <div id="main-content">
+
+            <div id="top-songs" class="tab">
+                <h1>When you listen to over <span class="important-1">{{ hoursListened }}</span> hours of music, it can be hard to keep track of your favourites.</h1>
+                <hr>
+                <p style="line-height:2; padding-top: 20px">You've spent <span class="important-1">{{ minutesListened }}</span> minutes tuned in this year, and with each, you've found lots to love. From <span class="important-1">{{ songA.1.name }}</span> by <span class="important-1">{{ songA.0 }}</span> to <span class="important-1">{{ songB.1.name }}</span> by <span class="important-1">{{ songB.0 }}</span>, you listen like no one else. You've jammed to <span class="important-1">{{ total_songs }}</span> songs this year, so we went ahead and created a playlist of your personal favourites.</p>
+
+                <div id="top-five">
+                    {% for song in top5 %}
+                    <a href="{{ song.0.1.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color: white;">
+                    <div class="top-song-info">
+                        <img src="{{ song.0.1.album.images.0.url }}" class="covers">
+                        <p style="word-break: break-all">{{ song.0.1.name }}</p>
+                        <p style="word-break: break-all; color:rgba(255, 255, 255, 0.5); margin-top: 0px">{{ song.0.0 }}</p>
+                        <p>#{{ forloop.counter }} - {{ song.1 }} plays.</p>
+                    </div>
+                    </a>
+                    {% endfor%}
+                </div>
+
+                <p id="add-playlist" onclick="window.location = '{{ auth_url }}'">ADD PLAYLIST TO YOUR LIBRARY</p>
+
+                <table id="remaining">
+                    <colgroup>
+                        <col style="width: 15%;">
+                        <col style="width: 75%;">
+                        <col style="width: 10%;">
+                     </colgroup>
+
+                    <thead>
+                        <th>Rank.</th>
+                        <th>Track & Artist.</th>
+                        <th>Plays.</th>
+                    </thead>
+                    <tbody>
+                    {% for song in top_songs %}
+                        <tr onclick="window.open('{{ song.0.1.external_urls.spotify }}')" style="cursor:pointer">
+                            <td>#{{ forloop.counter|add:5}}</td>
+                            <td class="track">
+                                <img src="{{ song.0.1.album.images.0.url }}" class="table-covers">
+                                <p>{{ song.0.1.name }}<br>{{ song.0.0 }}</p>
+                            </td>
+                            <td>{{ song.1 }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div id="more" class="tab">
+                <h1>It's one thing to enjoy music. It's another to listen to <span class="important-2">{{ total_artists }}</span> unique artists and come across <span class="important-2">{{ total_albums }}</span> amazing albums.</h1>
+                <hr>
+                <p style="line-height:2; padding-top: 20px">Add <span class="important-2">{{ total_genres }}</span> genres into the mix, and that's quite the musical resumé. We're sure you want to know more, so we figured out what music characterizes you best.</p>
+                <h2 style="font-family:CircularStd-Black; margin-top:80px; padding-bottom: 10px; border-bottom: 2px solid white; display: inline-block">Your Top Artists.</h2>
+                
+                <div id="top-artists">
+                    {% for artist in top_artists %}
+                    {% if forloop.counter == 1 %}
+                        <div class="artist mid">
+                            <a href="{{ artist.0.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
+                                <img class="artist-image" src="{{ artist.0.images.0.url }}">
+                            </a>
+                            <p style="font-size:15pt; font-family:CircularStd-Black; text-align:center"><span class="important-2">#{{forloop.counter}}</span> - {{artist.0.name}}</p>
+                        </div>
+                        
+                    {% else %}
+                        <div class="artist hidden">
+                            <a href="{{ artist.0.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
+                                <img class="artist-image" src="{{ artist.0.images.0.url }}">
+                            </a>
+                            <p style="font-size:15pt; font-family:CircularStd-Black; text-align:center"><span class="important-2">#{{forloop.counter}}</span> - {{artist.0.name}}</p>
+                        </div>
+                    {% endif %}
+                    {% endfor %}
+                    
+                </div>
+                <div id="nav-artists">
+                    <div>
+                        <img src="{% static 'images/left-nav.png' %}" class="artist-nav-button" id="left-button">
+                    </div>
+                    <div>
+                        <img src="{% static 'images/right-nav.png' %}" class="artist-nav-button" id="right-button">
+                    </div>
+                </div>
+                
+                <svg width="50px" height="50px" style="display:block; margin:auto">
+                    <polygon points="0,50 50,50 25,25" style="fill:white"></polygon>
+                </svg>
+                <div id="info-panel">
+                    {% for artist in top_artists %}
+                    <div class="artist-info">
+                        <h2 style="padding: 30px; background:white; box-shadow: 10px 10px 0 rgb(229, 155, 190); font-size: 30pt"><span class="important-2">{{artist.1.0}} {{artist.1.1}}</span></h2>
+                        <a href="{{ artist.2.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color: white;">
+                            <div class="artist-top-song">
+                                <h3 style="font-family: CircularStd-Black; padding: 10px; ">Most Played Song</h3>
+                                <img src="{{ artist.2.album.images.0.url }}" class="info-cover">
+                                <p><span class="important-2">{{artist.2.name}}</span></p>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <h2 style="font-family:CircularStd-Black; margin-top:80px; padding-bottom: 10px; border-bottom: 2px solid white; display: inline-block">Your Top Albums.</h2>
+
+            </div>
+            <div id="activity" class="tab">
+                <h1>Marvelous</h1>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="{% static 'js/data.js' %}"></script>
+    </body>
+</html>
