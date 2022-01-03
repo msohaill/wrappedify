@@ -1,2 +1,2 @@
 web: gunicorn wrappedify.wsgi --log-file -
-worker: celery worker --app=tasks.app
+worker: celery -A wrappedify worker -l info
