@@ -115,7 +115,7 @@ def data_view(request):
 
     auth_url = spauth.get_authorize_url()
 
-    request.session['top_uris'] = [song[0][1]['uri'] for song in li.top_songs]
+    request.session['top_uris'] = [song[0][1]['uri'] for song in li.top_songs if type(song[0][1]) != str]
 
     songA = li.top_songs[random.randint(0, len(li.top_songs) - 1)][0]
     songB = li.top_songs[random.randint(0, len(li.top_songs) - 1)][0]
@@ -133,7 +133,8 @@ def data_view(request):
         "total_artists": f'{len(li.data):,}',
         "total_albums": f'{li.albums:,}',
         'total_genres': f'{li.genres:,}',
-        'top_artists': li.top_artists
+        'top_artists': li.top_artists,
+        'top_albums': li.top_albums
     }
 
     return render(request, 'pages/data_view.html', context)

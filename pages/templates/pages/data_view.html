@@ -33,14 +33,22 @@
 
                 <div id="top-five">
                     {% for song in top5 %}
+                    {% if song.2.0 == 1 %}
                     <a href="{{ song.0.1.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color: white;">
                     <div class="top-song-info">
                         <img src="{{ song.0.1.album.images.0.url }}" class="covers">
-                        <p style="word-break: break-all">{{ song.0.1.name }}</p>
-                        <p style="word-break: break-all; color:rgba(255, 255, 255, 0.5); margin-top: 0px">{{ song.0.0 }}</p>
+                        <p style="width:130px; text-align:center">{{ song.0.1.name }}</p>
+                        <p style="width: 130px; color:rgba(255, 255, 255, 0.5); margin-top: 0px; text-align:center">{{ song.0.0 }}</p>
                         <p>#{{ forloop.counter }} - {{ song.1 }} plays.</p>
                     </div>
                     </a>
+                    {% else %}
+                        <div class="top-song-info">
+                            <p style="width:130px; text-align:center">{{ song.0.1 }}</p>
+                            <p style="width: 130px; color:rgba(255, 255, 255, 0.5); margin-top: 0px; text-align:center">{{ song.0.0 }}</p>
+                            <p>#{{ forloop.counter }} - {{ song.1 }} plays.</p>
+                        </div>
+                    {% endif %}
                     {% endfor%}
                 </div>
 
@@ -60,14 +68,24 @@
                     </thead>
                     <tbody>
                     {% for song in top_songs %}
+                    {% if song.2.0 == 1 %}
                         <tr onclick="window.open('{{ song.0.1.external_urls.spotify }}')" style="cursor:pointer">
                             <td>#{{ forloop.counter|add:5}}</td>
                             <td class="track">
                                 <img src="{{ song.0.1.album.images.0.url }}" class="table-covers">
-                                <p>{{ song.0.1.name }}<br>{{ song.0.0 }}</p>
+                                <p style="width:600px">{{ song.0.1.name }}<br>{{ song.0.0 }}</p>
                             </td>
                             <td>{{ song.1 }}</td>
                         </tr>
+                    {% else %}
+                        <tr>
+                            <td>#{{ forloop.counter|add:5}}</td>
+                            <td class="track">
+                                <p style="width:600px">{{ song.0.1 }}<br>{{ song.0.0 }}</p>
+                            </td>
+                            <td>{{ song.1 }}</td>
+                        </tr>
+                    {% endif %}
                     {% endfor %}
                     </tbody>
                 </table>
@@ -80,55 +98,121 @@
                 <p style="line-height:2; padding-top: 20px">Add <span class="important-2">{{ total_genres }}</span> genres into the mix, and that's quite the musical resumé. We're sure you want to know more, so we figured out what music characterizes you best.</p>
                 <h2 style="font-family:CircularStd-Black; margin-top:80px; padding-bottom: 10px; border-bottom: 2px solid white; display: inline-block">Your Top Artists.</h2>
                 
-                <div id="top-artists">
+                <div class="carousel">
                     {% for artist in top_artists %}
-                    {% if forloop.counter == 1 %}
-                        <div class="artist mid">
+                    {% if artist.4.0 == 1 %}
+                        {% if forloop.counter == 1 %}
+                        <div class="artist main-panel mid">
                             <a href="{{ artist.0.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
-                                <img class="artist-image" src="{{ artist.0.images.0.url }}">
+                                <img class="main-panel-image" src="{{ artist.0.images.0.url }}">
                             </a>
-                            <p style="font-size:15pt; font-family:CircularStd-Black; text-align:center"><span class="important-2">#{{forloop.counter}}</span> - {{artist.0.name}}</p>
+                            <p style="font-size:15pt; font-family:CircularStd-Black; text-align:center; width: 200px"><span class="important-2">#{{forloop.counter}}</span> - {{artist.0.name}}</p>
                         </div>
-                        
+                        {% else %}
+                        <div class="artist main-panel hidden">
+                            <a href="{{ artist.0.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
+                                <img class="main-panel-image" src="{{ artist.0.images.0.url }}">
+                            </a>
+                            <p style="font-size:15pt; font-family:CircularStd-Black; text-align:center; width: 200px"><span class="important-2">#{{forloop.counter}}</span> - {{artist.0.name}}</p>
+                        </div>
+                        {% endif %}
                     {% else %}
-                        <div class="artist hidden">
-                            <a href="{{ artist.0.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
-                                <img class="artist-image" src="{{ artist.0.images.0.url }}">
-                            </a>
-                            <p style="font-size:15pt; font-family:CircularStd-Black; text-align:center"><span class="important-2">#{{forloop.counter}}</span> - {{artist.0.name}}</p>
+                        {% if forloop.counter == 1 %}
+                        <div class="artist main-panel mid">
+                            <p style="font-size:15pt; font-family:CircularStd-Black; text-align:center"><span class="important-2">#{{forloop.counter}}</span> - {{artist.0}}</p>
                         </div>
+                        {% else %}
+                        <div class="artist main-panel hidden">
+                            <p style="font-size:15pt; font-family:CircularStd-Black; text-align:center"><span class="important-2">#{{forloop.counter}}</span> - {{artist.0}}</p>
+                        </div>
+                        {% endif %}
                     {% endif %}
                     {% endfor %}
-                    
                 </div>
-                <div id="nav-artists">
+                <div class="nav-panel">
                     <div>
-                        <img src="{% static 'images/left-nav.png' %}" class="artist-nav-button" id="left-button">
+                        <img src="{% static 'images/left-nav.png' %}" class="panel-nav-button" id="artist-left-button">
                     </div>
                     <div>
-                        <img src="{% static 'images/right-nav.png' %}" class="artist-nav-button" id="right-button">
+                        <img src="{% static 'images/right-nav.png' %}" class="panel-nav-button" id="artist-right-button">
                     </div>
                 </div>
                 
                 <svg width="50px" height="50px" style="display:block; margin:auto">
                     <polygon points="0,50 50,50 25,25" style="fill:white"></polygon>
                 </svg>
-                <div id="info-panel">
+                <div class="info-panel">
                     {% for artist in top_artists %}
                     <div class="artist-info">
                         <h2 style="padding: 30px; background:white; box-shadow: 10px 10px 0 rgb(229, 155, 190); font-size: 30pt"><span class="important-2">{{artist.1.0}} {{artist.1.1}}</span></h2>
-                        <a href="{{ artist.2.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color: white;">
-                            <div class="artist-top-song">
+                        {% if artist.4.1 == 1 %}
+                            <a href="{{ artist.2.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color: white;">
+                                <div class="info-top-song">
+                                    <h3 style="font-family: CircularStd-Black; padding: 10px; ">Most Played Song</h3>
+                                    <img src="{{ artist.2.album.images.0.url }}" class="info-cover">
+                                    <p><span class="important-2">{{artist.2.name}}</span></p>
+                                </div>
+                            </a>
+                        {% else %}
+                            <div class="info-top-song">
                                 <h3 style="font-family: CircularStd-Black; padding: 10px; ">Most Played Song</h3>
-                                <img src="{{ artist.2.album.images.0.url }}" class="info-cover">
-                                <p><span class="important-2">{{artist.2.name}}</span></p>
+                                <p><span class="important-2">{{artist.2}}</span></p>
                             </div>
-                        </a>
+                        {% endif %}
                     </div>
                     {% endfor %}
                 </div>
 
                 <h2 style="font-family:CircularStd-Black; margin-top:80px; padding-bottom: 10px; border-bottom: 2px solid white; display: inline-block">Your Top Albums.</h2>
+                
+                <div class="carousel">
+                    {% for album in top_albums %}
+                    {% if forloop.counter == 1 %}
+                        <div class="album main-panel mid">
+                            <a href="{{ album.2.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
+                                <img class="main-panel-image" src="{{ album.2.images.0.url }}">
+                            </a>
+                            <p style="font-size:15pt; font-family:CircularStd-Black; text-align:center; width: 200px"><span class="important-2">#{{forloop.counter}}</span> - {{album.2.name}}</p>
+                        </div>
+                    {% else %}
+                        <div class="album main-panel hidden">
+                            <a href="{{ album.2.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
+                                <img class="main-panel-image" src="{{ album.2.images.0.url }}">
+                            </a>
+                            <p style="font-size:15pt; font-family:CircularStd-Black; text-align:center; width: 200px"><span class="important-2">#{{forloop.counter}}</span> - {{album.2.name}}</p>
+                        </div>
+                    {% endif %}
+                    {% endfor %}
+                    
+                </div>
+                <div class="nav-panel">
+                    <div>
+                        <img src="{% static 'images/left-nav.png' %}" class="panel-nav-button" id="album-left-button">
+                    </div>
+                    <div>
+                        <img src="{% static 'images/right-nav.png' %}" class="panel-nav-button" id="album-right-button">
+                    </div>
+                </div>
+                
+                <svg width="50px" height="50px" style="display:block; margin:auto">
+                    <polygon points="0,50 50,50 25,25" style="fill:white"></polygon>
+                </svg>
+                <div class="info-panel">
+                    {% for album in top_albums %}
+                    <div class="album-info">
+                        <h2 style="padding:30px; background:white; box-shadow: 10px 10px 0 rgb(229, 155, 190); font-size: 30pt"><span class="important-2">{{album.0}} plays</span></h2>
+                        <a href="{{ album.1.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color: white;">
+                            <div class="info-top-song">
+                                <h3 style="font-family: CircularStd-Black; padding: 10px; ">Most Played Song</h3>
+                                <img src="{{ album.1.0.album.images.0.url }}" class="info-cover">
+                                <p><span class="important-2">{{album.1.0.name}}</span></p>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <h2 style="font-family:CircularStd-Black; margin-top:80px; padding-bottom: 10px; border-bottom: 2px solid white; display: inline-block">Your Favourite Genres.</h2>
 
             </div>
             <div id="activity" class="tab">

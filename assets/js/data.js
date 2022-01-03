@@ -6,68 +6,82 @@ function changeTab(tab) {
     $(".tab").animate({"opacity": "0.99"}, 1);
 }
 
-let index = 0;
+let indexes = [0, 0];
 let fArtist = document.getElementsByClassName("artist")[0];
 let fArtistInfo = document.getElementsByClassName("artist-info")[0];
-let lNav = document.getElementById("left-button");
-let rNav = document.getElementById("right-button");
-let isAnimating = false;
+let fAlbum = document.getElementsByClassName("album")[0];
+let fAlbumInfo = document.getElementsByClassName("album-info")[0];
+let lNavArtists = document.getElementById("artist-left-button");
+let rNavArtists = document.getElementById("artist-right-button");
+let lNavAlbums = document.getElementById("album-left-button");
+let rNavAlbums = document.getElementById("album-right-button");
+let panelAnimatingState = [false, false];
 
-function leftClick(animating) {
-    if(animating) return;
+function leftClick(panelIndex, elementMax, fElement, fElementInfo, lNav, rNav, elementClass) {
+    if(panelAnimatingState[panelIndex]) return;
 
-    index--;
+    indexes[panelIndex]--;
     
-    fArtist.style.marginLeft = `calc(50% - (150px + ${index * 350}px))`;
-    fArtistInfo.style.marginLeft = `${-index * 100}%`;
+    fElement.style.marginLeft = `calc(50% - (150px + ${indexes[panelIndex] * 350}px))`;
+    fElementInfo.style.marginLeft = `${-indexes[panelIndex] * 100}%`;
     
-    if (index == 0) lNav.style.display = "none";
+    if (indexes[panelIndex] == 0) lNav.style.display = "none";
     else lNav.style.display = "initial";
-    if (index != 19) rNav.style.display = "initial";
 
-    let main = document.getElementsByClassName("artist")[index];
-    let prevMain = document.getElementsByClassName("artist")[index + 1];
+    if (indexes[panelIndex] != elementMax) rNav.style.display = "initial";
+
+    let main = document.getElementsByClassName(elementClass)[indexes[panelIndex]];
+    let prevMain = document.getElementsByClassName(elementClass)[indexes[panelIndex] + 1];
     
     prevMain.classList.remove("mid");
     prevMain.classList.add("hidden");
     main.classList.remove("hidden");
     main.classList.add('mid');
     
-    isAnimating = true;
+    panelAnimatingState[panelIndex] = true;
     
-    setTimeout(function() {isAnimating = false;}, 750);
+    setTimeout(function() {panelAnimatingState[panelIndex] = false;}, 750);
 }
 
-function rightClick(animating) {
-    if(animating) return;
+function rightClick(panelIndex, elementMax, fElement, fElementInfo, lNav, rNav, elementClass) {
+    if(panelAnimatingState[panelIndex]) return;
 
-    index++;
+    indexes[panelIndex]++;
 
-    fArtist.style.marginLeft = `calc(50% - (150px + ${index * 350}px))`;
-    fArtistInfo.style.marginLeft = `${-index * 100}%`;
+    fElement.style.marginLeft = `calc(50% - (150px + ${indexes[panelIndex] * 350}px))`;
+    fElementInfo.style.marginLeft = `${-indexes[panelIndex] * 100}%`;
 
-    if (index == 19) rNav.style.display = "none"; 
+    if (indexes[panelIndex] == elementMax) rNav.style.display = "none"; 
     else rNav.style.display = "initial";
-    if (index != 0) lNav.style.display = "initial";
+    
+    if (indexes[panelIndex] != 0) lNav.style.display = "initial";
 
-    let main = document.getElementsByClassName("artist")[index];
-    let prevMain = document.getElementsByClassName("artist")[index - 1];
+    let main = document.getElementsByClassName(elementClass)[indexes[panelIndex]];
+    let prevMain = document.getElementsByClassName(elementClass)[indexes[panelIndex] - 1];
     
     prevMain.classList.remove("mid");
     prevMain.classList.add("hidden");
     main.classList.remove("hidden");
     main.classList.add('mid')
     
-    isAnimating = true;
+    panelAnimatingState[panelIndex] = true;
     
-    setTimeout(function() {isAnimating = false;}, 750);
+    setTimeout(function() {panelAnimatingState[panelIndex] = false;}, 750);
 }
 
 
-$("#left-button").click(function() {
-    leftClick(isAnimating);
+$("#artist-left-button").click(function() {
+    leftClick(0, 19, fArtist, fArtistInfo, lNavArtists, rNavArtists, "artist");
 });
 
-$("#right-button").click(function() {
-    rightClick(isAnimating);
+$("#artist-right-button").click(function() {
+    rightClick(0, 19, fArtist, fArtistInfo, lNavArtists, rNavArtists, "artist");
+});
+
+$("#album-left-button").click(function() {
+    leftClick(1, 9, fAlbum, fAlbumInfo, lNavAlbums, rNavAlbums, "album");
+});
+
+$("#album-right-button").click(function() {
+    rightClick(1, 9, fAlbum, fAlbumInfo, lNavAlbums, rNavAlbums, "album");
 });

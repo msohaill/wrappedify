@@ -20,9 +20,8 @@ def top_albums_genres_songs(self, listening_id) -> None:
     listening = Listening.objects.get(id__exact=listening_id)
     listening_information = listening.args[1]
     sAPI = SpotifyAPI()
-    ta = tuple(artist[0].lower() for artist in listening_information.top_artists)
-    ta_songs = tuple(artist[2].lower() for artist in listening_information.top_artists)
-    ts = tuple(song[0][1].lower() for song in listening_information.top_songs)
+    tartists_and_songs = tuple((artist[0].lower(), artist[2].lower()) for artist in listening_information.top_artists)
+    tsongs_and_artists = tuple((song[0][1].lower(), (song[0][0].lower())) for song in listening_information.top_songs)
 
     all_artists = {artist: sum(tuple(listening_information.data[artist][1][song] for song in
                                      listening_information.data[artist][1])) for artist in listening_information.data}
@@ -52,8 +51,8 @@ def top_albums_genres_songs(self, listening_id) -> None:
 
             genres[genre] += all_artists[artist_name]
 
-        if artist['name'].lower() in ta:
-            a = listening_information.top_artists[ta.index(artist['name'].lower())]
+        if artist['name'].lower() in [a[0] for a in tartists_and_songs]:
+            a = listening_information.top_artists[[a[0] for a in tartists_and_songs].index(artist['name'].lower())]
             a[0] = artist
 
         counter += 1
@@ -64,7 +63,6 @@ def top_albums_genres_songs(self, listening_id) -> None:
 
     albums = {}
     for artist, song, plays in all_songs:
-
         track = sAPI.get_track(song, artist)
 
         if not track:
@@ -74,7 +72,7 @@ def top_albums_genres_songs(self, listening_id) -> None:
             continue
 
         album = track['album']
-        key = tuple(artist['name'] for artist in album['artists']) + (album['name'],)
+        key = (", ".join([artist['name'] for artist in album['artists']]),) + (album['name'],)
 
         if key not in albums:
             albums[key] = [0, (None, 0), album]
@@ -84,12 +82,12 @@ def top_albums_genres_songs(self, listening_id) -> None:
         if plays > albums[key][1][1]:
             albums[key][1] = (track, plays)
 
-        if track['name'].lower() in ta_songs:
-            s = listening_information.top_artists[ta_songs.index(track['name'].lower())]
+        if (artist.lower(), song.lower()) in tartists_and_songs:
+            s = listening_information.top_artists[tartists_and_songs.index((artist.lower(), song.lower()))]
             s[2] = track
 
-        if track['name'].lower() in ts:
-            song = listening_information.top_songs[ts.index(track['name'].lower())][0]
+        if (song.lower(), artist.lower()) in tsongs_and_artists:
+            song = listening_information.top_songs[tsongs_and_artists.index((song.lower(), artist.lower()))][0]
             song[1] = track
             song[0] = ", ".join([artist['name'] for artist in track['artists']])
 
@@ -100,5 +98,6 @@ def top_albums_genres_songs(self, listening_id) -> None:
     listening_information.top_albums = tuple(albums[key] for key in
                                              sorted(albums, key=lambda a: albums.get(a)[0], reverse=True)[:10])
 
-    listening.args = [listening.args[0], listening_information]
+    listening_information.api_success()
+    listening.args[1] = listening_information
     listening.save()

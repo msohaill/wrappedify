@@ -254,11 +254,11 @@ h1 {
     background: rgb(171, 238, 186);
 }
 
-.artist-image {
+.main-panel-image {
     width: 200px;
 }
 
-#top-artists {
+.carousel {
     display: flex;
     gap: 50px;
     flex-direction: row;
@@ -269,7 +269,7 @@ h1 {
     padding-bottom: 50px;
 }
 
-.artist {
+.main-panel {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -283,11 +283,11 @@ h1 {
     transition: all 0.75s;
 }
 
-.artist:first-child {
+.main-panel:first-child {
     margin-left: calc(50% - (150px));
 }
 
-.artist:last-child {
+.main-panel:last-child {
     margin-right: 500px;
 }
 
@@ -302,7 +302,7 @@ h1 {
     transform: scale(1.15);
 }
 
-#nav-artists {
+.nav-panel {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -312,7 +312,7 @@ h1 {
     height: 0px;
 }
 
-.artist-nav-button {
+.panel-nav-button {
     cursor: pointer;
     height: 50px;
     width: 50px;
@@ -322,12 +322,12 @@ h1 {
     transition: 0.3s;
 }
 
-.artist-nav-button:hover {
+.panel-nav-button:hover {
     scale: 1.1;
 
 }
 
-#left-button {
+#artist-left-button {
     display: none;
 }
 
@@ -336,7 +336,7 @@ h1 {
     pointer-events: none;
 }
 
-#info-panel {
+.info-panel {
     margin-top: 0px;
     padding-top: 0px;
     display: flex;
@@ -346,6 +346,7 @@ h1 {
     overflow-x: hidden;
     border-top: 4px solid white;
     border-bottom: 4px solid white;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .artist-info {
@@ -355,7 +356,6 @@ h1 {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    background: rgba(0, 0, 0, 0.5);
     -webkit-transition: all 0.75s;
     -moz-transition: all 0.75s;
     -o-transition: all 0.75s;
@@ -366,18 +366,20 @@ h1 {
     margin-left: 0%;
 }
 
-.artist-top-song {
+.info-top-song {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    width: 300px;
+    text-align: center;
     -webkit-transition: 0.5s;
     -moz-transition: 0.5s;
     -o-transition: 0.5s;
     transition: 0.5s;
 }
 
-.artist-top-song:hover {
+.info-top-song:hover {
     -webkit-transform: scale(1.05);
     -moz-transform: scale(1.05);
     -o-transform: scale(1.05);
@@ -387,4 +389,26 @@ h1 {
 .info-cover {
     height: 100px;
     box-shadow: 4px 4px 0px rgb(246, 202, 214), -4px -4px 0px white;
+}
+
+.album-info {
+    flex: 0 0 100%;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-transition: all 0.75s;
+    -moz-transition: all 0.75s;
+    -o-transition: all 0.75s;
+    transition: all 0.75s;
+}
+
+.album-info:first-child {
+    margin-left: 0%;
+}
+
+#album-left-button {
+    display: none;
 }

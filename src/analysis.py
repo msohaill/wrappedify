@@ -78,19 +78,19 @@ class ListeningInformation:
             self.data[artist][0] += duration
 
     def get_top_artists(self) -> None:
-        # Format of each artist: [artist name, time spent listening, top song name, plays of top song]
+        # Format of each artist: [artist name, time spent listening, top song name, plays of top song,
+        # [artist API success, song API success]]
         for artist in sorted(self.data, key=lambda a: self.data[a][0], reverse=True)[:20]:
             top_song = max(self.data[artist][1], key=lambda a: self.data[artist][1][a])
-            self.top_artists += ([artist, self.data[artist][0], top_song, self.data[artist][1][top_song]],)
+            self.top_artists += ([artist, self.data[artist][0], top_song, self.data[artist][1][top_song], [1, 1]],)
 
     def get_top_songs(self) -> None:
-        # Format of each song: ([artist name, song name], plays)
+        # Format of each song: ([artist name, song name], plays, [API success])
         all_songs = {(artist, song): self.data[artist][1][song] for artist in self.data for song in
                      self.data[artist][1]}
 
-        self.top_songs = tuple((list(artist), all_songs[artist]) for artist in sorted(all_songs,
-                                                                                      key=all_songs.get, reverse=True)[
-                                                                               :100])
+        self.top_songs = tuple((list(artist), all_songs[artist], [1])
+                               for artist in sorted(all_songs, key=all_songs.get, reverse=True)[:100])
 
     def clean_artist_time(self):
         for artist in self.top_artists:
@@ -101,6 +101,18 @@ class ListeningInformation:
                 artist[1] = (f'{round(time / (60 * 60 * 1000)):,}',
                              'hours' if round(time / (60 * 60 * 1000)) != 1 else 'hour')
 
+    def api_success(self):
+        for artist in self.top_artists:
+            if type(artist[0]) == str:
+                artist[4][0] = 0
+
+            if type(artist[2]) == str:
+                artist[4][1] = 0
+
+        for song in self.top_songs:
+            if type(song[0][1]) == str:
+                song[2][0] = 0
+
 
 class SpotifyAPI:
     client_id = os.environ.get('client_id')
@@ -108,7 +120,7 @@ class SpotifyAPI:
 
     def __init__(self):
         ccm = spotipy.SpotifyClientCredentials(client_id=SpotifyAPI.client_id, client_secret=SpotifyAPI.client_secret)
-        self.sp = spotipy.Spotify(client_credentials_manager=ccm)
+        self.sp = spotipy.Spotify(client_credentials_manager=ccm, requests_timeout=10)
 
     def get_track(self, track_name: str, artist_name: str):
         ntrack_name, nartist_name = track_name.replace("'", ""), artist_name.replace("'", "")
@@ -117,7 +129,8 @@ class SpotifyAPI:
             'items']
 
         for t in tracks:
-            if t['name'] == track_name:
+            if t['name'].lower() == track_name.lower() \
+                    and artist_name.lower() in [artist['name'].lower() for artist in t['artists']]:
                 return t
 
         return None
@@ -128,7 +141,7 @@ class SpotifyAPI:
         artists = self.sp.search(q=f'artist:{nartist_name}', type='artist', limit=50)['artists']['items']
 
         for a in artists:
-            if a['name'] == artist_name:
+            if a['name'].lower() == artist_name.lower():
                 return a
 
         return None
