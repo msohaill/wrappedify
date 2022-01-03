@@ -42,6 +42,7 @@ def home_view(request):
     return render(request, 'pages/home_view.html', context)
 
 
+@ensure_csrf_cookie
 def start_view(request):
     if request.session.get('data_state') == "Processing":
         return HttpResponseRedirect('/processing/')

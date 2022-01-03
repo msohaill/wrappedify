@@ -57,3 +57,10 @@
 </div>
 
 {% endblock %}
+
+{% block javascript %}
+<script>
+    const csrftoken = getCookie('csrftoken');
+    $.post('/ajax/timezone/', {timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, csrfmiddlewaretoken: csrftoken});
+</script>
+{% endblock %}
