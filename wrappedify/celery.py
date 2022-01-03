@@ -1,10 +1,11 @@
 import os
 from celery import Celery
+import os
 
 # Set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'wrappedify.settings')
 
-app = Celery('wrappedify')
+app = Celery('wrappedify', broker=os.environ.get("REDIS_URL"))
 
 # Using a string here means the worker doesn't have to serialize
 # the configuration object to child processes.
