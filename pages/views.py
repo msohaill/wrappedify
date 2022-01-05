@@ -162,7 +162,7 @@ def sign_in(request):
 
     spauth = spotipy.SpotifyOAuth(client_id=client_id, client_secret=client_secret, redirect_uri=redirect_uri,
                                   scope="playlist-modify-public ugc-image-upload")
-    token = spauth.get_access_token(request.GET.get('code'))
+    token = spauth.get_access_token(code=request.GET.get('code'), check_cache=False)
     sp = spotipy.Spotify(auth=token['access_token'])
 
     playlist = sp.user_playlist_create(sp.me()['id'], "Your Top Songs of the Year",
