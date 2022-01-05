@@ -11,7 +11,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 
 client_id = os.environ.get('client_id')
 client_secret = os.environ.get('client_secret')
-redirect_uri = 'http://127.0.0.1:8000/sign-in/'
+redirect_uri = os.environ.get('redirect_uri')
 
 
 @ensure_csrf_cookie
