@@ -149,7 +149,8 @@ def data_view(request):
         'most_active_hour': (t_hour.strftime('%-I:%M'), t_hour.strftime('%p').lower()),
         'activity_bm': [{"month": f'{month:02}', "value": abm.get(month)} for month in abm],
         'most_active_month': (t_month_str, t_month_listening),
-        'year': sh.year
+        'year': sh.year,
+        'timezone': request.session.get('timezone').replace("_", " ")
     }
 
     return render(request, 'pages/data_view.html', context)
