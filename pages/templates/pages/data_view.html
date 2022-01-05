@@ -73,7 +73,7 @@
                             <td>#{{ forloop.counter|add:5}}</td>
                             <td class="track">
                                 <img src="{{ song.0.1.album.images.0.url }}" class="table-covers">
-                                <p style="width:600px">{{ song.0.1.name }}<br>{{ song.0.0 }}</p>
+                                <p style="width:600px">{{ song.0.1.name }}<br><span style="color:rgba(255, 255, 255, 0.5); font-size:10pt">{{ song.0.0 }}</span></p>
                             </td>
                             <td>{{ song.1 }}</td>
                         </tr>
@@ -81,7 +81,7 @@
                         <tr>
                             <td>#{{ forloop.counter|add:5}}</td>
                             <td class="track">
-                                <p style="width:600px">{{ song.0.1 }}<br>{{ song.0.0 }}</p>
+                                <p style="width:600px">{{ song.0.1 }}<br><span style="color:rgba(255, 255, 255, 0.5); font-size:10pt">{{ song.0.0 }}</span></p>
                             </td>
                             <td>{{ song.1 }}</td>
                         </tr>
@@ -214,12 +214,335 @@
                 
                 <h2 style="font-family:CircularStd-Black; margin-top:80px; padding-bottom: 10px; border-bottom: 2px solid white; display: inline-block">Your Favourite Genres.</h2>
 
+                <div id="top-genres" style="position:relative">
+                </div>
+
             </div>
+
             <div id="activity" class="tab">
-                <h1>Marvelous</h1>
+                <h1>Your listening by the <span class="important-3">hour</span> and <span class="important-3">month</span>.</h1>
+                <p>Sure, Spotify Wrapped has funky messages and an interface that allows you to easily share your listening information with your friends. But do they have cool graphs that show you how you've listened?</p>
+                <p>We didn't think so either.</p>
+
+                <div class="activity-graph" style="margin-top: 50px">
+                    <p style="font-size: 10pt; letter-spacing: 2px; font-family: CircularStd-Bold">Your Spotify Activity by the Hour</p>
+                    <div id="time-chart"></div>
+                    <p style="margin-top: 50px; margin-bottom: 0px"><span class="graph-main">{{ most_active_hour.0 }}</span><span style="color:rgb(213, 244, 121); font-size:30pt; font-family:CircularStd-Bold">{{ most_active_hour.1 }}</span></p>
+                    <p class="graph-small">Most Active Hour</p>
+                </div>
+
+                <div class="activity-graph" style="margin-top: 80px">
+                    <p style="font-size: 10pt; letter-spacing: 2px; font-family: CircularStd-Bold">Your Spotify Activity for {{ year }}</p>
+                    <div id="month-chart"></div>
+                    <div id="month-info">
+                        <div class="month-stats">
+                            <p style="margin-top: 50px; margin-bottom: 0px"><span class="graph-main" style="font-size:35pt">{{ most_active_month.0 }}</span></p>
+                            <p class="graph-small">Most Active Month</p>
+                            <div id="mid-border"></div>
+                        </div>
+                        <div class="month-stats">
+                            <p style="margin-top: 50px; margin-bottom: 0px;"><span class="graph-main" style="font-size:35pt">{{most_active_month.1.0}}</span></p>
+                            <p class="graph-small">{{most_active_month.1.1}} of music streamed during {{ most_active_month.0 }}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <script src="https://d3js.org/d3.v7.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="{% static 'js/data.js' %}"></script>
+        <script>
+            $(function() {
+                let data = {{ top_genres|safe }};
+                const colors = ["#2e3c54", "#dc7c84", "#18596b", "#e59bbe",
+                                "#802434", "#4e374e", "#8aae55"]
+                let col_selected = [0, 0, 0, 0, 0, 0, 0]
+                
+                const width = 800;
+                const height = 800;
+
+                const svg = d3.select("#top-genres")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .attr("id", "genres-svg");
+                
+                const Tooltip = d3.select("#top-genres")
+                .append("div")
+                .style("opacity", 0)
+                .attr("class", "tooltip")
+                .style("background-color", "rgb(57, 43, 64)")
+                .style("border-radius", "5px")
+                .style("padding", "5px 20px")
+                .style('color', 'pink')
+                .style("display", "block")
+                .style("position", "absolute");
+
+                const mouseover = function(event, d) {
+                    Tooltip
+                    .style("opacity", 1)
+                }
+                const mousemove = function(event, d) {
+                    Tooltip
+                    .html(d.genre)
+                    .style("left", (d3.pointer(event)[0] + 100) + "px")
+                    .style("top", (d3.pointer(event)[1] + 20) + "px")
+                }
+                const mouseleave = function(event, d) {
+                    Tooltip
+                    .style("opacity", 0)
+                }
+
+                const elements = svg.selectAll(null)
+                .data(data)
+                .enter()
+                .append("g")
+                .attr("class", "node")
+                .on("mouseover", mouseover)
+                .on("mousemove", mousemove)
+                .on("mouseleave", mouseleave)
+                .call(d3.drag()
+                    .on("start", dragstart)
+                    .on("drag", drag)
+                    .on("end", dragend));
+                
+                const nodes = elements.append("circle")
+                .attr("r", function(d, i) {
+                    d.radius = 50 + ((10 - i) * (6 + (10 - i)/10));
+                    return d.radius;
+                })
+                .attr("cx", width / 2)
+                .attr("cy", height / 2)
+                .style("fill", function(d) {
+                    let i = Math.floor(Math.random() * 7);
+                    while (col_selected[i] == 2) i = Math.floor(Math.random() * 7);
+                    col_selected[i]++;
+                    return colors[i];
+                });
+
+                const labels = elements.append('text')
+                .attr('dy', '0.3em')
+                .style('text-anchor', 'middle')
+                .style('font-size', '20pt')
+                .style('font-family', 'CircularStd-Black')
+                .style('fill', 'white')
+                .text(function(d, i) {
+                    return `#${i + 1}`;
+                });
+                
+                const simulation = d3.forceSimulation()
+                .force("center", d3.forceCenter().x(width / 2).y(height / 2))
+                .force("charge", d3.forceManyBody().strength(1))
+                .force("collide", d3.forceCollide().strength(0.1).radius(d => d.radius + 3).iterations(10))
+                .force('attract', d3.forceRadial(0, width / 2, height / 2).strength(0.2));
+                
+                simulation
+                .nodes(data)
+                .on("tick", function(event, d) {
+                    nodes
+                    .attr("cx", function(d) {
+                        return d.x;
+                    })
+                    .attr("cy", function(d) {
+                        return d.y;
+                    })
+
+                    labels
+                    .attr("x", function(d) {
+                        return d.x;
+                    })
+                    .attr("y", function(d) {
+                        return d.y;
+                    })
+
+                });
+
+                function dragstart(event, d) {
+                if (!event.active) simulation.alphaTarget(.03).restart();
+                    d.fx = d.x;
+                    d.fy = d.y;
+                }
+
+                function drag(event, d) {
+                    d.fx = event.x;
+                    d.fy = event.y;
+                }
+
+                function dragend(event, d) {
+                if (!event.active) simulation.alphaTarget(.03);
+                    d.fx = null;
+                    d.fy = null;
+                }
+            });
+
+        </script>
+        <script>
+            $(function() {
+                const margin = {top: 10, right: 15, bottom: 30, left: 20},
+                width = 900 - margin.left - margin.right,
+                height = 600/1.95 - margin.top - margin.bottom;
+
+                const svg = d3.select("#time-chart")
+                .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", `translate(${margin.left},${margin.top})`);
+                
+                const data_i = {{ activity_bt|safe  }};
+                const data = [];
+                
+                for (let i = 0; i < data_i.length; i++) {
+                    data.push({time : d3.timeParse("%H")(data_i[i].time),
+                    value: data_i[i].value});
+                }
+
+                const x = d3.scaleTime()
+                .domain(d3.extent(data, function(d) { return d.time; }))
+                .range([ 0, width ]);
+                
+                const timeAxis = d3.axisBottom()
+                .scale(x)
+                .ticks(24)
+                .tickPadding(15)
+                .tickFormat(d3.timeFormat('%-I%p'));
+
+                
+                const axis = svg.append("g")
+                .attr("transform", `translate(0, ${height})`)
+                .style("font-size", "8pt")
+                .style('font-family', 'CircularStd-Bold')
+                .call(timeAxis);
+                
+                
+                const gridlines = svg.append("g")			
+                .attr("class", "grid")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x)
+                    .ticks(24)
+                    .tickSize(-height)
+                    .tickFormat("")
+                );
+                
+                gridlines.selectAll("line")
+                .style('stroke-width', "0.4px")
+                .style("stroke", "white");
+                
+                gridlines.selectAll("path")
+                .style("stroke-width", "0px");
+                
+                axis.selectAll("line")
+                .style('stroke-width', "0.4px")
+                .style("stroke", "white");
+
+                axis.selectAll("path")
+                .style("stroke-width", "0px");
+
+                axis.selectAll("text")
+                .style("margin-top", "20px")
+                .style("fill", "white");
+                
+                const y = d3.scaleLinear()
+                .domain([0, d3.max(data, function(d) { return d.value;})])
+                .range([ height, margin.top ]);
+
+                svg.append("path")
+                .datum(data)
+                .attr("fill", "none")
+                .attr("stroke", "rgb(213, 244, 121)")
+                .attr("stroke-width", 1.5)
+                .attr("d", d3.line()
+                    .curve(d3.curveMonotoneX)
+                    .x(function(d) { return x(d.time) })
+                    .y(function(d) { return y(d.value) })
+                    );
+            });
+            
+        </script>
+        <script>
+            $(function() {
+                const margin = {top: 10, right: 15, bottom: 30, left: 20},
+                width = 900 - margin.left - margin.right,
+                height = 600/1.95 - margin.top - margin.bottom;
+
+                const svg = d3.select("#month-chart")
+                .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", `translate(${margin.left},${margin.top})`);
+                
+                const data_i = {{ activity_bm|safe  }};
+                const data = [];
+                
+                for (let i = 0; i < data_i.length; i++) {
+                    data.push({month : d3.timeParse("%m")(data_i[i].month),
+                    value: data_i[i].value});
+                }
+
+                const x = d3.scaleTime()
+                .domain(d3.extent(data, function(d) { return d.month; }))
+                .range([ 0, width ]);
+                
+                const timeAxis = d3.axisBottom()
+                .scale(x)
+                .ticks(12)
+                .tickPadding(15)
+                .tickFormat(d3.timeFormat('%b'));
+
+                
+                const axis = svg.append("g")
+                .attr("transform", `translate(0, ${height})`)
+                .style("font-size", "8pt")
+                .style('font-family', 'CircularStd-Bold')
+                .call(timeAxis);
+                
+                
+                const gridlines = svg.append("g")			
+                .attr("class", "grid")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x)
+                    .ticks(12)
+                    .tickSize(-height)
+                    .tickFormat("")
+                );
+                
+                gridlines.selectAll("line")
+                .style('stroke-width', "0.4px")
+                .style("stroke", "white");
+                
+                gridlines.selectAll("path")
+                .style("stroke-width", "0px");
+                
+                axis.selectAll("line")
+                .style('stroke-width', "0.4px")
+                .style("stroke", "white");
+
+                axis.selectAll("path")
+                .style("stroke-width", "0px");
+
+                axis.selectAll("text")
+                .style("margin-top", "20px")
+                .style("fill", "white");
+                
+                const y = d3.scaleLinear()
+                .domain([0, d3.max(data, function(d) { return d.value;})])
+                .range([ height, margin.top ]);
+
+                svg.append("path")
+                .datum(data)
+                .attr("fill", "none")
+                .attr("stroke", "rgb(213, 244, 121)")
+                .attr("stroke-width", 1.5)
+                .attr("d", d3.line()
+                    .curve(d3.curveMonotoneX)
+                    .x(function(d) { return x(d.month) })
+                    .y(function(d) { return y(d.value) })
+                    );
+            });
+            
+        </script>
+
     </body>
 </html>

@@ -9,7 +9,7 @@ class StreamingHistory:
 
     def __init__(self, files: list, tz: str) -> None:
 
-        self.current_year = datetime.date.today().year
+        self.year = 2021  # datetime.date.today().year
         self.end = None
         self.minutes_listened = 0
         self.hours_listened = 0
@@ -28,16 +28,15 @@ class StreamingHistory:
             song['endTime'] = time
 
         self.data = tuple(song for song in self.data if
-                          song['endTime'].year == 2021 and song['msPlayed'] > 30000)
+                          song['endTime'].year == self.year and song['msPlayed'] > 30000)
 
-    def activity_by_date(self) -> dict:
-        dates = {month: [0, 0] for month in range(1, 13)}
+    def activity_by_month(self) -> dict:
+        months = {month: 0 for month in range(1, 13)}
 
         for song in self.data:
-            dates[song['endTime'].month][0] += 1
-            dates[song['endTime'].month][1] += song['msPlayed']
+            months[song['endTime'].month] += song['msPlayed']
 
-        return dates
+        return months
 
     def activity_by_time(self) -> dict:
         times = {hour: 0 for hour in range(24)}

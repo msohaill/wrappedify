@@ -18,7 +18,7 @@ html {
     font-family: CircularStd-Book;
 	color: white;
     position:relative;
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0,0,0,0)), linear-gradient(-45deg, rgb(244, 187, 122), rgb(223, 82, 158), rgb(160, 107, 156), rgb(141, 169, 214), #00b868);
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0,0,0,0)), linear-gradient(-45deg, rgb(244, 187, 122), rgb(223, 82, 158), rgb(160, 107, 156), rgb(141, 169, 214), #00b868);
 	background-size: 400% 100%;
     -moz-animation: gradient 15s ease infinite;
     -webkit-animation: gradient 15s ease infinite;
@@ -136,6 +136,11 @@ h1 {
     color:rgb(229, 155, 190);
 }
 
+.important-3 {
+    font-family: CircularStd-Black;
+    color: rgb(213, 244, 121);
+}
+
 #top-five {
     margin-top: 50px;
     display: flex;
@@ -172,7 +177,6 @@ h1 {
 
 #remaining {
     margin-top: 75px;
-    margin-bottom: 75px;
     width: 100%;
     border-spacing: 0px;
 }
@@ -411,4 +415,96 @@ h1 {
 
 #album-left-button {
     display: none;
+}
+
+#genres-svg {
+    display: block;
+    margin: auto;
+}
+
+.tooltip {
+    position: absolute;
+    display: block;
+    margin: 0;
+    font-family: CircularStd-Black;
+    line-height: 1.5;
+    font-size: .875rem;
+    animation-name: pulse;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1)
+    }
+}
+
+.node {
+    transition: all 0.5s;
+    cursor: grab;
+}
+.node:hover {
+    opacity: 0.5;
+}
+
+.node:active {
+    cursor: grabbing;
+}
+
+.activity-graph {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.graph-main {
+    font-size: 50pt;
+    font-family: CircularStd-Black;
+    color: rgb(213, 244, 121);
+}
+
+.graph-small {
+    margin-top: 0px;
+    font-size: 10pt;
+    font-family: CircularStd-Book;
+    color: rgb(213, 244, 121);
+}
+
+#month-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 0px;
+    position: relative;
+}
+
+.month-stats {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+#mid-border {
+    position: absolute;
+    border-left: 1px solid white;
+    top: 30%;
+    bottom: 0;
+    right: 50%;
 }

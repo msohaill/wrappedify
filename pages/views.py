@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
-import spotipy, os, json, random, base64
+import spotipy, os, json, random, base64, datetime
 from .tasks import top_albums_genres_songs
 from celery.result import AsyncResult
 from src.analysis import StreamingHistory, ListeningInformation, analyse_listening
@@ -120,6 +120,15 @@ def data_view(request):
     songA = li.top_songs[random.randint(0, len(li.top_songs) - 1)][0]
     songB = li.top_songs[random.randint(0, len(li.top_songs) - 1)][0]
 
+    abt = sh.activity_by_time()
+    t_hour = datetime.time(max(abt, key=abt.get), 0)
+    abm = sh.activity_by_month()
+    t_month = max(abt, key=abt.get)
+    t_month_str = datetime.date(2000, t_month, 1).strftime("%B")
+    t_month_listening = (round(abm.get(t_month) / (1000 * 60)), 'minutes') \
+        if round(abm.get(t_month) / (1000 * 60 * 60)) == 0 \
+        else (round(abm.get(t_month) / (1000 * 60 * 60)), 'hours')
+
     context = {
         "endDate": sh.end,
         "hoursListened": f'{sh.hours_listened:,}',
@@ -134,7 +143,13 @@ def data_view(request):
         "total_albums": f'{li.albums:,}',
         'total_genres': f'{li.genres:,}',
         'top_artists': li.top_artists,
-        'top_albums': li.top_albums
+        'top_albums': li.top_albums,
+        'top_genres': [{"genre": genre} for genre in li.top_genres],
+        'activity_bt': [{"time": f'{hour:02}', "value": abt.get(hour)} for hour in abt],
+        'most_active_hour': (t_hour.strftime('%-I:%M'), t_hour.strftime('%p').lower()),
+        'activity_bm': [{"month": f'{month:02}', "value": abm.get(month)} for month in abm],
+        'most_active_month': (t_month_str, t_month_listening),
+        'year': sh.year
     }
 
     return render(request, 'pages/data_view.html', context)
