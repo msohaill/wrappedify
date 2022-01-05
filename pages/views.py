@@ -123,7 +123,7 @@ def data_view(request):
     abt = sh.activity_by_time()
     t_hour = datetime.time(max(abt, key=abt.get), 0)
     abm = sh.activity_by_month()
-    t_month = max(abt, key=abt.get)
+    t_month = max(abm, key=abm.get)
     t_month_str = datetime.date(2000, t_month, 1).strftime("%B")
     t_month_listening = (round(abm.get(t_month) / (1000 * 60)), 'minutes') \
         if round(abm.get(t_month) / (1000 * 60 * 60)) == 0 \
