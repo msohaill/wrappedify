@@ -233,4 +233,6 @@ def insufficient_view(request):
 
 
 def not_found_view(request, exception):
-    return render(request, 'pages/not_found_view.html', {})
+    response = render(request, 'pages/not_found_view.html', {})
+    response.status_code = 404
+    return response
