@@ -1,17 +1,6 @@
 from wrappedify.celery import app
 from src.analysis import SpotifyAPI
 from .models import Listening
-from time import sleep
-
-
-@app.task(bind=True)
-def do_work(self, session_key):
-    for i in range(100):
-        sleep(0.5)
-        print("hi")
-        self.update_state(state="PROGRESS", meta={'current': i+1, "total": 100, "percentage": (i + 1) / 100})
-
-    return "Final Result is coolio"
 
 
 @app.task(bind=True)

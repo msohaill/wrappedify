@@ -21,7 +21,7 @@
             <p onclick="changeTab(1)" class="nav-link">Albums, Artists, & More.</p>
             <p onclick="changeTab(2)" class="nav-link">Your Activity.</p>
             </div>
-            <p id="end-date">Wrapped up to {{ endDate }}</p>
+            <p id="end-date">Wrapped up to {{ endDate }}<br><br><span id="expiry">Your data will be available for 1 week<span id="expiry-tooltip">To try Wrappedify with new data, clear your cookies.</span></span></p>
         </div>
 
         <div id="main-content">
@@ -248,10 +248,14 @@
                 </div>
             </div>
         </div>
-
+        <script>
+            let artistMax = {{ top_artists|length }} - 1;
+            let albumMax = {{ top_albums|length }} - 1;
+        </script>
         <script src="https://d3js.org/d3.v7.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="{% static 'js/data.js' %}"></script>
+       
         <script>
             $(function() {
                 let data = {{ top_genres|safe }};
@@ -377,6 +381,7 @@
             });
 
         </script>
+       
         <script>
             $(function() {
                 const margin = {top: 10, right: 15, bottom: 30, left: 20},
@@ -460,6 +465,7 @@
             });
             
         </script>
+       
         <script>
             $(function() {
                 const margin = {top: 10, right: 15, bottom: 30, left: 20},

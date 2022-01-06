@@ -71,17 +71,17 @@ function rightClick(panelIndex, elementMax, fElement, fElementInfo, lNav, rNav, 
 
 
 $("#artist-left-button").click(function() {
-    leftClick(0, 19, fArtist, fArtistInfo, lNavArtists, rNavArtists, "artist");
+    leftClick(0, artistMax, fArtist, fArtistInfo, lNavArtists, rNavArtists, "artist");
 });
 
 $("#artist-right-button").click(function() {
-    rightClick(0, 19, fArtist, fArtistInfo, lNavArtists, rNavArtists, "artist");
+    rightClick(0, artistMax, fArtist, fArtistInfo, lNavArtists, rNavArtists, "artist");
 });
 
 $("#album-left-button").click(function() {
-    leftClick(1, 9, fAlbum, fAlbumInfo, lNavAlbums, rNavAlbums, "album");
+    leftClick(1, albumMax, fAlbum, fAlbumInfo, lNavAlbums, rNavAlbums, "album");
 });
 
 $("#album-right-button").click(function() {
-    rightClick(1, 9, fAlbum, fAlbumInfo, lNavAlbums, rNavAlbums, "album");
+    rightClick(1, albumMax, fAlbum, fAlbumInfo, lNavAlbums, rNavAlbums, "album");
 });

@@ -124,7 +124,43 @@ h1 {
 #end-date {
     padding: 10px 20px;
     font-size: 10pt;
+    text-align: center;
 }
+
+#expiry {
+    font-size: 8pt;
+    border-bottom: 1px dotted white;
+    position: relative;
+    display: inline-block;
+    cursor:default;
+}
+
+#expiry:hover #expiry-tooltip {
+    opacity: 1;
+}
+
+#expiry-tooltip {
+    opacity: 0;
+    width: 150px;
+    background: black;
+    padding: 5px 0;
+    border-radius: 5px;
+    position: absolute;
+    top: -10px;
+    left: 110%;
+    transition: all 0.5s;
+}
+
+#expiry-tooltip::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+  }
 
 .important-1 {
     font-family: CircularStd-Black;

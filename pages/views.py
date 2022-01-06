@@ -1,31 +1,45 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect, HttpResponse
-import spotipy, os, json, random, base64, datetime
-from .tasks import top_albums_genres_songs
+import base64
+import datetime
+import json
+import os
+import random
+import spotipy
+import time
 from celery.result import AsyncResult
-from src.analysis import StreamingHistory, ListeningInformation, analyse_listening
-from .models import Listening
-from wrappedify.settings import BASE_DIR
-
+from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
+from django.shortcuts import render
 from django.views.decorators.csrf import ensure_csrf_cookie
 
+from src.analysis import StreamingHistory, ListeningInformation, analyse_listening
+from wrappedify.settings import BASE_DIR
+from .models import Listening
+from .tasks import top_albums_genres_songs
+
+# Initialising Spotipy variables
 client_id = os.environ.get('client_id')
 client_secret = os.environ.get('client_secret')
 redirect_uri = os.environ.get('redirect_uri')
 
 
+# Homepage
 @ensure_csrf_cookie
 def home_view(request):
+    # Creating a Spotify client to generate random album artwork
     ccm = spotipy.SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
     sp = spotipy.Spotify(client_credentials_manager=ccm)
 
     covers = set()
 
+    # while loop to avoid duplicate covers
     while len(covers) != 6:
-        album = sp.playlist(playlist_id="37i9dQZF1DXcBWIGoYBM5M")['tracks']['items'][random.randint(0, 49)]['track'][
-            'album']
+        # Retrieve an arbitrary album from the "Today's Top Hits" playlist
+        album = sp.playlist(
+            playlist_id="37i9dQZF1DXcBWIGoYBM5M"
+        )['tracks']['items'][random.randint(0, 49)]['track']['album']
+
         covers.add((album['images'][0]['url'], album['external_urls']['spotify']))
 
+    # If the user has already uploaded data for processing, then redirect accordingly, else go the get started page
     if request.session.get('data_state'):
         if request.session.get('data_state') == "Processing":
             button_link = "/processing/"
@@ -42,23 +56,35 @@ def home_view(request):
     return render(request, 'pages/home_view.html', context)
 
 
+# Get Started page detailing steps to retrieve Spotify data
 @ensure_csrf_cookie
 def start_view(request):
+    # As above, redirect accordingly if the user has already uploaded data
     if request.session.get('data_state') == "Processing":
         return HttpResponseRedirect('/processing/')
     elif request.session.get('data_state') == "Processed":
         return HttpResponseRedirect('/your-data/')
 
+    # Do light analysis once user uploads appropriate files
     if request.method == "POST":
         files = request.FILES.getlist('listening-files')
+
+        # Sorting the files by their number
         files.sort(key=lambda a: int(a.name[16:-5]))
 
         sh = StreamingHistory(files, request.session.get("timezone"))
         li = ListeningInformation(sh)
+
+        if len(li.data) < 5 or len([song for artist in li.data for song in li.data[artist][1]]) < 20:
+            return HttpResponseRedirect('/insufficient-data/')
+
         analyse_listening(li, sh)
 
+        # Saving listening objects to the database so they can be accessed in other views
         listening = Listening()
-        listening.args = [sh, li]
+
+        # Last argument to help facilitate model cleanup from database
+        listening.args = [sh, li, time.time()]
         listening.save()
         request.session['listening_id'] = listening.id
         request.session['data_state'] = "Unprocessed"
@@ -68,10 +94,13 @@ def start_view(request):
     return render(request, 'pages/start_view.html', {})
 
 
+# Loading page as heavy analysis is run
 def processing_view(request):
+    # Redirect to the homepage if data has not been uploaded
     if not request.session.get('data_state'):
         return HttpResponseRedirect('/')
 
+    # ONLY if data has been uploaded AND is unprocessed, begin heavy analysis, and set data state to 'Processing'
     if request.session.get('data_state') == "Unprocessed":
         r = top_albums_genres_songs.delay(request.session.get('listening_id'))
         request.session['data_state'] = "Processing"
@@ -80,22 +109,30 @@ def processing_view(request):
     return render(request, 'pages/processing_view.html', {})
 
 
+# Ajax view for setting the user's timezone
 def set_timezone(request):
+    # If it's not an AJAX POST request, redirect
     if request.META.get('HTTP_X_REQUESTED_WITH') != 'XMLHttpRequest' or request.method != "POST":
         return HttpResponseRedirect('/')
 
-    request.session['timezone'] = request.POST.get('timezone')
-    request.session.modified = True
+    # Only set the timezone once (to avoid updates in data display view)
+    if not request.session.get('timezone'):
+        request.session['timezone'] = request.POST.get('timezone')
+
     return HttpResponse("Okay")
 
 
+# AJAX view to get updated progress
 def get_progress(request):
+    # If the user has not started the heavy analysis process, redirect
     if not request.session.get('task_id') or request.method != "GET":
         return HttpResponseRedirect('/')
 
+    # Getting AsyncResult object according to user's task_id and generating response (progress of analysis)
     r = AsyncResult(request.session.get('task_id'))
     response = {'state': r.state, 'details': r.info, 'success': False}
 
+    # If the task is complete, forget it and mark the data as processed
     if r.successful():
         r.forget()
         response['success'] = True
@@ -104,10 +141,13 @@ def get_progress(request):
     return HttpResponse(json.dumps(response), content_type="application/json")
 
 
+# Page displaying all the analysed data
 def data_view(request):
-    if not request.session.get('data_state'):
+    # If data has not been processed, redirect to the homepage
+    if request.session.get('data_state') != 'Processed':
         return HttpResponseRedirect('/')
 
+    # Retrieving listening information from the database and creating a OAuth object
     sh = Listening.objects.get(id__exact=request.session.get('listening_id')).args[0]
     li = Listening.objects.get(id__exact=request.session.get('listening_id')).args[1]
     spauth = spotipy.SpotifyOAuth(client_id=client_id, client_secret=client_secret, redirect_uri=redirect_uri,
@@ -115,20 +155,26 @@ def data_view(request):
 
     auth_url = spauth.get_authorize_url()
 
-    request.session['top_uris'] = [song[0][1]['uri'] for song in li.top_songs if type(song[0][1]) != str]
+    # If the top song's uris have not been retrieved, do so
+    if not request.session.get('top_urs'):
+        request.session['top_uris'] = [song[0][1]['uri'] for song in li.top_songs if type(song[0][1]) != str]
 
+    # Pick two arbitrary songs from user's top songs
     songA = li.top_songs[random.randint(0, len(li.top_songs) - 1)][0]
     songB = li.top_songs[random.randint(0, len(li.top_songs) - 1)][0]
 
-    abt = sh.activity_by_time()
-    t_hour = datetime.time(max(abt, key=abt.get), 0)
-    abm = sh.activity_by_month()
-    t_month = max(abm, key=abm.get)
-    t_month_str = datetime.date(2000, t_month, 1).strftime("%B")
+    # Initialise the activity data
+    abt = sh.activity_by_time()  # Dictionary mapping hours to plays
+    t_hour = datetime.time(max(abt, key=abt.get), 0)  # The most active hour, in 24HR format
+    abm = sh.activity_by_month()  # Dictionary mapping months to listening time
+    t_month = max(abm, key=abm.get) # The most active month
+    t_month_str = datetime.date(2000, t_month, 1).strftime("%B")  # Nam of the most active month
     t_month_listening = (round(abm.get(t_month) / (1000 * 60)), 'minutes') \
         if round(abm.get(t_month) / (1000 * 60 * 60)) == 0 \
-        else (round(abm.get(t_month) / (1000 * 60 * 60)), 'hours')
+        else (round(abm.get(t_month) / (1000 * 60 * 60)), 'hours')  # Determining the listening time during the most
+    # active month and appropriate time
 
+    # Sending in all the necessary context (data)
     context = {
         "endDate": sh.end,
         "hoursListened": f'{sh.hours_listened:,}',
@@ -138,7 +184,7 @@ def data_view(request):
         'top5': li.top_songs[:5],
         "top_songs": li.top_songs[5:],
         "auth_url": auth_url,
-        "total_songs": f'{len([(artist, song) for artist in li.data for song in li.data[artist][1]]):,}',
+        "total_songs": f'{len([song for artist in li.data for song in li.data[artist][1]]):,}',
         "total_artists": f'{len(li.data):,}',
         "total_albums": f'{li.albums:,}',
         'total_genres': f'{li.genres:,}',
@@ -156,21 +202,35 @@ def data_view(request):
     return render(request, 'pages/data_view.html', context)
 
 
+# Sign in view for adding playlist to user library
 def sign_in(request):
+    # If no code is provided (i.e., not an authorization redirect), redirect
     if request.method != "GET" or not request.GET.get('code'):
-        HttpResponseRedirect('/')
+        return HttpResponseRedirect('/')
 
+    # Create an OAuth object and retrieve token
+    # Note, check_cache is set to false to allow for multiple users
     spauth = spotipy.SpotifyOAuth(client_id=client_id, client_secret=client_secret, redirect_uri=redirect_uri,
                                   scope="playlist-modify-public ugc-image-upload")
     token = spauth.get_access_token(code=request.GET.get('code'), check_cache=False)
     sp = spotipy.Spotify(auth=token['access_token'])
 
+    # Create a playlist and add top songs
     playlist = sp.user_playlist_create(sp.me()['id'], "Your Top Songs of the Year",
                                        description="Your top songs this year, courtesy of Wrappedify.")
     sp.playlist_add_items(playlist_id=playlist['id'], items=request.session.get('top_uris'))
 
+    # Encode standardized cover in base64 and set as user playlist cover
     with open(os.path.join(BASE_DIR, 'assets/images/playlistcover.jpg'), "rb") as img:
         im64 = base64.b64encode(img.read())
         sp.playlist_upload_cover_image(playlist_id=playlist['id'], image_b64=im64)
 
     return HttpResponseRedirect('/your-data/')
+
+
+def insufficient_view(request):
+    return render(request, 'pages/insufficient_view.html', {})
+
+
+def handler_404(request, exception):
+    return render(request, 'not_found_view.html', {})

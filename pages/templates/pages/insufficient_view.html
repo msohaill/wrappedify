@@ -1,0 +1,12 @@
+{% extends 'pages/pre_base.html' %}
+{% load static %}
+
+{% block title %}Insufficient data{% endblock %}
+{% block bannerlink %}href="/" {% endblock %}
+
+{% block main %}
+<div style="width: 100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:justify">
+    <h1>Insufficient Listening.</h1>
+    <p style="font-size:11pt; width: 50%">Unfortunately, we cannot process your Spotify listening as you haven't listened enough this year. To be eligible for a Wrappedify analysis, you must listen to at least <span style="font-family:CircularStd-Black; color:rgb(154, 219, 168)">5 unique artists</span> and <span style="font-family:CircularStd-Black; color:rgb(154, 219, 168)">30 different songs</span>. Further, each listen should be at least <span style="font-family:CircularStd-Black; color:rgb(154, 219, 168)">30 seconds</span> in length. We're sorry for now, but please come back as soon as you pick up your listening!</p>
+</div>
+{% endblock %}

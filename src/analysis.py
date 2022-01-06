@@ -5,12 +5,13 @@ import spotipy
 import zoneinfo
 
 
+# Class to contain and analyse raw streaming information from Spotify data
 class StreamingHistory:
 
     def __init__(self, files: list, tz: str) -> None:
 
         self.year = 2021  # datetime.date.today().year
-        self.end = None
+        self.end = None  # String representation of last listening day
         self.minutes_listened = 0
         self.hours_listened = 0
         self.data = ()
@@ -29,6 +30,7 @@ class StreamingHistory:
 
         self.data = tuple(song for song in self.data if
                           song['endTime'].year == self.year and song['msPlayed'] > 30000)
+
 
     def activity_by_month(self) -> dict:
         months = {month: 0 for month in range(1, 13)}
