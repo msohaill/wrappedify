@@ -232,5 +232,5 @@ def insufficient_view(request):
     return render(request, 'pages/insufficient_view.html', {})
 
 
-def handler_404(request, exception):
+def not_found_view(request, exception):
     return render(request, 'pages/not_found_view.html', {})
