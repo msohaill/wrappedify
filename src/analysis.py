@@ -31,7 +31,6 @@ class StreamingHistory:
         self.data = tuple(song for song in self.data if
                           song['endTime'].year == self.year and song['msPlayed'] > 30000)
 
-
     def activity_by_month(self) -> dict:
         months = {month: 0 for month in range(1, 13)}
 

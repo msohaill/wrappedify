@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from pages.views import home_view, start_view, processing_view, set_timezone, get_progress, data_view, sign_in, \
-    insufficient_view
+    insufficient_view, not_found_view
 
 handler404 = 'pages.views.not_found_view'
 
