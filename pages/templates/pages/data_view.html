@@ -39,7 +39,7 @@
                         <img src="{{ song.0.1.album.images.0.url }}" class="covers">
                         <p style="width:130px; text-align:center">{{ song.0.1.name }}</p>
                         <p style="width: 130px; color:rgba(255, 255, 255, 0.5); margin-top: 0px; text-align:center">{{ song.0.0 }}</p>
-                        <p>#{{ forloop.counter }} - {{ song.1 }} plays.</p>
+                        <p><span class="important-1">#{{ forloop.counter }}</span> - {{ song.1 }} plays.</p>
                     </div>
                     </a>
                     {% else %}
@@ -169,17 +169,19 @@
                     {% for album in top_albums %}
                     {% if forloop.counter == 1 %}
                         <div class="album main-panel mid">
-                            <a href="{{ album.2.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
-                                <img class="main-panel-image" src="{{ album.2.images.0.url }}">
+                            <a href="{{ album.1.2.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
+                                <img class="main-panel-image" src="{{ album.1.2.images.0.url }}">
                             </a>
-                            <p style="font-size:15pt; font-family:CircularStd-Black; text-align:center; width: 200px"><span class="important-2">#{{forloop.counter}}</span> - {{album.2.name}}</p>
+                            <p style="margin-bottom: 0px; font-size:15pt; font-family:CircularStd-Black; text-align:center; width:200px"><span class="important-2">#{{forloop.counter}}</span> - {{album.1.2.name}}</p>
+                            <p style="width:200px; text-align:center; font-size:10pt; color:rgba(255, 255, 255, 0.5)">{{album.0}}</p>
                         </div>
                     {% else %}
                         <div class="album main-panel hidden">
-                            <a href="{{ album.2.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
-                                <img class="main-panel-image" src="{{ album.2.images.0.url }}">
+                            <a href="{{ album.1.2.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
+                                <img class="main-panel-image" src="{{ album.1.2.images.0.url }}">
                             </a>
-                            <p style="font-size:15pt; font-family:CircularStd-Black; text-align:center; width: 200px"><span class="important-2">#{{forloop.counter}}</span> - {{album.2.name}}</p>
+                            <p style="margin-bottom: 0px; font-size:15pt; font-family:CircularStd-Black; text-align:center; width:200px"><span class="important-2">#{{forloop.counter}}</span> - {{album.1.2.name}}</p>
+                            <p style="width:200px; text-align:center; font-size:10pt; color:rgba(255, 255, 255, 0.5)">{{album.0}}</p>
                         </div>
                     {% endif %}
                     {% endfor %}
@@ -200,12 +202,12 @@
                 <div class="info-panel">
                     {% for album in top_albums %}
                     <div class="album-info">
-                        <h2 style="padding:30px; background:white; box-shadow: 10px 10px 0 rgb(229, 155, 190); font-size: 30pt"><span class="important-2">{{album.0}} plays</span></h2>
-                        <a href="{{ album.1.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color: white;">
+                        <h2 style="padding:30px; background:white; box-shadow: 10px 10px 0 rgb(229, 155, 190); font-size: 30pt"><span class="important-2">{{album.1.0}} plays</span></h2>
+                        <a href="{{ album.1.1.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color: white;">
                             <div class="info-top-song">
                                 <h3 style="font-family: CircularStd-Black; padding: 10px; ">Most Played Song</h3>
-                                <img src="{{ album.1.0.album.images.0.url }}" class="info-cover">
-                                <p><span class="important-2">{{album.1.0.name}}</span></p>
+                                <img src="{{ album.1.1.0.album.images.0.url }}" class="info-cover">
+                                <p><span class="important-2">{{album.1.1.0.name}}</span></p>
                             </div>
                         </a>
                     </div>

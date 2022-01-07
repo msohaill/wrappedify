@@ -16,18 +16,24 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from pages.views import home_view, start_view, processing_view, set_timezone, get_progress, data_view, sign_in, \
-    insufficient_view, not_found_view
+    insufficient_view
 
+# Customising the 404 view
 handler404 = 'pages.views.not_found_view'
 
 urlpatterns = [
+    # Main user-interactive views
     path('', home_view),
     path('get-started/', start_view),
     path('processing/', processing_view),
     path('your-data/', data_view),
+
+    # Other views that are just called
     path('ajax/timezone/', set_timezone),
     path('ajax/progress/', get_progress),
     path('sign-in/', sign_in),
+
+    # Error and admin views
     path('insufficient-data/', insufficient_view),
     path('admin/', admin.site.urls),
 ]

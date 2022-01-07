@@ -22,7 +22,7 @@ redirect_uri = os.environ.get('redirect_uri')
 
 
 # Homepage
-@ensure_csrf_cookie
+@ensure_csrf_cookie  # To set timezone
 def home_view(request):
     # Creating a Spotify client to generate random album artwork
     ccm = spotipy.SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
@@ -57,7 +57,7 @@ def home_view(request):
 
 
 # Get Started page detailing steps to retrieve Spotify data
-@ensure_csrf_cookie
+@ensure_csrf_cookie  # To set timezone
 def start_view(request):
     # As above, redirect accordingly if the user has already uploaded data
     if request.session.get('data_state') == "Processing":
@@ -228,10 +228,12 @@ def sign_in(request):
     return HttpResponseRedirect('/your-data/')
 
 
+# View if insufficient listening information is provided
 def insufficient_view(request):
     return render(request, 'pages/insufficient_view.html', {})
 
 
+# 404 Handler
 def not_found_view(request, exception):
     response = render(request, 'pages/not_found_view.html', {})
     response.status_code = 404
