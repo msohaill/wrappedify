@@ -24,6 +24,13 @@ html {
     -webkit-animation: gradient 15s ease infinite;
     -o-animation: gradient 15s ease infinite;
 	animation: gradient 15s ease infinite;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 body {
