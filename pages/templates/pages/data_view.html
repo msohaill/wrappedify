@@ -18,7 +18,7 @@
             <div>
             <a href="/"><img id="banner" src="{% static 'images/banner.png' %}" alt="Wrappedify Banner"></a>
             <p onclick="changeTab(0)" class="nav-link nav-active">Your Top Songs.</p>
-            <p onclick="changeTab(1)" class="nav-link">Albums, Artists, & More.</p>
+            <p onclick="changeTab(1)" class="nav-link">Artists, Albums, &#38; More.</p>
             <p onclick="changeTab(2)" class="nav-link">Your Activity.</p>
             </div>
             <p id="end-date">Wrapped up to {{ endDate }}<br><br><span id="expiry">Your data will be available for 1 week<span id="expiry-tooltip">To try Wrappedify with new data, clear your cookies.</span></span></p>
@@ -249,11 +249,14 @@
                     </div>
                 </div>
             </div>
+
         </div>
+
         <script>
             let artistMax = {{ top_artists|length }} - 1;
             let albumMax = {{ top_albums|length }} - 1;
         </script>
+
         <script src="https://d3js.org/d3.v7.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="{% static 'js/data.js' %}"></script>

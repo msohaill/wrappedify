@@ -238,3 +238,7 @@ def not_found_view(request, exception):
     response = render(request, 'pages/not_found_view.html', {})
     response.status_code = 404
     return response
+
+
+def about_view(request):
+    return render(request, 'pages/about_view.html', {})
