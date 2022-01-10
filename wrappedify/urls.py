@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from pages.views import home_view, start_view, processing_view, set_timezone, get_progress, data_view, sign_in, \
-    insufficient_view, about_view
+    insufficient_view, about_view, sample_data
 
 # Customising the 404 view
 handler404 = 'pages.views.not_found_view'
@@ -33,6 +33,7 @@ urlpatterns = [
     path('ajax/timezone/', set_timezone),
     path('ajax/progress/', get_progress),
     path('sign-in/', sign_in),
+    path('sample-data/', sample_data),
 
     # Error and admin views
     path('insufficient-data/', insufficient_view),

@@ -242,3 +242,31 @@ def not_found_view(request, exception):
 
 def about_view(request):
     return render(request, 'pages/about_view.html', {})
+
+
+def sample_data(request):
+    # As above, redirect accordingly if the user has already uploaded data
+    if request.session.get('data_state') == "Processing":
+        return HttpResponseRedirect('/processing/')
+    elif request.session.get('data_state') == "Processed":
+        return HttpResponseRedirect('/your-data/')
+
+    # Opening sample files
+    f1 = open(os.path.join(BASE_DIR, 'assets/sample/StreamingHistory0.json'), "r")
+    f2 = open(os.path.join(BASE_DIR, 'assets/sample/StreamingHistory1.json'), "r")
+    files = [f1, f2]
+
+    sh = StreamingHistory(files, request.session.get("timezone"))
+    li = ListeningInformation(sh)
+    analyse_listening(li, sh)
+
+    # Saving listening objects to the database so they can be accessed in other views
+    listening = Listening()
+
+    # Last argument to help facilitate model cleanup from database
+    listening.args = [sh, li, time.time()]
+    listening.save()
+    request.session['listening_id'] = listening.id
+    request.session['data_state'] = "Unprocessed"
+
+    return HttpResponseRedirect('/processing/')

@@ -34,7 +34,7 @@
                 <div id="top-five">
                     {% for song in top5 %}
                     {% if song.2.0 == 1 %}
-                    <a href="{{ song.0.1.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color: white;">
+                    <a href="{{ song.0.1.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color: white">
                     <div class="top-song-info">
                         <img src="{{ song.0.1.album.images.0.url }}" class="covers">
                         <p style="width:130px; text-align:center">{{ song.0.1.name }}</p>

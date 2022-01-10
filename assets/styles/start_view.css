@@ -119,3 +119,16 @@ h1 {
     padding: 10px;
     padding-left: 20px;
 }
+
+#sample-data-link {
+    width: 100%;
+    font-size: 9pt;
+    margin-top: 50px;
+    border-bottom: 1px dotted white;
+    transition: all 0.2s;
+}
+
+#sample-data-link:hover {
+    transform: scale(1.01);
+    opacity: 0.5;
+}
