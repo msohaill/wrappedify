@@ -203,10 +203,10 @@
                     {% for album in top_albums %}
                     <div class="album-info">
                         <h2 style="padding:30px; background:white; box-shadow: 10px 10px 0 rgb(229, 155, 190); font-size: 30pt"><span class="important-2">{{album.1.0}} plays</span></h2>
-                        <a href="{{ album.1.1.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color: white;">
+                        <a href="{{ album.1.1.0.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color: white;">
                             <div class="info-top-song">
                                 <h3 style="font-family: CircularStd-Black; padding: 10px; ">Most Played Song</h3>
-                                <img src="{{ album.1.2.0.album.images.0.url }}" class="info-cover">
+                                <img src="{{ album.1.1.0.album.images.0.url }}" class="info-cover">
                                 <p><span class="important-2">{{album.1.1.0.name}}</span></p>
                             </div>
                         </a>
