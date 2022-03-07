@@ -257,6 +257,7 @@ def sample_data(request):
     files = [f1, f2]
 
     sh = StreamingHistory(files, request.session.get("timezone"))
+    sh.year = 2021
     li = ListeningInformation(sh)
     analyse_listening(li, sh)
 
