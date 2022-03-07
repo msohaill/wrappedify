@@ -10,7 +10,7 @@ class StreamingHistory:
 
     def __init__(self, files: list, tz: str) -> None:
 
-        self.year = datetime.date.today().year
+        self.year = 2021  # datetime.date.today().year
         self.end = None  # String representation of last listening day
         self.minutes_listened = 0
         self.hours_listened = 0
