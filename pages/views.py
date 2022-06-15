@@ -252,9 +252,8 @@ def sample_data(request):
         return HttpResponseRedirect('/your-data/')
 
     # Opening sample files
-    f1 = open(os.path.join(BASE_DIR, 'assets/sample/StreamingHistory0.json'), "r")
-    f2 = open(os.path.join(BASE_DIR, 'assets/sample/StreamingHistory1.json'), "r")
-    files = [f1, f2]
+    f = open(os.path.join(BASE_DIR, 'assets/sample/StreamingHistory0.json'), "r")
+    files = [f]
 
     sh = StreamingHistory(files, request.session.get("timezone"))
     li = ListeningInformation(sh)
