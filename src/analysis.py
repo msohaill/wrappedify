@@ -149,7 +149,7 @@ class SpotifyAPI:
         ntrack_name, nartist_name = track_name.replace("'", ""), artist_name.replace("'", "")
 
         # Getting 50 results with the appropriate query
-        tracks = self.sp.search(q=f'artist:{nartist_name} track:{ntrack_name}',
+        tracks = self.sp.search(q=f'artist:{nartist_name[:24]} track:{ntrack_name[:64]}',
                                 type='track', limit=50)['tracks']['items']
 
         # Iterating through the retrieved tracks and determining if any track has the required track name and artist
@@ -168,7 +168,7 @@ class SpotifyAPI:
         nartist_name = artist_name.replace("'", "")
 
         # Getting 50 results with the appropriate query
-        artists = self.sp.search(q=f'artist:{nartist_name}', type='artist', limit=50)['artists']['items']
+        artists = self.sp.search(q=f'artist:{nartist_name[:92]}', type='artist', limit=50)['artists']['items']
 
         # Iterating through the retrieved artists and determining if any are a match
         for a in artists:
