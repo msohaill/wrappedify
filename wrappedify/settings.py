@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import re
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,12 +27,33 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG') == 'True'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'wrappedify-production.up.railway.app',
+    'www.wrappedify.live',
+    'wrappedify.live',
+    'localhost',
+    '127.0.0.1',
+]
+CSRF_TRUSTED_ORIGINS = [
+    'https://wrappedify-production.up.railway.app',
+    'https://www.wrappedify.live',
+    'https://wrappedify.live',
+    'http://localhost',
+    'http://127.0.0.1',
+]
+CSRF_TRUSTED_ORIGINS = [
+    'https://wrappedify-production.up.railway.app',
+    'https://www.wrappedify.live',
+    'https://wrappedify.live',
+    'http://localhost',
+    'http://127.0.0.1',
+]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +61,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages',
+    'channels'
 ]
 
 MIDDLEWARE = [
@@ -50,6 +73,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
@@ -75,6 +99,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'wrappedify.wsgi.application'
+ASGI_APPLICATION = 'wrappedify.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -90,6 +115,17 @@ DATABASES = {
     }
 }
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [os.environ.get('REDIS_URL')],
+            "capacity": 1000000,
+            "expiry": 10,
+            "group_expiry": 3600,
+        },
+    },
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -128,6 +164,7 @@ USE_TZ = True
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = '/assets/'
 STATICFILES_DIRS = [BASE_DIR / 'assets']
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Default primary key field type

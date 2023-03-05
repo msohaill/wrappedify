@@ -1,11 +1,21 @@
-from wrappedify.celery import app
+from asgiref.sync import async_to_sync
+from channels.layers import get_channel_layer
+
+from pages.models import Listening
 from src.analysis import SpotifyAPI
-from .models import Listening
+from wrappedify.celery import app
+
+
+async def closing_send(channel_layer, channel, message):
+    await channel_layer.group_send(channel, message)
+    await channel_layer.close_pools()
 
 
 # The heavy analysis task
 @app.task(bind=True)
 def top_albums_genres_songs(self, listening_id) -> None:
+    channel_layer = get_channel_layer()
+    task_id = self.request.id
 
     # Retrieving listening information from the database
     listening = Listening.objects.get(id__exact=listening_id)
@@ -39,8 +49,13 @@ def top_albums_genres_songs(self, listening_id) -> None:
         # If None was returned, increase progress and continue to next iteration
         if not artist:
             counter += 1
-            self.update_state(state="PROGRESS",
-                              meta={'current': counter, "total": total, "percentage": counter / total})
+            async_to_sync(closing_send)(channel_layer, task_id, {
+                'type': 'progress_update',
+                'details': {
+                    'status': 'Progress',
+                    'percentage': counter / total
+                    }
+            })
             continue
 
         # Getting the artists characterizing genres
@@ -61,7 +76,13 @@ def top_albums_genres_songs(self, listening_id) -> None:
 
         # Increase progress
         counter += 1
-        self.update_state(state="PROGRESS", meta={'current': counter, "total": total, "percentage": counter / total})
+        async_to_sync(closing_send)(channel_layer, task_id, {
+            'type': 'progress_update',
+            'details': {
+                'status': 'Progress',
+                'percentage': counter / total
+            }
+        })
 
     # Determine the total and top genres
     listening_information.genres = len(genres)
@@ -77,8 +98,13 @@ def top_albums_genres_songs(self, listening_id) -> None:
         # If None was returned, increase the progress and continue to the next iteration
         if not track:
             counter += 1
-            self.update_state(state="PROGRESS",
-                              meta={'current': counter, "total": total, "percentage": counter / total})
+            async_to_sync(closing_send)(channel_layer, task_id, {
+                'type': 'progress_update',
+                'details': {
+                    'status': 'Progress',
+                    'percentage': counter / total
+                }
+            })
             continue
 
         # Retrieve the track's album and create a key: (artist names separated by commas, album name)
@@ -108,7 +134,13 @@ def top_albums_genres_songs(self, listening_id) -> None:
 
         # Increase progress
         counter += 1
-        self.update_state(state="PROGRESS", meta={'current': counter, "total": total, "percentage": counter / total})
+        async_to_sync(closing_send)(channel_layer, task_id, {
+            'type': 'progress_update',
+            'details': {
+                'status': 'Progress',
+                'percentage': counter / total
+            }
+        })
 
     # Determine the total and top albums
     listening_information.albums = len(albums)
@@ -119,3 +151,11 @@ def top_albums_genres_songs(self, listening_id) -> None:
     listening_information.api_success()
     listening.args[1] = listening_information
     listening.save()
+
+    async_to_sync(closing_send)(channel_layer, task_id, {
+        'type': 'progress_update',
+        'details': {
+            'status': 'Completed',
+            'percentage': 1
+        }
+    })

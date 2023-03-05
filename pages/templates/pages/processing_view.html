@@ -45,20 +45,20 @@
 
 {% block javascript %}
 <script>
-    let messages = [["Kick back and relax while we do our magic.", "Feel free to work on something else!", "Let's get this party started!"],
+    const messages = [["Kick back and relax while we do our magic.", "Feel free to work on something else!", "Let's get this party started!"],
     ["Our gears are up and running!", "Are we there yet?", "Nearly halfway there!"],
     ["We're loving your listening!", "We're nearly set up!", "One step closer to data paradise!"],
     ["Almost there!", "Just a little longer!", "We swear we're almost done."]];
     let crate = -1;
 
-    let bubbles = document.getElementById("loading-bubbles");
-    let loadingShell = document.getElementById("loading-shell");
-    let loadingBar = document.getElementById("loading-bar");
+    const bubbles = document.getElementById("loading-bubbles");
+    const loadingShell = document.getElementById("loading-shell");
+    const loadingBar = document.getElementById("loading-bar");
     let started = false;
     let width = 0;
-    let loadingMessage = document.getElementById("loading-message");
+    const loadingMessage = document.getElementById("loading-message");
 
-    function updateProgressBar(max) {
+    const updateProgressBar = max => {
         let update = setInterval(function() {
             if (width / 900 > max) {
                 clearInterval(update);
@@ -73,29 +73,24 @@
         }, 15);
     }
 
-    $(function() {
-        let  id = setInterval(function() {
-            $.get('/ajax/progress', function(data, status) {
-                if (data.success) {
-                    clearInterval(id);
-                    updateProgressBar(1);
-                    setTimeout(() => {window.location.href = "/your-data/";}, 1000)
-                    return;
-                } else if (data.state == "PROGRESS") {
-                    if (!started) {
-                        bubbles.classList.add("bubble-animation");
-                        loadingShell.style.display = "Block";
-                        loadingMessage.style.display = "Block";
-                        loadingShell.classList.add("bar-animation");
-                        loadingMessage.classList.add("bar-animation");
-                        bubbles.addEventListener("animationend", function(event) {bubbles.style.display = "none";});
-                        started = true;
-                    }
-                    updateProgressBar(data.details.percentage);
-                    return;
-                }
-            });
-        }, 500);
-    });
+    const socket = new WebSocket('{{ socket }}');
+    socket.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        if (data.status == "Completed") {
+            updateProgressBar(1);
+            setTimeout(() => {window.location.href = "/your-data/";}, 1000)
+        } else if (data.status == "Progress") {
+            if (!started) {
+                bubbles.classList.add("bubble-animation");
+                loadingShell.style.display = "Block";
+                loadingMessage.style.display = "Block";
+                loadingShell.classList.add("bar-animation");
+                loadingMessage.classList.add("bar-animation");
+                bubbles.addEventListener("animationend", function(event) {bubbles.style.display = "none";});
+                started = true;
+            }
+            updateProgressBar(data.percentage);
+        }
+    };
 </script>
 {% endblock %}

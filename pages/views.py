@@ -3,22 +3,24 @@ import datetime
 import json
 import os
 import random
-import spotipy
 import time
+
+import spotipy
 from celery.result import AsyncResult
-from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
+from django.http import (HttpResponse, HttpResponseNotFound,
+                         HttpResponseRedirect)
 from django.shortcuts import render
 from django.views.decorators.csrf import ensure_csrf_cookie
 
-from src.analysis import StreamingHistory, ListeningInformation, analyse_listening
+from pages.models import Listening
+from pages.tasks import top_albums_genres_songs
+from src.analysis import (ListeningInformation, StreamingHistory,
+                          analyse_listening)
 from wrappedify.settings import BASE_DIR
-from .models import Listening
-from .tasks import top_albums_genres_songs
 
 # Initialising Spotipy variables
 client_id = os.environ.get('client_id')
 client_secret = os.environ.get('client_secret')
-redirect_uri = os.environ.get('redirect_uri')
 
 
 # Homepage
@@ -40,8 +42,8 @@ def home_view(request):
         covers.add((album['images'][0]['url'], album['external_urls']['spotify']))
 
     # If the user has already uploaded data for processing, then redirect accordingly, else go the get started page
-    if request.session.get('data_state'):
-        if request.session.get('data_state') == "Processing":
+    if request.session.get('data'):
+        if request.session.get('data').get('state') == "Processing":
             button_link = "/processing/"
         else:
             button_link = "/your-data/"
@@ -60,9 +62,9 @@ def home_view(request):
 @ensure_csrf_cookie  # To set timezone
 def start_view(request):
     # As above, redirect accordingly if the user has already uploaded data
-    if request.session.get('data_state') == "Processing":
+    if request.session.get('data') and request.session.get('data').get('state') == "Processing":
         return HttpResponseRedirect('/processing/')
-    elif request.session.get('data_state') == "Processed":
+    elif request.session.get('data') and request.session.get('data').get('state') == "Processed":
         return HttpResponseRedirect('/your-data/')
 
     # Do light analysis once user uploads appropriate files
@@ -87,7 +89,7 @@ def start_view(request):
         listening.args = [sh, li, time.time()]
         listening.save()
         request.session['listening_id'] = listening.id
-        request.session['data_state'] = "Unprocessed"
+        request.session['data'] = { 'state': 'Unprocessed', 'id': '' }
 
         return HttpResponseRedirect('/processing/')
 
@@ -97,16 +99,30 @@ def start_view(request):
 # Loading page as heavy analysis is run
 def processing_view(request):
     # Redirect to the homepage if data has not been uploaded
-    if not request.session.get('data_state'):
+    if not request.session.get('data'):
         return HttpResponseRedirect('/')
 
-    # ONLY if data has been uploaded AND is unprocessed, begin heavy analysis, and set data state to 'Processing'
-    if request.session.get('data_state') == "Unprocessed":
-        r = top_albums_genres_songs.delay(request.session.get('listening_id'))
-        request.session['data_state'] = "Processing"
-        request.session['task_id'] = r.task_id
+    if request.session.get('data').get('state') == "Processed":
+        return HttpResponseRedirect('/your-data')
 
-    return render(request, 'pages/processing_view.html', {})
+    # ONLY if data has been uploaded AND is unprocessed, begin heavy analysis, and set data state to 'Processing'
+    if request.session.get('data').get('state') == "Unprocessed":
+        r = top_albums_genres_songs.delay(request.session.get('listening_id'))
+        request.session['data'].update({ 'state': 'Processing'})
+        request.session['data'].update({ 'id': r.task_id })
+        request.session.modified = True
+
+    r = AsyncResult(request.session.get('data').get('id'))
+
+    if r.successful():
+        r.forget()
+        request.session['data'].update({'state': 'Processed'})
+        request.session.modified = True
+        return HttpResponseRedirect('/your-data')
+
+    return render(request, 'pages/processing_view.html', {
+        'socket': f"{os.environ.get('SOCKET_URL', 'ws://localhost:8000/')}task/progress/{request.session.get('data').get('id')}/"
+        })
 
 
 # Ajax view for setting the user's timezone
@@ -122,41 +138,32 @@ def set_timezone(request):
     return HttpResponse("Okay")
 
 
-# AJAX view to get updated progress
-def get_progress(request):
-    # If the user has not started the heavy analysis process, redirect
-    if not request.session.get('task_id') or request.method != "GET":
-        return HttpResponseRedirect('/')
-
-    # Getting AsyncResult object according to user's task_id and generating response (progress of analysis)
-    r = AsyncResult(request.session.get('task_id'))
-    response = {'state': r.state, 'details': r.info, 'success': False}
-
-    # If the task is complete, forget it and mark the data as processed
-    if r.successful():
-        r.forget()
-        response['success'] = True
-        request.session['data_state'] = "Processed"
-
-    return HttpResponse(json.dumps(response), content_type="application/json")
-
-
 # Page displaying all the analysed data
 def data_view(request):
     # If data has not been processed, redirect to the homepage
-    if request.session.get('data_state') != 'Processed':
+    if not request.session.get('data'):
         return HttpResponseRedirect('/')
+
+    if request.session.get('data').get('state') != 'Processed':
+        r = AsyncResult(request.session.get('data').get('id'))
+
+        if r.successful():
+            r.forget()
+            request.session['data'].update({'state': 'Processed'})
+            request.session.modified = True
+        else:
+            return HttpResponseRedirect('/')
 
     # Retrieving listening information from the database and creating a OAuth object
     sh = Listening.objects.get(id__exact=request.session.get('listening_id')).args[0]
     li = Listening.objects.get(id__exact=request.session.get('listening_id')).args[1]
-    spauth = spotipy.SpotifyOAuth(client_id=client_id, client_secret=client_secret, redirect_uri=redirect_uri,
+    spauth = spotipy.SpotifyOAuth(client_id=client_id, client_secret=client_secret, redirect_uri=f"https://{request.get_host()}/sign-in/",
                                   scope="playlist-modify-public ugc-image-upload")
 
     auth_url = spauth.get_authorize_url()
 
     # If the top song's uris have not been retrieved, do so
-    if not request.session.get('top_urs'):
+    if not request.session.get('top_uris'):
         request.session['top_uris'] = [song[0][1]['uri'] for song in li.top_songs if type(song[0][1]) != str]
 
     # Pick two arbitrary songs from user's top songs
@@ -210,7 +217,7 @@ def sign_in(request):
 
     # Create an OAuth object and retrieve token
     # Note, check_cache is set to false to allow for multiple users
-    spauth = spotipy.SpotifyOAuth(client_id=client_id, client_secret=client_secret, redirect_uri=redirect_uri,
+    spauth = spotipy.SpotifyOAuth(client_id=client_id, client_secret=client_secret, redirect_uri=f"https://{request.get_host()}/sign-in/",
                                   scope="playlist-modify-public ugc-image-upload")
     token = spauth.get_access_token(code=request.GET.get('code'), check_cache=False)
     sp = spotipy.Spotify(auth=token['access_token'])
@@ -246,9 +253,9 @@ def about_view(request):
 
 def sample_data(request):
     # As above, redirect accordingly if the user has already uploaded data
-    if request.session.get('data_state') == "Processing":
+    if request.session.get('data') and request.session.get('data').get('state') == "Processing":
         return HttpResponseRedirect('/processing/')
-    elif request.session.get('data_state') == "Processed":
+    elif request.session.get('data') and request.session.get('data').get('state') == "Processed":
         return HttpResponseRedirect('/your-data/')
 
     # Opening sample files
@@ -266,6 +273,6 @@ def sample_data(request):
     listening.args = [sh, li, time.time()]
     listening.save()
     request.session['listening_id'] = listening.id
-    request.session['data_state'] = "Unprocessed"
+    request.session['data'] = { 'state': 'Unprocessed', 'id': '' }
 
     return HttpResponseRedirect('/processing/')

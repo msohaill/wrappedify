@@ -2,8 +2,7 @@ import datetime
 import json
 import os
 import spotipy
-import zoneinfo
-
+import pytz
 
 # Class to contain and analyse raw streaming information from Spotify data
 class StreamingHistory:
@@ -25,7 +24,7 @@ class StreamingHistory:
         # Converting the times to locale appropriate datetime objects
         for song in self.data:
             time_i = datetime.datetime.strptime(song['endTime'] + ' +00:00', '%Y-%m-%d %H:%M %z').astimezone(
-                zoneinfo.ZoneInfo(tz))
+                pytz.timezone(tz if tz else "America/Toronto"))
             time = datetime.datetime(time_i.year, time_i.month, time_i.day, time_i.hour, time_i.minute)
 
             song['endTime'] = time
@@ -155,9 +154,12 @@ class SpotifyAPI:
         # Iterating through the retrieved tracks and determining if any track has the required track name and artist
         # Lowercase to avoid errors with name switches (i.e., updated API data but old streaming data)
         for t in tracks:
-            if t['name'].lower() == track_name.lower() \
-                    and artist_name.lower() in [artist['name'].lower() for artist in t['artists']]:
-                return t
+            try:
+                if t['name'].lower() == track_name.lower() \
+                        and artist_name.lower() in [artist['name'].lower() for artist in t['artists']]:
+                    return t
+            except:
+                continue
 
         # Return None if no match is found
         return None
@@ -172,8 +174,11 @@ class SpotifyAPI:
 
         # Iterating through the retrieved artists and determining if any are a match
         for a in artists:
-            if a['name'].lower() == artist_name.lower():
-                return a
+            try:
+                if a['name'].lower() == artist_name.lower():
+                    return a
+            except:
+                continue
 
         # Return None if no match is found
         return None
