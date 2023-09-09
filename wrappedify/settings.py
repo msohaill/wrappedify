@@ -28,14 +28,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG') == 'True'
 
 ALLOWED_HOSTS = [
-    'www.wrappedify.live',
-    'wrappedify.live',
     'localhost',
     '127.0.0.1',
 ]
 CSRF_TRUSTED_ORIGINS = [
-    'https://www.wrappedify.live',
-    'https://wrappedify.live',
     'http://localhost',
     'http://127.0.0.1',
 ]
