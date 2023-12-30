@@ -1,0 +1,31 @@
+{
+  "name": "wrappedify",
+  "version": "1.0.0",
+  "description": "Analyze your listening with Wrappedify.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msohaill/wrappedify.git"
+  },
+  "keywords": [],
+  "author": "Muhammad Sohail",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msohaill/wrappedify/issues"
+  },
+  "homepage": "https://github.com/msohaill/wrappedify#readme",
+  "devDependencies": {
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
+    "prettier-plugin-svelte": "^3.1.2"
+  },
+  "lint-staged": {
+    "*.{ts,svelte,json,md,css}": [
+      "prettier --write"
+    ]
+  }
+}

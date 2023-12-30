@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: CircularStd;
+    src: url(/fonts/CircularStd-Book.otf);
+  }
+
+  @font-face {
+    font-family: CircularStd-Bold;
+    src: url(/fonts/CircularStd-Bold.otf);
+  }
+
+  @font-face {
+    font-family: CircularStd-Black;
+    src: url(/fonts/CircularStd-Black.otf);
+  }
+
+  h1 {
+    @apply font-[CircularStd-Black] font-bold leading-none md:text-[28pt] text-xl;
+  }
+
+  h2 {
+    @apply font-[CircularStd-Bold] font-bold leading-none md:text-[20pt] text-xl;
+  }
+}
+
+@layer components {
+  .button {
+    @apply px-5 py-5 text-center uppercase rounded-[30px] text-sm w-60
+    hover:brightness-110 hover:scale-[1.01] duration-200 tracking-tighter;
+    font-family: CircularStd-Bold;
+  }
+
+  .keyword-green {
+    font-family: CircularStd-Black;
+    color: #abeeba;
+  }
+
+  .keyword-pink {
+    font-family: CircularStd-Black;
+    color: #f7b5d4;
+  }
+
+  .keyword-lime {
+    font-family: CircularStd-Black;
+    color: #d5f479;
+  }
+}
+
+html {
+  @apply text-white motion-safe:scroll-smooth;
+  background-color: #392b40;
+}
+
+body {
+  @apply flex flex-col justify-between min-h-screen;
+}
+
+main {
+  @apply motion-safe:scroll-smooth px-5 sm:px-14 sm:mt-16 pb-14;
+  background-image: url('$static/noise-overlay.png');
+}
+
+#bg {
+  @apply fixed top-0 left-0 w-full h-full -z-50;
+  background-image: linear-gradient(0deg, rgb(0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%),
+    linear-gradient(
+      -45deg,
+      rgb(244, 187, 122),
+      rgb(223, 82, 158),
+      rgb(160, 107, 156),
+      rgb(141, 169, 214),
+      #00b868
+    );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
