@@ -120,7 +120,8 @@ const analyzeArtistsGenres = async (
     if (!spotifyArtist || !spotifyArtist.genres) continue;
 
     artist.url = spotifyArtist.externalURL.spotify;
-    if (spotifyArtist.images) artist.coverUrl = spotifyArtist.images[0].url;
+    if (spotifyArtist.images && spotifyArtist.images.length > 0)
+      artist.coverUrl = spotifyArtist.images[0].url;
 
     for (const genre of spotifyArtist.genres) {
       if (!(genre in genreInfo))

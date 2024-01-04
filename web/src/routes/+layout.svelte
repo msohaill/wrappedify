@@ -1,16 +1,13 @@
 <script lang="ts">
   import { browser, dev } from '$app/environment';
-  import Footer from '$lib/components/Footer.svelte';
-  import Header from '$lib/components/Header.svelte';
-  import { fly } from 'svelte/transition';
   import '@fontsource/libre-baskerville';
+  import { fly } from 'svelte/transition';
   import '../app.css';
-  import type { LayoutData } from './$types';
+  import type { LayoutServerData } from './$types';
 
-  export let data: LayoutData;
+  export let data: LayoutServerData;
 
   const isReducedMotion = browser && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  $: isData = data.pathname === '/your-data';
 </script>
 
 <svelte:head>
@@ -28,27 +25,17 @@
   {/if}
 </svelte:head>
 
-<div id="bg" />
 <!-- Dummy div for background styling -->
+<div id="bg" />
 
-{#if !isData}
-  <Header />
-{/if}
 {#if isReducedMotion}
-  <main class={isData ? '' : 'pt-[100px]'}>
+  <div>
     <slot />
-  </main>
+  </div>
 {:else}
   {#key data.pathname}
-    <main
-      class={isData ? '' : 'pt-[100px]'}
-      in:fly={{ x: -10, duration: 350, delay: 350 }}
-      out:fly={{ y: 5, duration: 350 }}
-    >
+    <div in:fly={{ x: -10, duration: 350, delay: 350 }} out:fly={{ y: 5, duration: 350 }}>
       <slot />
-    </main>
+    </div>
   {/key}
-{/if}
-{#if !isData}
-  <Footer />
 {/if}

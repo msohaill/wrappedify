@@ -76,7 +76,6 @@
       } else {
         showGenres = e[0].isIntersecting || e[0].boundingClientRect.top < 0;
       }
-      console.log(e[0]);
     });
     observer.observe(genreHeading);
 

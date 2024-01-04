@@ -1,0 +1,2396 @@
+{
+  "wrappedDate": "2024-01-01T03:42:00.000Z",
+  "total": { "time": 1400594408, "tracks": 1145, "artists": 478, "albums": 807, "genres": 340 },
+  "top": {
+    "tracks": [
+      {
+        "name": "an Interlude Called “Circus” (feat. Eryn Allen Kane)",
+        "plays": 54,
+        "timeListened": 3738744,
+        "artists": ["Saba", "Eryn Allen Kane"],
+        "url": "https://open.spotify.com/track/2Lmpxi7j95HOvsR6zj1Fl3",
+        "previewLink": "https://p.scdn.co/mp3-preview/4355c484ea69f9d710510e42022fdc1fe1b92f96?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:2Lmpxi7j95HOvsR6zj1Fl3",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273aac20d5f8a96a41831a10c80"
+      },
+      {
+        "name": "Saint Bernard",
+        "plays": 50,
+        "timeListened": 5486465,
+        "artists": ["Lincoln"],
+        "url": "https://open.spotify.com/track/3JPnVN4wYlmQnuD7OgDx88",
+        "previewLink": "https://p.scdn.co/mp3-preview/07f0d73ebde190f37ac139fee8036e386a51a247?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:3JPnVN4wYlmQnuD7OgDx88",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d1546c70238fa6aa13610c03"
+      },
+      {
+        "name": "Magic Loop",
+        "plays": 50,
+        "timeListened": 7722188,
+        "artists": ["DJDS", "Dijon"],
+        "url": "https://open.spotify.com/track/268QdafLK67UZrGLuU1Yzw",
+        "previewLink": null,
+        "trackUri": "spotify:track:268QdafLK67UZrGLuU1Yzw",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2734f5eaef77ce079624c429d8c"
+      },
+      {
+        "name": "Wurli",
+        "plays": 48,
+        "timeListened": 7139337,
+        "artists": ["Dominic Fike"],
+        "url": "https://open.spotify.com/track/5MSshyHGM9ajWSEoBcR0jv",
+        "previewLink": "https://p.scdn.co/mp3-preview/33a098b911421fbf2b0aa018b5aed28d45433a22?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:5MSshyHGM9ajWSEoBcR0jv",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273cfc824b65a3b1755d98a7e23"
+      },
+      {
+        "name": "rock n roll",
+        "plays": 47,
+        "timeListened": 6666838,
+        "artists": ["Dijon"],
+        "url": "https://open.spotify.com/track/2mqSzhWWZePP0un56ikszA",
+        "previewLink": "https://p.scdn.co/mp3-preview/d9d460292402b7e7f06820b219ece2445f0e3282?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:2mqSzhWWZePP0un56ikszA",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d060eda49373a6da42963a5f"
+      },
+      {
+        "name": "The Kiss Of Venus (Dominic Fike)",
+        "plays": 46,
+        "timeListened": 6314310,
+        "artists": ["Paul McCartney", "Dominic Fike"],
+        "url": "https://open.spotify.com/track/28kOGtTZzbfQ8fMmTwjRFq",
+        "previewLink": null,
+        "trackUri": "spotify:track:28kOGtTZzbfQ8fMmTwjRFq",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27372275ae8324be1e829320a43"
+      },
+      {
+        "name": "Frisky",
+        "plays": 42,
+        "timeListened": 4621029,
+        "artists": ["Dominic Fike"],
+        "url": "https://open.spotify.com/track/3my33XXLpYUzVEeLOyftV2",
+        "previewLink": "https://p.scdn.co/mp3-preview/36178e647824389a5eee87024e55321654afc107?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:3my33XXLpYUzVEeLOyftV2",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2730fb08616c78d44ceb4c8d061"
+      },
+      {
+        "name": "Dominic’s Interlude",
+        "plays": 41,
+        "timeListened": 3120208,
+        "artists": ["Halsey", "Dominic Fike"],
+        "url": "https://open.spotify.com/track/2sOOXgEGB7nhKO8mmc1GhI",
+        "previewLink": null,
+        "trackUri": "spotify:track:2sOOXgEGB7nhKO8mmc1GhI",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2737636e1c9e67eaafc9f49aefd"
+      },
+      {
+        "name": "Remember When",
+        "plays": 40,
+        "timeListened": 6209160,
+        "artists": ["Wallows"],
+        "url": "https://open.spotify.com/track/5naar7XewEOAjOywIp6Jjq",
+        "previewLink": "https://p.scdn.co/mp3-preview/4f514477aca7c4bfcb203b9feb9c415bb843afa0?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:5naar7XewEOAjOywIp6Jjq",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27384feca0133d9a8e6539a8325"
+      },
+      {
+        "name": "Endlessly",
+        "plays": 39,
+        "timeListened": 5955124,
+        "artists": ["Omar Apollo"],
+        "url": "https://open.spotify.com/track/4VUXAoJESfRV3ceUYtzfpQ",
+        "previewLink": "https://p.scdn.co/mp3-preview/dfe9b176d7f38e856aebd2af6a5447b91af4714e?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:4VUXAoJESfRV3ceUYtzfpQ",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2731849168b94c93280ecaa8049"
+      },
+      {
+        "name": "Homiesexual (with Ty Dolla $ign)",
+        "plays": 39,
+        "timeListened": 8693895,
+        "artists": ["Daniel Caesar", "Ty Dolla $ign"],
+        "url": "https://open.spotify.com/track/4s3RSUwPDxCeWaLEiNOPq3",
+        "previewLink": null,
+        "trackUri": "spotify:track:4s3RSUwPDxCeWaLEiNOPq3",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2737c68face1dc58127f3a7b1cc"
+      },
+      {
+        "name": "Sprawl II (Mountains Beyond Mountains)",
+        "plays": 37,
+        "timeListened": 10896164,
+        "artists": ["Arcade Fire"],
+        "url": "https://open.spotify.com/track/0epAG0WWRlDMsMFJiE5c6I",
+        "previewLink": "https://p.scdn.co/mp3-preview/828ade8302590cffc12ac59b603f9fcc95822d07?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:0epAG0WWRlDMsMFJiE5c6I",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2731d6b4b0418200b6324734062"
+      },
+      {
+        "name": "CRYBABY :*(",
+        "plays": 36,
+        "timeListened": 5616349,
+        "artists": ["Dijon"],
+        "url": "https://open.spotify.com/track/0psWKCR3qW2qqyCTAbCFtO",
+        "previewLink": "https://p.scdn.co/mp3-preview/458b1445ed15bc3e98850c68cca40f1875f6a1bc?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:0psWKCR3qW2qqyCTAbCFtO",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27301baa26c1e3d30f79aa9d116"
+      },
+      {
+        "name": "Verbatim",
+        "plays": 36,
+        "timeListened": 5896350,
+        "artists": ["Mother Mother"],
+        "url": "https://open.spotify.com/track/4IA6pgGRmqfxWGAfyZ8cgR",
+        "previewLink": "https://p.scdn.co/mp3-preview/34d52ea648c9eaef4420bc0d1409a2295895fe1b?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:4IA6pgGRmqfxWGAfyZ8cgR",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2739334fc21964be25ec3179f0f"
+      },
+      {
+        "name": "coogie",
+        "plays": 35,
+        "timeListened": 6577065,
+        "artists": ["Dijon"],
+        "url": "https://open.spotify.com/track/3kBWttZ4s6uSErpI0x3qLZ",
+        "previewLink": "https://p.scdn.co/mp3-preview/7ecae0c57d1da9eb64310dbcbc5aba43910fe0a4?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:3kBWttZ4s6uSErpI0x3qLZ",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2731affaeb6cfbd4db47ee18a3f"
+      },
+      {
+        "name": "Ribs",
+        "plays": 35,
+        "timeListened": 8544636,
+        "artists": ["Lorde"],
+        "url": "https://open.spotify.com/track/2MvvoeRt8NcOXWESkxWn3g",
+        "previewLink": null,
+        "trackUri": "spotify:track:2MvvoeRt8NcOXWESkxWn3g",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273187331e276c898d39764cc98"
+      },
+      {
+        "name": "Ant Pile",
+        "plays": 34,
+        "timeListened": 3997185,
+        "artists": ["Dominic Fike"],
+        "url": "https://open.spotify.com/track/6OrCWnvAja4n5IYdzchJlH",
+        "previewLink": "https://p.scdn.co/mp3-preview/0c1c30985d768f6741629c82c65a45eba7529de2?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:6OrCWnvAja4n5IYdzchJlH",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2730fb08616c78d44ceb4c8d061"
+      },
+      {
+        "name": "Açaí Bowl",
+        "plays": 34,
+        "timeListened": 5830603,
+        "artists": ["Dominic Fike"],
+        "url": "https://open.spotify.com/track/5M3KOe4FGUidvRDUbFFdFk",
+        "previewLink": "https://p.scdn.co/mp3-preview/9c068720429db6cbf0fba89d4f3a0d80ca24af98?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:5M3KOe4FGUidvRDUbFFdFk",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2737cfa916ef30e2f720a9282f3"
+      },
+      {
+        "name": "The Color Violet",
+        "plays": 34,
+        "timeListened": 7272478,
+        "artists": ["Tory Lanez"],
+        "url": "https://open.spotify.com/track/3azJifCSqg9fRij2yKIbWz",
+        "previewLink": "https://p.scdn.co/mp3-preview/1d7c627bf549328110519c4bd21ac39d7ca50ea1?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:3azJifCSqg9fRij2yKIbWz",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2730c5f23cbf0b1ab7e37d0dc67"
+      },
+      {
+        "name": "Dancing In The Courthouse",
+        "plays": 33,
+        "timeListened": 5313438,
+        "artists": ["Dominic Fike"],
+        "url": "https://open.spotify.com/track/5fX8WljoAFrmFrFqahjz4Y",
+        "previewLink": "https://p.scdn.co/mp3-preview/6025c0a660c88e78e6a25cfd46e6a6dbb117aa60?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:5fX8WljoAFrmFrFqahjz4Y",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2730fb08616c78d44ceb4c8d061"
+      },
+      {
+        "name": "How Much Is Weed?",
+        "plays": 33,
+        "timeListened": 4158844,
+        "artists": ["Dominic Fike"],
+        "url": "https://open.spotify.com/track/44KWbTVZev3SWdv1t5UoYE",
+        "previewLink": "https://p.scdn.co/mp3-preview/1c7ddaa8e27c0a24b1e9a2973358dc432d969270?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:44KWbTVZev3SWdv1t5UoYE",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2730fb08616c78d44ceb4c8d061"
+      },
+      {
+        "name": "alley-oop",
+        "plays": 32,
+        "timeListened": 5303983,
+        "artists": ["Dijon"],
+        "url": "https://open.spotify.com/track/6IERGfMBe3csfANIuQ74D9",
+        "previewLink": "https://p.scdn.co/mp3-preview/1454598704e302b9733418dd9e01f729066930d6?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:6IERGfMBe3csfANIuQ74D9",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d060eda49373a6da42963a5f"
+      },
+      {
+        "name": "Mama's Boy",
+        "plays": 32,
+        "timeListened": 5049755,
+        "artists": ["Dominic Fike"],
+        "url": "https://open.spotify.com/track/0b6xZk9f96N77BfmYWnQNC",
+        "previewLink": "https://p.scdn.co/mp3-preview/9032e498034808b9a49d881dd23ca431a20954a5?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:0b6xZk9f96N77BfmYWnQNC",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2730fb08616c78d44ceb4c8d061"
+      },
+      {
+        "name": "RUNNER UP",
+        "plays": 32,
+        "timeListened": 3798539,
+        "artists": ["ARDN"],
+        "url": "https://open.spotify.com/track/0eikbWpIsqfvRkEBR9LP2P",
+        "previewLink": null,
+        "trackUri": "spotify:track:0eikbWpIsqfvRkEBR9LP2P",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2735837c9c0cc29b0aa8b4c0f6b"
+      },
+      {
+        "name": "Listen to Your Friends",
+        "plays": 31,
+        "timeListened": 7727209,
+        "artists": ["Declan McKenna"],
+        "url": "https://open.spotify.com/track/4mvPRLDf0ZedTzzXaXEavJ",
+        "previewLink": "https://p.scdn.co/mp3-preview/dd47422224a56b3608e9476c1eda6713c64bade9?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:4mvPRLDf0ZedTzzXaXEavJ",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273ec8be21d32e663885fbb244e"
+      },
+      {
+        "name": "Alive!",
+        "plays": 31,
+        "timeListened": 6760661,
+        "artists": ["Bakar"],
+        "url": "https://open.spotify.com/track/28cm9uWSKVAfZ0HDBlq4rS",
+        "previewLink": "https://p.scdn.co/mp3-preview/053568d97530cd7d3400a6485256c8950f5efdc6?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:28cm9uWSKVAfZ0HDBlq4rS",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273864f946221840eced94a2243"
+      },
+      {
+        "name": "British Bombs",
+        "plays": 30,
+        "timeListened": 8324702,
+        "artists": ["Declan McKenna"],
+        "url": "https://open.spotify.com/track/4ZdmTNaBTErD8n9AQE0YaX",
+        "previewLink": "https://p.scdn.co/mp3-preview/4d790c864154dfc053a7c55a9d81eb9b38ac925e?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:4ZdmTNaBTErD8n9AQE0YaX",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273b913288a30bced86972d2b3e"
+      },
+      {
+        "name": "Last Words",
+        "plays": 30,
+        "timeListened": 3287580,
+        "artists": ["Kenny Beats"],
+        "url": "https://open.spotify.com/track/1rOKAsJZJDIikOKDeUfPRV",
+        "previewLink": "https://p.scdn.co/mp3-preview/226313d8ed1cb7dee0bf814219f4bdbd5a6b0f2a?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:1rOKAsJZJDIikOKDeUfPRV",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27363af9bcfdea6df60f73d2ade"
+      },
+      {
+        "name": "ZIG ZAGGING",
+        "plays": 30,
+        "timeListened": 3650488,
+        "artists": ["Asha Imuno"],
+        "url": "https://open.spotify.com/track/3N1iERegpLyK2hztjYNp0M",
+        "previewLink": "https://p.scdn.co/mp3-preview/7d974182af246c75678768a7d8ffa5da1bbbe6dd?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:3N1iERegpLyK2hztjYNp0M",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273ffa6b6c80620382dbaaa4cfb"
+      },
+      {
+        "name": "What You Wanna Try",
+        "plays": 29,
+        "timeListened": 4677020,
+        "artists": ["Masego"],
+        "url": "https://open.spotify.com/track/526fD9LiAEi3KKvhhYfWmm",
+        "previewLink": null,
+        "trackUri": "spotify:track:526fD9LiAEi3KKvhhYfWmm",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273799cf48c9e6300054dac9467"
+      },
+      {
+        "name": "AIN'T GON STOP ME",
+        "plays": 29,
+        "timeListened": 2716643,
+        "artists": ["reggie", "monte booker", "Kenny Beats"],
+        "url": "https://open.spotify.com/track/1JdFSVTGl0gDJJVUTBvauR",
+        "previewLink": "https://p.scdn.co/mp3-preview/bc80fcf70665f90d54daaa77840c43159193a72a?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:1JdFSVTGl0gDJJVUTBvauR",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273964a090c9909bf0f6d34137b"
+      },
+      {
+        "name": "Take Time",
+        "plays": 29,
+        "timeListened": 3481562,
+        "artists": ["Cab'Ral"],
+        "url": "https://open.spotify.com/track/25RS4MBFBc7SUDaBW3OAf3",
+        "previewLink": "https://p.scdn.co/mp3-preview/9c9ae70f245adc550121725397f633c8f154d60d?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:25RS4MBFBc7SUDaBW3OAf3",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2730c6cacf32c3c65a86e0c7680"
+      },
+      {
+        "name": "No Good Reason",
+        "plays": 28,
+        "timeListened": 2977424,
+        "artists": ["Omar Apollo"],
+        "url": "https://open.spotify.com/track/4RLl6YFuMKbHOhg9twznvJ",
+        "previewLink": "https://p.scdn.co/mp3-preview/e94818b49970eeeea32e331230e874943d4a2e71?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:4RLl6YFuMKbHOhg9twznvJ",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27390cf5d1ccfca2beb86149a19"
+      },
+      {
+        "name": "Someday",
+        "plays": 28,
+        "timeListened": 5129561,
+        "artists": ["The Strokes"],
+        "url": "https://open.spotify.com/track/7hm4HTk9encxT0LYC0J6oI",
+        "previewLink": "https://p.scdn.co/mp3-preview/241189aa54503d502d3e06cf6996a87a27f73a81?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:7hm4HTk9encxT0LYC0J6oI",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27313f2466b83507515291acce4"
+      },
+      {
+        "name": "IDC (with Joony)",
+        "plays": 28,
+        "timeListened": 3073812,
+        "artists": ["Jordan Ward", "Joony"],
+        "url": "https://open.spotify.com/track/12zPyoqYbVdi5JoZ4A0q22",
+        "previewLink": null,
+        "trackUri": "spotify:track:12zPyoqYbVdi5JoZ4A0q22",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27317696caf00b6e0ac16cbbba4"
+      },
+      {
+        "name": "Sundress",
+        "plays": 28,
+        "timeListened": 4429740,
+        "artists": ["A$AP Rocky"],
+        "url": "https://open.spotify.com/track/2aPTvyE09vUCRwVvj0I8WK",
+        "previewLink": "https://p.scdn.co/mp3-preview/4cc0018584f7e316a81616be3bf66c9d9a42ed0e?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:2aPTvyE09vUCRwVvj0I8WK",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2731ae967e4a02c7a39eb3c189b"
+      },
+      {
+        "name": "Good Luck",
+        "plays": 27,
+        "timeListened": 2037231,
+        "artists": ["Dijon"],
+        "url": "https://open.spotify.com/track/76cZ2GHG0pM6GHiCZSWXyQ",
+        "previewLink": "https://p.scdn.co/mp3-preview/60101fcbc3297b5646f66779aa2daf336e8972f9?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:76cZ2GHG0pM6GHiCZSWXyQ",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273e23235bc4b1a560ce220be5a"
+      },
+      {
+        "name": "Ashamed",
+        "plays": 27,
+        "timeListened": 5085664,
+        "artists": ["Omar Apollo"],
+        "url": "https://open.spotify.com/track/6V5dtTAY64G0bIzQAdxuEl",
+        "previewLink": "https://p.scdn.co/mp3-preview/ebe7eeb1d5148f79f2bc704ae1eb4eee81169b3e?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:6V5dtTAY64G0bIzQAdxuEl",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2732b6ac03f570ff5c15372d98c"
+      },
+      {
+        "name": "10/10",
+        "plays": 27,
+        "timeListened": 3960192,
+        "artists": ["Rex Orange County"],
+        "url": "https://open.spotify.com/track/4tVphly4D1PB8tJC9gHMcJ",
+        "previewLink": "https://p.scdn.co/mp3-preview/e373c45b8ad092cf910dcec7715038ccdc65137b?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:4tVphly4D1PB8tJC9gHMcJ",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273733e6d7818eef87d20df86b5"
+      },
+      {
+        "name": "better friends",
+        "plays": 27,
+        "timeListened": 5637527,
+        "artists": ["BETWEEN FRIENDS"],
+        "url": "https://open.spotify.com/track/2mEDd6hrjVPx9QqldcWQHF",
+        "previewLink": "https://p.scdn.co/mp3-preview/7bd104edebfc4f6ff61534a0c68f110d5a2ef46e?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:2mEDd6hrjVPx9QqldcWQHF",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2738115e1b0ef6b056e772da4bf"
+      },
+      {
+        "name": "OneInOneOut",
+        "plays": 27,
+        "timeListened": 5130006,
+        "artists": ["Bakar"],
+        "url": "https://open.spotify.com/track/5xtcRXVfCm78QuLhCqddkP",
+        "previewLink": "https://p.scdn.co/mp3-preview/c847a6c643bf5343308a82ebd5fa5d3fec136fe4?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:5xtcRXVfCm78QuLhCqddkP",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273864f946221840eced94a2243"
+      },
+      {
+        "name": "Zaza Tree",
+        "plays": 27,
+        "timeListened": 3579447,
+        "artists": ["IDK"],
+        "url": "https://open.spotify.com/track/6mNOqBMluf9aEXgNg1O831",
+        "previewLink": "https://p.scdn.co/mp3-preview/516cbe00dd5d2e478370586632e102e6e8e2a672?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:6mNOqBMluf9aEXgNg1O831",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273e96fd4e6489a84143ef9f34a"
+      },
+      {
+        "name": "WILD",
+        "plays": 26,
+        "timeListened": 4754050,
+        "artists": ["Dijon"],
+        "url": "https://open.spotify.com/track/5Ga3CEWbxx7d5DowD2HUHD",
+        "previewLink": "https://p.scdn.co/mp3-preview/30cda90f2609538d68b53eae8d2428f6255fd7e2?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:5Ga3CEWbxx7d5DowD2HUHD",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2731480d423b262b3ee992a7536"
+      },
+      {
+        "name": "Money Trees",
+        "plays": 26,
+        "timeListened": 9148557,
+        "artists": ["Kendrick Lamar", "Jay Rock"],
+        "url": "https://open.spotify.com/track/2HbKqm4o0w5wEeEFXm2sD4",
+        "previewLink": null,
+        "trackUri": "spotify:track:2HbKqm4o0w5wEeEFXm2sD4",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d28d2ebdedb220e479743797"
+      },
+      {
+        "name": "4x4",
+        "plays": 26,
+        "timeListened": 4365951,
+        "artists": ["Dominic Fike"],
+        "url": "https://open.spotify.com/track/3frC55hy41BhQK65FiJK7q",
+        "previewLink": "https://p.scdn.co/mp3-preview/2c6c94acf433d054f45c480504b3d71918dffec6?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:3frC55hy41BhQK65FiJK7q",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2730fb08616c78d44ceb4c8d061"
+      },
+      {
+        "name": "Westcoast Collective",
+        "plays": 26,
+        "timeListened": 2817091,
+        "artists": ["Dominic Fike"],
+        "url": "https://open.spotify.com/track/7rNun2AyLu4u4rQpRt0iS9",
+        "previewLink": "https://p.scdn.co/mp3-preview/a8128a8322c78a13ecd0c018f134e2c8ae86b56e?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:7rNun2AyLu4u4rQpRt0iS9",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2737b1b6f41c1645af9757d5616"
+      },
+      {
+        "name": "Right Here, for Now",
+        "plays": 26,
+        "timeListened": 5025938,
+        "artists": ["Bakar"],
+        "url": "https://open.spotify.com/track/2LxRUWNqcKcTo7zOrctebE",
+        "previewLink": "https://p.scdn.co/mp3-preview/33779014306cba29a0f9a372a85d20da3d215949?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:2LxRUWNqcKcTo7zOrctebE",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273864f946221840eced94a2243"
+      },
+      {
+        "name": "NW3",
+        "plays": 26,
+        "timeListened": 5914982,
+        "artists": ["Bakar"],
+        "url": "https://open.spotify.com/track/3NSBOLzrxMri9OEyxYeWov",
+        "previewLink": "https://p.scdn.co/mp3-preview/5015a91b7142ed162bfa1f023512b90f23acdf8c?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:3NSBOLzrxMri9OEyxYeWov",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273388fbcd53f6d4647cbf10451"
+      },
+      {
+        "name": "Cocaine Jesus",
+        "plays": 26,
+        "timeListened": 5960852,
+        "artists": ["Rainbow Kitten Surprise"],
+        "url": "https://open.spotify.com/track/3PVBgrzT0nVS1VzJ3MoSXP",
+        "previewLink": "https://p.scdn.co/mp3-preview/066cf1e15ff9b94105f51f0bbb824cb114658f8c?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:3PVBgrzT0nVS1VzJ3MoSXP",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2735a69ce80969485b90c5695e7"
+      },
+      {
+        "name": "Revenge",
+        "plays": 26,
+        "timeListened": 3026554,
+        "artists": ["XXXTENTACION"],
+        "url": "https://open.spotify.com/track/5TXDeTFVRVY7Cvt0Dw4vWW",
+        "previewLink": "https://p.scdn.co/mp3-preview/8f5fe8bb510463b2da20325c8600200bf2984d83?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:5TXDeTFVRVY7Cvt0Dw4vWW",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273203c89bd4391468eea4cc3f5"
+      },
+      {
+        "name": "The Real",
+        "plays": 26,
+        "timeListened": 4137632,
+        "artists": ["Tom Misch", "Yussef Dayes"],
+        "url": "https://open.spotify.com/track/28wERzXJWMb4Qx1bf9EXyW",
+        "previewLink": null,
+        "trackUri": "spotify:track:28wERzXJWMb4Qx1bf9EXyW",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273bd93bbf0c3df5e0242b84831"
+      },
+      {
+        "name": "Helmet",
+        "plays": 25,
+        "timeListened": 4773133,
+        "artists": ["Steve Lacy"],
+        "url": "https://open.spotify.com/track/0DmkBOGgEWMbUJlL6VwwF2",
+        "previewLink": "https://p.scdn.co/mp3-preview/2a12bdde08a274d68b948fdb762eb6d26a5fd84c?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:0DmkBOGgEWMbUJlL6VwwF2",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27368968350c2550e36d96344ee"
+      },
+      {
+        "name": "Unstoppable",
+        "plays": 25,
+        "timeListened": 5942102,
+        "artists": ["Daniel Caesar"],
+        "url": "https://open.spotify.com/track/7tyYT0hZoSP8mwOlO5CxJi",
+        "previewLink": null,
+        "trackUri": "spotify:track:7tyYT0hZoSP8mwOlO5CxJi",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273e242f18dafe885fcf425fe1f"
+      },
+      {
+        "name": "Eugene",
+        "plays": 25,
+        "timeListened": 5008647,
+        "artists": ["Arlo Parks"],
+        "url": "https://open.spotify.com/track/39iRY3sjr8lsBVlBpDLwDu",
+        "previewLink": "https://p.scdn.co/mp3-preview/9ae5be8ee71154a5dcddf1f43bda42009a388b6b?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:39iRY3sjr8lsBVlBpDLwDu",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273cec0a281befabb57e5eec123"
+      },
+      {
+        "name": "ALL DAY",
+        "plays": 25,
+        "timeListened": 4847614,
+        "artists": ["Gaff"],
+        "url": "https://open.spotify.com/track/4yHgmIkxcd8WKjHQ9Gt4zI",
+        "previewLink": "https://p.scdn.co/mp3-preview/bdd1ddba5bce7a0dff58057962a7a968cd036279?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:4yHgmIkxcd8WKjHQ9Gt4zI",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2731ff07298e5b904c66ae38907"
+      },
+      {
+        "name": "Green Green Grass",
+        "plays": 24,
+        "timeListened": 3780944,
+        "artists": ["George Ezra"],
+        "url": "https://open.spotify.com/track/4N5s8lPTsjI9EGP7K4SXzB",
+        "previewLink": "https://p.scdn.co/mp3-preview/0c3b976be5170efd8549b42eb4220a059b75552d?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:4N5s8lPTsjI9EGP7K4SXzB",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2739dd1a35ada9870dc879dfb9e"
+      },
+      {
+        "name": "Toast",
+        "plays": 24,
+        "timeListened": 4190731,
+        "artists": ["Koffee"],
+        "url": "https://open.spotify.com/track/7sd72KZS8D59g5NmhxyHpJ",
+        "previewLink": "https://p.scdn.co/mp3-preview/612400bc704df48e2bb3d9e7e1c325d8ce659006?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:7sd72KZS8D59g5NmhxyHpJ",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273dca1f17bc5ae38d946571386"
+      },
+      {
+        "name": "Lady - Hear Me Tonight",
+        "plays": 24,
+        "timeListened": 6446411,
+        "artists": ["Modjo"],
+        "url": "https://open.spotify.com/track/49X0LAl6faAusYq02PRAY6",
+        "previewLink": "https://p.scdn.co/mp3-preview/05e58f0bcf5a9a29f60d5aa4fd685a528a59f328?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:49X0LAl6faAusYq02PRAY6",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27354c5c304064df85d61253ac7"
+      },
+      {
+        "name": "Live For Me",
+        "plays": 23,
+        "timeListened": 4876025,
+        "artists": ["Omar Apollo"],
+        "url": "https://open.spotify.com/track/0d5OZ7YYD8YXlXGitjHO0n",
+        "previewLink": "https://p.scdn.co/mp3-preview/547ef328c7576928afca787e3e18cae67a38e07d?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:0d5OZ7YYD8YXlXGitjHO0n",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273e5410096d1fcfecce61f27c5"
+      },
+      {
+        "name": "Two Sides (I'm So Gemini)",
+        "plays": 23,
+        "timeListened": 3648983,
+        "artists": ["Masego"],
+        "url": "https://open.spotify.com/track/3lu6L8Yo0FsFjbfOhG9HFz",
+        "previewLink": null,
+        "trackUri": "spotify:track:3lu6L8Yo0FsFjbfOhG9HFz",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273799cf48c9e6300054dac9467"
+      },
+      {
+        "name": "It's Called: Freefall",
+        "plays": 23,
+        "timeListened": 3728040,
+        "artists": ["Rainbow Kitten Surprise"],
+        "url": "https://open.spotify.com/track/474uVhyGgK5MtY9gMcDgGl",
+        "previewLink": "https://p.scdn.co/mp3-preview/84be00e486991c2b8b7d8625dd90fd9624993d20?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:474uVhyGgK5MtY9gMcDgGl",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2739529217e48fc8bab89c8a1f9"
+      },
+      {
+        "name": "Magie",
+        "plays": 23,
+        "timeListened": 5594764,
+        "artists": ["Bon Enfant"],
+        "url": "https://open.spotify.com/track/0YtMcpJmoDLPEuKXzZRSFl",
+        "previewLink": "https://p.scdn.co/mp3-preview/35b9368ba658d5b18c7b73887fb5b87b4856178e?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:0YtMcpJmoDLPEuKXzZRSFl",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27358777ff776135e1029a3f219"
+      },
+      {
+        "name": "Video Killed The Radio Star",
+        "plays": 23,
+        "timeListened": 5286585,
+        "artists": ["The Buggles"],
+        "url": "https://open.spotify.com/track/6t1FIJlZWTQfIZhsGjaulM",
+        "previewLink": null,
+        "trackUri": "spotify:track:6t1FIJlZWTQfIZhsGjaulM",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27370b6cfff0487d653a8c7ce01"
+      },
+      {
+        "name": "hunni",
+        "plays": 22,
+        "timeListened": 2734027,
+        "artists": ["Dijon"],
+        "url": "https://open.spotify.com/track/76o5rjnUSoFsjztbVZxhqV",
+        "previewLink": "https://p.scdn.co/mp3-preview/238cc845cf2a2a749608c811360293e1364865d8?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:76o5rjnUSoFsjztbVZxhqV",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d060eda49373a6da42963a5f"
+      },
+      {
+        "name": "7 Hours",
+        "plays": 22,
+        "timeListened": 3674408,
+        "artists": ["Dominic Fike"],
+        "url": "https://open.spotify.com/track/2SWqVCbl51UX5xgDHvE1uT",
+        "previewLink": "https://p.scdn.co/mp3-preview/c998b695fcce6d72e1894aa8ccf852678ada47f3?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:2SWqVCbl51UX5xgDHvE1uT",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2730fb08616c78d44ceb4c8d061"
+      },
+      {
+        "name": "Sunburn",
+        "plays": 22,
+        "timeListened": 3883158,
+        "artists": ["Dominic Fike"],
+        "url": "https://open.spotify.com/track/2Z90fzU2ZlMaUEgA2rhJxr",
+        "previewLink": "https://p.scdn.co/mp3-preview/492efe420004a146a83d46207cf823a12780e310?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:2Z90fzU2ZlMaUEgA2rhJxr",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2730fb08616c78d44ceb4c8d061"
+      },
+      {
+        "name": "Ode to a Conversation Stuck in Your Throat",
+        "plays": 22,
+        "timeListened": 4316425,
+        "artists": ["Del Water Gap"],
+        "url": "https://open.spotify.com/track/51Lf3l6wx008NdBxCQnD6B",
+        "previewLink": "https://p.scdn.co/mp3-preview/ba0b104edfb89ceda5926d45a6da366f32ca6153?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:51Lf3l6wx008NdBxCQnD6B",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2734809a527289734861ce03e20"
+      },
+      {
+        "name": "The Adults Are Talking",
+        "plays": 22,
+        "timeListened": 6008296,
+        "artists": ["The Strokes"],
+        "url": "https://open.spotify.com/track/5ruzrDWcT0vuJIOMW7gMnW",
+        "previewLink": "https://p.scdn.co/mp3-preview/213afafcea2fa6b5c7e5fd71c1fd8f4adc3ffba0?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:5ruzrDWcT0vuJIOMW7gMnW",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273bfa99afb5ef0d26d5064b23b"
+      },
+      {
+        "name": "Sen Aşkımızdan",
+        "plays": 22,
+        "timeListened": 4357302,
+        "artists": ["Evrencan Gündüz", "Melisa Karakurt", "Ece Cansu Ertuğrul"],
+        "url": "https://open.spotify.com/track/2UdpECi2YS8xoODi8yqlqw",
+        "previewLink": "https://p.scdn.co/mp3-preview/bddf0f03d1f2d52162f97c84e80efc86275fbc8a?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:2UdpECi2YS8xoODi8yqlqw",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273277929b771a4e0433efcbd67"
+      },
+      {
+        "name": "Traingazing",
+        "plays": 22,
+        "timeListened": 4538479,
+        "artists": ["Sam Wills", "Honey Mooncie"],
+        "url": "https://open.spotify.com/track/49QEJdbU9mf4VUXReOpZ9u",
+        "previewLink": "https://p.scdn.co/mp3-preview/9769767685d5ad639bfd04ffa6b266a16fe3e579?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:49QEJdbU9mf4VUXReOpZ9u",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273c86eb4500755a97012e00d10"
+      },
+      {
+        "name": "Unbothered",
+        "plays": 21,
+        "timeListened": 2624034,
+        "artists": ["Omar Apollo"],
+        "url": "https://open.spotify.com/track/3pBG8fHFEUp3edhWfkIoCW",
+        "previewLink": "https://p.scdn.co/mp3-preview/ecdd0f00344f0b8bff445dc4839afdb46fc2a3d4?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:3pBG8fHFEUp3edhWfkIoCW",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27339f1d1a998c19ae81af57142"
+      },
+      {
+        "name": "Die Hard",
+        "plays": 21,
+        "timeListened": 4684304,
+        "artists": ["Kendrick Lamar", "Blxst", "Amanda Reifer"],
+        "url": "https://open.spotify.com/track/2g6tReTlM2Akp41g0HaeXN",
+        "previewLink": null,
+        "trackUri": "spotify:track:2g6tReTlM2Akp41g0HaeXN",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2732e02117d76426a08ac7c174f"
+      },
+      {
+        "name": "Double Negative (Skeleton Milkshake)",
+        "plays": 21,
+        "timeListened": 2606703,
+        "artists": ["Dominic Fike"],
+        "url": "https://open.spotify.com/track/7ACT6YaXbYvl7hRWEOOEHQ",
+        "previewLink": "https://p.scdn.co/mp3-preview/22be68b8edbd710ba2895972f39eefc743001921?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:7ACT6YaXbYvl7hRWEOOEHQ",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273cfc824b65a3b1755d98a7e23"
+      },
+      {
+        "name": "Pasture Child",
+        "plays": 21,
+        "timeListened": 3642786,
+        "artists": ["Dominic Fike"],
+        "url": "https://open.spotify.com/track/5APPlPgagEAXjGLIizqSDS",
+        "previewLink": "https://p.scdn.co/mp3-preview/28d52f9b07f799a8aa46952027ae499c5c2c8e36?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:5APPlPgagEAXjGLIizqSDS",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2730fb08616c78d44ceb4c8d061"
+      },
+      {
+        "name": "Ocho Rios",
+        "plays": 21,
+        "timeListened": 3098354,
+        "artists": ["Daniel Caesar"],
+        "url": "https://open.spotify.com/track/5XUuMp2i5ojqcDOSusChqL",
+        "previewLink": null,
+        "trackUri": "spotify:track:5XUuMp2i5ojqcDOSusChqL",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2737c68face1dc58127f3a7b1cc"
+      },
+      {
+        "name": "Juice",
+        "plays": 21,
+        "timeListened": 3830197,
+        "artists": ["Chance the Rapper"],
+        "url": "https://open.spotify.com/track/4J2s7nWDdA7i92sojYX8RJ",
+        "previewLink": "https://p.scdn.co/mp3-preview/163b36b5a4285ac3450043f4ef37dda870469fe7?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:4J2s7nWDdA7i92sojYX8RJ",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273cf2c85c09079470c6662eccf"
+      },
+      {
+        "name": "Superlative Heroes",
+        "plays": 21,
+        "timeListened": 2688222,
+        "artists": ["Samsa", "Headhaunter"],
+        "url": "https://open.spotify.com/track/6kOvq3AnVsMCRSSr2VV5P9",
+        "previewLink": "https://p.scdn.co/mp3-preview/118487772819c3c218cb1231d4da1258473f91f5?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:6kOvq3AnVsMCRSSr2VV5P9",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273a36eb2a0230e0b5d27efb5fa"
+      },
+      {
+        "name": "Pleaser",
+        "plays": 21,
+        "timeListened": 3806297,
+        "artists": ["Wallows"],
+        "url": "https://open.spotify.com/track/11zf7m4vw9Ze7cer9Nyhk1",
+        "previewLink": "https://p.scdn.co/mp3-preview/f45c1279490a2d44d9739773379362e4f6dfe5a5?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:11zf7m4vw9Ze7cer9Nyhk1",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2732f9f935ad8d888a88c41d58c"
+      },
+      {
+        "name": "Ziplock",
+        "plays": 21,
+        "timeListened": 3916213,
+        "artists": ["Saba"],
+        "url": "https://open.spotify.com/track/2RmENPt0yPmU09BKjKC26M",
+        "previewLink": "https://p.scdn.co/mp3-preview/1baaf95efe5ddef4f9df35bce21c078aadc9ef71?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:2RmENPt0yPmU09BKjKC26M",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273c85523ed3f43010196c56a3a"
+      },
+      {
+        "name": "American Boy",
+        "plays": 21,
+        "timeListened": 5185391,
+        "artists": ["Estelle", "Kanye West"],
+        "url": "https://open.spotify.com/track/6etwirSInfuJrSOlogS6Sh",
+        "previewLink": "https://p.scdn.co/mp3-preview/6f51d610e0fcdf1a2452dde184f2c3c1a761885f?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:6etwirSInfuJrSOlogS6Sh",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27398dc3e242a818007dd67b7c5"
+      },
+      {
+        "name": "Archetype",
+        "plays": 20,
+        "timeListened": 3260294,
+        "artists": ["Omar Apollo"],
+        "url": "https://open.spotify.com/track/5Cyy8UMG6ch51oXYenPGzN",
+        "previewLink": "https://p.scdn.co/mp3-preview/2c91298b8a554cadecc534e7c6f5b976df85ccdd?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:5Cyy8UMG6ch51oXYenPGzN",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2731849168b94c93280ecaa8049"
+      },
+      {
+        "name": "She Wants My Money",
+        "plays": 20,
+        "timeListened": 2671200,
+        "artists": ["Dominic Fike"],
+        "url": "https://open.spotify.com/track/0IajnzlicUA89rZSkqfLPS",
+        "previewLink": "https://p.scdn.co/mp3-preview/a3ee0bc1ccbb57a5fee9df287194c57010c60cf8?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:0IajnzlicUA89rZSkqfLPS",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2737b1b6f41c1645af9757d5616"
+      },
+      {
+        "name": "OTT",
+        "plays": 20,
+        "timeListened": 3132485,
+        "artists": ["easy life", "BENEE"],
+        "url": "https://open.spotify.com/track/5vrOwoXILW22WyXkhGLciY",
+        "previewLink": null,
+        "trackUri": "spotify:track:5vrOwoXILW22WyXkhGLciY",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2734c112ad7ddfb07f1bf1a9211"
+      },
+      {
+        "name": "Sunflower - Spider-Man: Into the Spider-Verse",
+        "plays": 20,
+        "timeListened": 3073468,
+        "artists": ["Post Malone", "Swae Lee"],
+        "url": "https://open.spotify.com/track/0RiRZpuVRbi7oqRdSMwhQY",
+        "previewLink": null,
+        "trackUri": "spotify:track:0RiRZpuVRbi7oqRdSMwhQY",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2739478c87599550dd73bfa7e02"
+      },
+      {
+        "name": "The 1975",
+        "plays": 20,
+        "timeListened": 5219838,
+        "artists": ["The 1975"],
+        "url": "https://open.spotify.com/track/7omxuGYsym1n2RlVf86OF9",
+        "previewLink": "https://p.scdn.co/mp3-preview/90c416b242a2735a8de84f2d5268d1e95de0948e?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:7omxuGYsym1n2RlVf86OF9",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2731f44db452a68e229650a302c"
+      },
+      {
+        "name": "FAMJAM4000",
+        "plays": 20,
+        "timeListened": 3026617,
+        "artists": ["Jordan Ward"],
+        "url": "https://open.spotify.com/track/08vlprFBmwh9TQnjXUtZDG",
+        "previewLink": null,
+        "trackUri": "spotify:track:08vlprFBmwh9TQnjXUtZDG",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27317696caf00b6e0ac16cbbba4"
+      },
+      {
+        "name": "Kilby Girl",
+        "plays": 20,
+        "timeListened": 5070245,
+        "artists": ["The Backseat Lovers"],
+        "url": "https://open.spotify.com/track/1170VohRSx6GwE6QDCHPPH",
+        "previewLink": "https://p.scdn.co/mp3-preview/2e1fb49dc9c9d3ec9b40d6fb1df6b8ca044cc33e?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:1170VohRSx6GwE6QDCHPPH",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2738386795a636d72e74c958590"
+      },
+      {
+        "name": "Intimidated (feat. H.E.R.)",
+        "plays": 20,
+        "timeListened": 3907679,
+        "artists": ["KAYTRANADA", "H.E.R."],
+        "url": "https://open.spotify.com/track/0dFdGPVLs3k0z9ezYWZzUa",
+        "previewLink": "https://p.scdn.co/mp3-preview/f8a126e1c8c8b741ecfa53e0bb9f6ea7b2fb7e0b?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:0dFdGPVLs3k0z9ezYWZzUa",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273f310d5609e266549b3094564"
+      },
+      {
+        "name": "Talk",
+        "plays": 19,
+        "timeListened": 2945659,
+        "artists": ["Omar Apollo"],
+        "url": "https://open.spotify.com/track/3wXft3pfqMptVjxzEDi8be",
+        "previewLink": "https://p.scdn.co/mp3-preview/cf909ad86339554fea67f17e5c77ea5fa25bc55a?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:3wXft3pfqMptVjxzEDi8be",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27390cf5d1ccfca2beb86149a19"
+      },
+      {
+        "name": "Mona Lisa",
+        "plays": 19,
+        "timeListened": 3390149,
+        "artists": ["Dominic Fike"],
+        "url": "https://open.spotify.com/track/71DSaeKtXQaMAqnvMT7Uoc",
+        "previewLink": "https://p.scdn.co/mp3-preview/cea8b314f8b3777c6b87a45187b7b522d3911fde?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:71DSaeKtXQaMAqnvMT7Uoc",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2730fb08616c78d44ceb4c8d061"
+      },
+      {
+        "name": "Drop Stop Roll",
+        "plays": 19,
+        "timeListened": 3234660,
+        "artists": ["Rainbow Kitten Surprise"],
+        "url": "https://open.spotify.com/track/1y3NV3N99VoSP4crdkbog7",
+        "previewLink": "https://p.scdn.co/mp3-preview/22344f474455e82793b811af23b8d09546ec6ecc?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:1y3NV3N99VoSP4crdkbog7",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273ea706c03f365fd069d95b395"
+      },
+      {
+        "name": "Freakin' Out On the Interstate",
+        "plays": 19,
+        "timeListened": 4786214,
+        "artists": ["Briston Maroney"],
+        "url": "https://open.spotify.com/track/0awZwmlC6pxH65KTZpadmX",
+        "previewLink": "https://p.scdn.co/mp3-preview/6676fb7981890194cfeadae9e8234e8a05c79798?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:0awZwmlC6pxH65KTZpadmX",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2733c008a88733819759c4512c6"
+      },
+      {
+        "name": "Shut up My Moms Calling",
+        "plays": 19,
+        "timeListened": 3005414,
+        "artists": ["Hotel Ugly"],
+        "url": "https://open.spotify.com/track/3hxIUxnT27p5WcmjGUXNwx",
+        "previewLink": "https://p.scdn.co/mp3-preview/7642409265c74b714a2f0f0dd8663c031e253485?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:3hxIUxnT27p5WcmjGUXNwx",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273350ab7a839c04bfd5225a9f5"
+      },
+      {
+        "name": "‘87 Stingray",
+        "plays": 19,
+        "timeListened": 2605348,
+        "artists": ["Tory Lanez"],
+        "url": "https://open.spotify.com/track/17sPXQa8bT24ToCYHXuQXI",
+        "previewLink": "https://p.scdn.co/mp3-preview/bda9b4b7a488821f35fbfb87ce6661732386d450?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:17sPXQa8bT24ToCYHXuQXI",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2730c5f23cbf0b1ab7e37d0dc67"
+      },
+      {
+        "name": "Good To Know (feat. Masego, Kp & Ambriia)",
+        "plays": 19,
+        "timeListened": 4429613,
+        "artists": ["Ciscero", "Masego", "Ambriia", "KP_"],
+        "url": "https://open.spotify.com/track/42DZ6nBYhvyoLwmCUGz2T9",
+        "previewLink": "https://p.scdn.co/mp3-preview/e895a7129d18a5cdb5862ad43c3c0c566c418418?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:42DZ6nBYhvyoLwmCUGz2T9",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2736a7e37e04e548ff9b4e074d4"
+      },
+      {
+        "name": "From The Start",
+        "plays": 19,
+        "timeListened": 3129674,
+        "artists": ["Laufey"],
+        "url": "https://open.spotify.com/track/1Ukxccao1BlWrPhYkcXbwZ",
+        "previewLink": "https://p.scdn.co/mp3-preview/21ae8b2903053d51938dd8dc0f74bad325411344?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:1Ukxccao1BlWrPhYkcXbwZ",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27310ee65ae464018c19c8e8ab4"
+      },
+      {
+        "name": "Petrified",
+        "plays": 18,
+        "timeListened": 3554154,
+        "artists": ["Omar Apollo"],
+        "url": "https://open.spotify.com/track/0G41EUi3xiwUR6iOtXAQCz",
+        "previewLink": "https://p.scdn.co/mp3-preview/9c37c14ddc369fc44c0e64990818810f8ee22f86?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:0G41EUi3xiwUR6iOtXAQCz",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27390cf5d1ccfca2beb86149a19"
+      },
+      {
+        "name": "Toronto 2014 (with Mustafa)",
+        "plays": 18,
+        "timeListened": 4769377,
+        "artists": ["Daniel Caesar", "Mustafa"],
+        "url": "https://open.spotify.com/track/4t9R5rbtovdvya28uMODDz",
+        "previewLink": null,
+        "trackUri": "spotify:track:4t9R5rbtovdvya28uMODDz",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2737c68face1dc58127f3a7b1cc"
+      },
+      {
+        "name": "Head In The Clouds",
+        "plays": 18,
+        "timeListened": 3088937,
+        "artists": ["Hayd"],
+        "url": "https://open.spotify.com/track/3CeKc83EsgRPItgvlDHo5B",
+        "previewLink": null,
+        "trackUri": "spotify:track:3CeKc83EsgRPItgvlDHo5B",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273aadad72b1e84839f27c42590"
+      },
+      {
+        "name": "didya think",
+        "plays": 18,
+        "timeListened": 3500561,
+        "artists": ["Arlie"],
+        "url": "https://open.spotify.com/track/4HOg84QsolNLzNp08qZ3sX",
+        "previewLink": "https://p.scdn.co/mp3-preview/abdd7157babfb5a95d8e7c2b4323a6582f157002?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+        "trackUri": "spotify:track:4HOg84QsolNLzNp08qZ3sX",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27386ab7fc85640321a5f0d56e1"
+      }
+    ],
+    "artists": [
+      {
+        "name": "Dominic Fike",
+        "plays": 577,
+        "timeListened": 83881126,
+        "topSong": {
+          "name": "Wurli",
+          "plays": 48,
+          "timeListened": 7139337,
+          "artists": ["Dominic Fike"],
+          "url": "https://open.spotify.com/track/5MSshyHGM9ajWSEoBcR0jv",
+          "previewLink": "https://p.scdn.co/mp3-preview/33a098b911421fbf2b0aa018b5aed28d45433a22?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:5MSshyHGM9ajWSEoBcR0jv",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b273cfc824b65a3b1755d98a7e23"
+        },
+        "url": "https://open.spotify.com/artist/6USv9qhCn6zfxlBQIYJ9qs",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebbe491d3676793a1697c61254"
+      },
+      {
+        "name": "Dijon",
+        "plays": 407,
+        "timeListened": 65126235,
+        "topSong": {
+          "name": "rock n roll",
+          "plays": 47,
+          "timeListened": 6666838,
+          "artists": ["Dijon"],
+          "url": "https://open.spotify.com/track/2mqSzhWWZePP0un56ikszA",
+          "previewLink": "https://p.scdn.co/mp3-preview/d9d460292402b7e7f06820b219ece2445f0e3282?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:2mqSzhWWZePP0un56ikszA",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d060eda49373a6da42963a5f"
+        },
+        "url": "https://open.spotify.com/artist/0knGpCTbmG4ctl1wzYRZs4",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb8da3e6e26f2cd05958f17a65"
+      },
+      {
+        "name": "Daniel Caesar",
+        "plays": 283,
+        "timeListened": 64504146,
+        "topSong": {
+          "name": "Homiesexual (with Ty Dolla $ign)",
+          "plays": 39,
+          "timeListened": 8693895,
+          "artists": ["Daniel Caesar", "Ty Dolla $ign"],
+          "url": "https://open.spotify.com/track/4s3RSUwPDxCeWaLEiNOPq3",
+          "previewLink": null,
+          "trackUri": "spotify:track:4s3RSUwPDxCeWaLEiNOPq3",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b2737c68face1dc58127f3a7b1cc"
+        },
+        "url": "https://open.spotify.com/artist/20wkVLutqVOYrc0kxFs7rA",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebe5bc630548fb3517cf90edb8"
+      },
+      {
+        "name": "Omar Apollo",
+        "plays": 327,
+        "timeListened": 56031449,
+        "topSong": {
+          "name": "Endlessly",
+          "plays": 39,
+          "timeListened": 5955124,
+          "artists": ["Omar Apollo"],
+          "url": "https://open.spotify.com/track/4VUXAoJESfRV3ceUYtzfpQ",
+          "previewLink": "https://p.scdn.co/mp3-preview/dfe9b176d7f38e856aebd2af6a5447b91af4714e?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:4VUXAoJESfRV3ceUYtzfpQ",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b2731849168b94c93280ecaa8049"
+        },
+        "url": "https://open.spotify.com/artist/5FxD8fkQZ6KcsSYupDVoSO",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb0e2a3a2c664a4bbb14e44f8e"
+      },
+      {
+        "name": "Bakar",
+        "plays": 225,
+        "timeListened": 42041577,
+        "topSong": {
+          "name": "Alive!",
+          "plays": 31,
+          "timeListened": 6760661,
+          "artists": ["Bakar"],
+          "url": "https://open.spotify.com/track/28cm9uWSKVAfZ0HDBlq4rS",
+          "previewLink": "https://p.scdn.co/mp3-preview/053568d97530cd7d3400a6485256c8950f5efdc6?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:28cm9uWSKVAfZ0HDBlq4rS",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b273864f946221840eced94a2243"
+        },
+        "url": "https://open.spotify.com/artist/3K2Srho6NCF3o9MswGR76H",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebdc4cd9d48938f22e33de239b"
+      },
+      {
+        "name": "Frank Ocean",
+        "plays": 147,
+        "timeListened": 34485518,
+        "topSong": {
+          "name": "Nights",
+          "plays": 16,
+          "timeListened": 4423398,
+          "artists": ["Frank Ocean"],
+          "url": "https://open.spotify.com/track/7eqoqGkKwgOaWNNHx90uEZ",
+          "previewLink": "https://p.scdn.co/mp3-preview/478a51ff059dc1abb20548ac2f3d3d73d75c3cb7?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:7eqoqGkKwgOaWNNHx90uEZ",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b273c5649add07ed3720be9d5526"
+        },
+        "url": "https://open.spotify.com/artist/2h93pZq0e7k5yf4dywlkpM",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebee3123e593174208f9754fab"
+      },
+      {
+        "name": "Kendrick Lamar",
+        "plays": 119,
+        "timeListened": 31039880,
+        "topSong": {
+          "name": "Money Trees",
+          "plays": 26,
+          "timeListened": 9148557,
+          "artists": ["Kendrick Lamar", "Jay Rock"],
+          "url": "https://open.spotify.com/track/2HbKqm4o0w5wEeEFXm2sD4",
+          "previewLink": null,
+          "trackUri": "spotify:track:2HbKqm4o0w5wEeEFXm2sD4",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d28d2ebdedb220e479743797"
+        },
+        "url": "https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb437b9e2a82505b3d93ff1022"
+      },
+      {
+        "name": "Steve Lacy",
+        "plays": 159,
+        "timeListened": 28338501,
+        "topSong": {
+          "name": "Helmet",
+          "plays": 25,
+          "timeListened": 4773133,
+          "artists": ["Steve Lacy"],
+          "url": "https://open.spotify.com/track/0DmkBOGgEWMbUJlL6VwwF2",
+          "previewLink": "https://p.scdn.co/mp3-preview/2a12bdde08a274d68b948fdb762eb6d26a5fd84c?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:0DmkBOGgEWMbUJlL6VwwF2",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b27368968350c2550e36d96344ee"
+        },
+        "url": "https://open.spotify.com/artist/57vWImR43h4CaDao012Ofp",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb09ac9d040c168d4e4f58eb42"
+      },
+      {
+        "name": "Chance the Rapper",
+        "plays": 112,
+        "timeListened": 22643077,
+        "topSong": {
+          "name": "Juice",
+          "plays": 21,
+          "timeListened": 3830197,
+          "artists": ["Chance the Rapper"],
+          "url": "https://open.spotify.com/track/4J2s7nWDdA7i92sojYX8RJ",
+          "previewLink": "https://p.scdn.co/mp3-preview/163b36b5a4285ac3450043f4ef37dda870469fe7?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:4J2s7nWDdA7i92sojYX8RJ",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b273cf2c85c09079470c6662eccf"
+        },
+        "url": "https://open.spotify.com/artist/1anyVhU62p31KFi8MEzkbf",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5eba6ab3c4df02cec59758ae3fa"
+      },
+      {
+        "name": "Kanye West",
+        "plays": 84,
+        "timeListened": 21223707,
+        "topSong": {
+          "name": "Runaway",
+          "plays": 17,
+          "timeListened": 7975291,
+          "artists": ["Kanye West", "Pusha T"],
+          "url": "https://open.spotify.com/track/3DK6m7It6Pw857FcQftMds",
+          "previewLink": null,
+          "trackUri": "spotify:track:3DK6m7It6Pw857FcQftMds",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d9194aa18fa4c9362b47464f"
+        },
+        "url": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb867008a971fae0f4d913f63a"
+      },
+      {
+        "name": "J. Cole",
+        "plays": 95,
+        "timeListened": 20705297,
+        "topSong": {
+          "name": "MIDDLE CHILD",
+          "plays": 13,
+          "timeListened": 2490501,
+          "artists": ["J. Cole"],
+          "url": "https://open.spotify.com/track/2JvzF1RMd7lE3KmFlsyZD8",
+          "previewLink": null,
+          "trackUri": "spotify:track:2JvzF1RMd7lE3KmFlsyZD8",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b2737f37a4001ae7d8be430bd91b"
+        },
+        "url": "https://open.spotify.com/artist/6l3HvQ5sa6mXTsMTB19rO5",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebadd503b411a712e277895c8a"
+      },
+      {
+        "name": "Declan McKenna",
+        "plays": 77,
+        "timeListened": 19815775,
+        "topSong": {
+          "name": "Listen to Your Friends",
+          "plays": 31,
+          "timeListened": 7727209,
+          "artists": ["Declan McKenna"],
+          "url": "https://open.spotify.com/track/4mvPRLDf0ZedTzzXaXEavJ",
+          "previewLink": "https://p.scdn.co/mp3-preview/dd47422224a56b3608e9476c1eda6713c64bade9?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:4mvPRLDf0ZedTzzXaXEavJ",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b273ec8be21d32e663885fbb244e"
+        },
+        "url": "https://open.spotify.com/artist/2D4FOOOtWycb3Aw9nY5n3c",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebd22f5179fa03de4acad6298d"
+      },
+      {
+        "name": "Childish Gambino",
+        "plays": 74,
+        "timeListened": 17581747,
+        "topSong": {
+          "name": "Retro (Rough)",
+          "plays": 11,
+          "timeListened": 2229326,
+          "artists": ["Childish Gambino"],
+          "url": "https://open.spotify.com/track/7Dj5qxfo9DmBCPMUYZFLxE",
+          "previewLink": "https://p.scdn.co/mp3-preview/0de934d3325a3f75f61deb7cff984cbf7b8d9556?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:7Dj5qxfo9DmBCPMUYZFLxE",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d98a6832141788d8c355852b"
+        },
+        "url": "https://open.spotify.com/artist/73sIBHcqh3Z3NyqHKZ7FOL",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb3ef779aa0d271adb2b6a3ded"
+      },
+      {
+        "name": "Mac Miller",
+        "plays": 67,
+        "timeListened": 14540009,
+        "topSong": {
+          "name": "Love Lost",
+          "plays": 14,
+          "timeListened": 2059835,
+          "artists": ["Mac Miller", "The Temper Trap"],
+          "url": "https://open.spotify.com/track/2z9iuAxKv4TTeCrPAxxKg9",
+          "previewLink": "https://p.scdn.co/mp3-preview/00be55b4568a2fe3985459db905d3e9ca2d845fd?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:2z9iuAxKv4TTeCrPAxxKg9",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b273c8a77225ad852699c908ac4b"
+        },
+        "url": "https://open.spotify.com/artist/4LLpKhyESsyAXpc4laK94U",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebed3b89aa602145fde71a163a"
+      },
+      {
+        "name": "easy life",
+        "plays": 81,
+        "timeListened": 14060306,
+        "topSong": {
+          "name": "OTT",
+          "plays": 20,
+          "timeListened": 3132485,
+          "artists": ["easy life", "BENEE"],
+          "url": "https://open.spotify.com/track/5vrOwoXILW22WyXkhGLciY",
+          "previewLink": null,
+          "trackUri": "spotify:track:5vrOwoXILW22WyXkhGLciY",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b2734c112ad7ddfb07f1bf1a9211"
+        },
+        "url": "https://open.spotify.com/artist/7uwY65fDg3FVJ8MkJ5QuZK",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb43268258873d293765b1f569"
+      },
+      {
+        "name": "Rex Orange County",
+        "plays": 78,
+        "timeListened": 14024818,
+        "topSong": {
+          "name": "10/10",
+          "plays": 27,
+          "timeListened": 3960192,
+          "artists": ["Rex Orange County"],
+          "url": "https://open.spotify.com/track/4tVphly4D1PB8tJC9gHMcJ",
+          "previewLink": "https://p.scdn.co/mp3-preview/e373c45b8ad092cf910dcec7715038ccdc65137b?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:4tVphly4D1PB8tJC9gHMcJ",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b273733e6d7818eef87d20df86b5"
+        },
+        "url": "https://open.spotify.com/artist/7pbDxGE6nQSZVfiFdq9lOL",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebffb90f91cb2f487d7309f7bc"
+      },
+      {
+        "name": "Drake",
+        "plays": 64,
+        "timeListened": 13523463,
+        "topSong": {
+          "name": "One Dance",
+          "plays": 17,
+          "timeListened": 2657951,
+          "artists": ["Drake", "Wizkid", "Kyla"],
+          "url": "https://open.spotify.com/track/1zi7xx7UVEFkmKfv06H8x0",
+          "previewLink": null,
+          "trackUri": "spotify:track:1zi7xx7UVEFkmKfv06H8x0",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b2739416ed64daf84936d89e671c"
+        },
+        "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9"
+      },
+      {
+        "name": "Rainbow Kitten Surprise",
+        "plays": 68,
+        "timeListened": 12923552,
+        "topSong": {
+          "name": "Cocaine Jesus",
+          "plays": 26,
+          "timeListened": 5960852,
+          "artists": ["Rainbow Kitten Surprise"],
+          "url": "https://open.spotify.com/track/3PVBgrzT0nVS1VzJ3MoSXP",
+          "previewLink": "https://p.scdn.co/mp3-preview/066cf1e15ff9b94105f51f0bbb824cb114658f8c?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:3PVBgrzT0nVS1VzJ3MoSXP",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b2735a69ce80969485b90c5695e7"
+        },
+        "url": "https://open.spotify.com/artist/4hz8tIajF2INpgM0qzPJz2",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb1b8f08f741213f04e4c3a25a"
+      },
+      {
+        "name": "Post Malone",
+        "plays": 61,
+        "timeListened": 11655700,
+        "topSong": {
+          "name": "Sunflower - Spider-Man: Into the Spider-Verse",
+          "plays": 20,
+          "timeListened": 3073468,
+          "artists": ["Post Malone", "Swae Lee"],
+          "url": "https://open.spotify.com/track/0RiRZpuVRbi7oqRdSMwhQY",
+          "previewLink": null,
+          "trackUri": "spotify:track:0RiRZpuVRbi7oqRdSMwhQY",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b2739478c87599550dd73bfa7e02"
+        },
+        "url": "https://open.spotify.com/artist/246dkjvS1zLTtiykXe5h60",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb6be070445b03e0b63147c2c1"
+      },
+      {
+        "name": "Wallows",
+        "plays": 69,
+        "timeListened": 11436768,
+        "topSong": {
+          "name": "Remember When",
+          "plays": 40,
+          "timeListened": 6209160,
+          "artists": ["Wallows"],
+          "url": "https://open.spotify.com/track/5naar7XewEOAjOywIp6Jjq",
+          "previewLink": "https://p.scdn.co/mp3-preview/4f514477aca7c4bfcb203b9feb9c415bb843afa0?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:5naar7XewEOAjOywIp6Jjq",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b27384feca0133d9a8e6539a8325"
+        },
+        "url": "https://open.spotify.com/artist/0NIPkIjTV8mB795yEIiPYL",
+        "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebdea0fc37a1f39060e74c569b"
+      }
+    ],
+    "albums": [
+      {
+        "name": "Sunburn",
+        "plays": 302,
+        "timeListened": 45648498,
+        "artists": ["Dominic Fike"],
+        "topSong": {
+          "name": "Frisky",
+          "plays": 42,
+          "timeListened": 4621029,
+          "artists": ["Dominic Fike"],
+          "url": "https://open.spotify.com/track/3my33XXLpYUzVEeLOyftV2",
+          "previewLink": "https://p.scdn.co/mp3-preview/36178e647824389a5eee87024e55321654afc107?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:3my33XXLpYUzVEeLOyftV2",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b2730fb08616c78d44ceb4c8d061"
+        },
+        "url": "https://open.spotify.com/album/2T7LuxZRr6SQMgABLtoYTH",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2730fb08616c78d44ceb4c8d061"
+      },
+      {
+        "name": "What Could Possibly Go Wrong",
+        "plays": 156,
+        "timeListened": 21737647,
+        "artists": ["Dominic Fike"],
+        "topSong": {
+          "name": "Wurli",
+          "plays": 48,
+          "timeListened": 7139337,
+          "artists": ["Dominic Fike"],
+          "url": "https://open.spotify.com/track/5MSshyHGM9ajWSEoBcR0jv",
+          "previewLink": "https://p.scdn.co/mp3-preview/33a098b911421fbf2b0aa018b5aed28d45433a22?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:5MSshyHGM9ajWSEoBcR0jv",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b273cfc824b65a3b1755d98a7e23"
+        },
+        "url": "https://open.spotify.com/album/1BubKJqf6Uc4fNae5kLJJ7",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273cfc824b65a3b1755d98a7e23"
+      },
+      {
+        "name": "Ivory",
+        "plays": 111,
+        "timeListened": 17295992,
+        "artists": ["Omar Apollo"],
+        "topSong": {
+          "name": "No Good Reason",
+          "plays": 28,
+          "timeListened": 2977424,
+          "artists": ["Omar Apollo"],
+          "url": "https://open.spotify.com/track/4RLl6YFuMKbHOhg9twznvJ",
+          "previewLink": "https://p.scdn.co/mp3-preview/e94818b49970eeeea32e331230e874943d4a2e71?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:4RLl6YFuMKbHOhg9twznvJ",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b27390cf5d1ccfca2beb86149a19"
+        },
+        "url": "https://open.spotify.com/album/5z7TD11Qh81Gbf52hd5zAv",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27390cf5d1ccfca2beb86149a19"
+      },
+      {
+        "name": "Halo",
+        "plays": 107,
+        "timeListened": 20643707,
+        "artists": ["Bakar"],
+        "topSong": {
+          "name": "Alive!",
+          "plays": 31,
+          "timeListened": 6760661,
+          "artists": ["Bakar"],
+          "url": "https://open.spotify.com/track/28cm9uWSKVAfZ0HDBlq4rS",
+          "previewLink": "https://p.scdn.co/mp3-preview/053568d97530cd7d3400a6485256c8950f5efdc6?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:28cm9uWSKVAfZ0HDBlq4rS",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b273864f946221840eced94a2243"
+        },
+        "url": "https://open.spotify.com/album/2VJD6kU8nmxXVrScRyddqV",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273864f946221840eced94a2243"
+      },
+      {
+        "name": "How Do You Feel About Getting Married?",
+        "plays": 103,
+        "timeListened": 15078032,
+        "artists": ["Dijon"],
+        "topSong": {
+          "name": "rock n roll",
+          "plays": 47,
+          "timeListened": 6666838,
+          "artists": ["Dijon"],
+          "url": "https://open.spotify.com/track/2mqSzhWWZePP0un56ikszA",
+          "previewLink": "https://p.scdn.co/mp3-preview/d9d460292402b7e7f06820b219ece2445f0e3282?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:2mqSzhWWZePP0un56ikszA",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d060eda49373a6da42963a5f"
+        },
+        "url": "https://open.spotify.com/album/2Ff38vAray2gR1xfw8z12S",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d060eda49373a6da42963a5f"
+      },
+      {
+        "name": "NEVER ENOUGH",
+        "plays": 102,
+        "timeListened": 20989407,
+        "artists": ["Daniel Caesar"],
+        "topSong": {
+          "name": "Homiesexual (with Ty Dolla $ign)",
+          "plays": 39,
+          "timeListened": 8693895,
+          "artists": ["Daniel Caesar", "Ty Dolla $ign"],
+          "url": "https://open.spotify.com/track/4s3RSUwPDxCeWaLEiNOPq3",
+          "previewLink": null,
+          "trackUri": "spotify:track:4s3RSUwPDxCeWaLEiNOPq3",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b2737c68face1dc58127f3a7b1cc"
+        },
+        "url": "https://open.spotify.com/album/7ivbFszr1TbVadj89BIy1y",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2737c68face1dc58127f3a7b1cc"
+      },
+      {
+        "name": "Gemini Rights",
+        "plays": 99,
+        "timeListened": 20461546,
+        "artists": ["Steve Lacy"],
+        "topSong": {
+          "name": "Helmet",
+          "plays": 25,
+          "timeListened": 4773133,
+          "artists": ["Steve Lacy"],
+          "url": "https://open.spotify.com/track/0DmkBOGgEWMbUJlL6VwwF2",
+          "previewLink": "https://p.scdn.co/mp3-preview/2a12bdde08a274d68b948fdb762eb6d26a5fd84c?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:0DmkBOGgEWMbUJlL6VwwF2",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b27368968350c2550e36d96344ee"
+        },
+        "url": "https://open.spotify.com/album/3Ks0eeH0GWpY4AU20D5HPD",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b27368968350c2550e36d96344ee"
+      },
+      {
+        "name": "Absolutely",
+        "plays": 98,
+        "timeListened": 13966047,
+        "artists": ["Dijon"],
+        "topSong": {
+          "name": "Annie",
+          "plays": 17,
+          "timeListened": 2021708,
+          "artists": ["Dijon"],
+          "url": "https://open.spotify.com/track/1UuyxrM0UxKxLht6vWf3lZ",
+          "previewLink": "https://p.scdn.co/mp3-preview/5433bf1923e82c9ac1d2250acfa044b1ae1eb17a?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:1UuyxrM0UxKxLht6vWf3lZ",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b273a68442f97c3ad2dcba0beae6"
+        },
+        "url": "https://open.spotify.com/album/4E691gbRgo2Zb6ToII2DWO",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b273a68442f97c3ad2dcba0beae6"
+      },
+      {
+        "name": "Mr. Morale & The Big Steppers",
+        "plays": 76,
+        "timeListened": 18508946,
+        "artists": ["Kendrick Lamar"],
+        "topSong": {
+          "name": "Die Hard",
+          "plays": 21,
+          "timeListened": 4684304,
+          "artists": ["Kendrick Lamar", "Blxst", "Amanda Reifer"],
+          "url": "https://open.spotify.com/track/2g6tReTlM2Akp41g0HaeXN",
+          "previewLink": null,
+          "trackUri": "spotify:track:2g6tReTlM2Akp41g0HaeXN",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b2732e02117d76426a08ac7c174f"
+        },
+        "url": "https://open.spotify.com/album/79ONNoS4M9tfIA1mYLBYVX",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2732e02117d76426a08ac7c174f"
+      },
+      {
+        "name": "Don't Forget About Me, Demos",
+        "plays": 71,
+        "timeListened": 8786585,
+        "artists": ["Dominic Fike"],
+        "topSong": {
+          "name": "Westcoast Collective",
+          "plays": 26,
+          "timeListened": 2817091,
+          "artists": ["Dominic Fike"],
+          "url": "https://open.spotify.com/track/7rNun2AyLu4u4rQpRt0iS9",
+          "previewLink": "https://p.scdn.co/mp3-preview/a8128a8322c78a13ecd0c018f134e2c8ae86b56e?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+          "trackUri": "spotify:track:7rNun2AyLu4u4rQpRt0iS9",
+          "coverUrl": "https://i.scdn.co/image/ab67616d0000b2737b1b6f41c1645af9757d5616"
+        },
+        "url": "https://open.spotify.com/album/05jbNkYoEQdjVDHEHtg1gY",
+        "coverUrl": "https://i.scdn.co/image/ab67616d0000b2737b1b6f41c1645af9757d5616"
+      }
+    ],
+    "genres": [
+      {
+        "name": "pov: indie",
+        "plays": 1340,
+        "timeListened": 232785063,
+        "topArtists": [
+          {
+            "name": "Dominic Fike",
+            "plays": 577,
+            "timeListened": 83881126,
+            "topSong": {
+              "name": "Wurli",
+              "plays": 48,
+              "timeListened": 7139337,
+              "artists": ["Dominic Fike"],
+              "url": "https://open.spotify.com/track/5MSshyHGM9ajWSEoBcR0jv",
+              "previewLink": "https://p.scdn.co/mp3-preview/33a098b911421fbf2b0aa018b5aed28d45433a22?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:5MSshyHGM9ajWSEoBcR0jv",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273cfc824b65a3b1755d98a7e23"
+            },
+            "url": "https://open.spotify.com/artist/6USv9qhCn6zfxlBQIYJ9qs",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebbe491d3676793a1697c61254"
+          },
+          {
+            "name": "Declan McKenna",
+            "plays": 77,
+            "timeListened": 19815775,
+            "topSong": {
+              "name": "Listen to Your Friends",
+              "plays": 31,
+              "timeListened": 7727209,
+              "artists": ["Declan McKenna"],
+              "url": "https://open.spotify.com/track/4mvPRLDf0ZedTzzXaXEavJ",
+              "previewLink": "https://p.scdn.co/mp3-preview/dd47422224a56b3608e9476c1eda6713c64bade9?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:4mvPRLDf0ZedTzzXaXEavJ",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273ec8be21d32e663885fbb244e"
+            },
+            "url": "https://open.spotify.com/artist/2D4FOOOtWycb3Aw9nY5n3c",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebd22f5179fa03de4acad6298d"
+          },
+          {
+            "name": "Wallows",
+            "plays": 69,
+            "timeListened": 11436768,
+            "topSong": {
+              "name": "Remember When",
+              "plays": 40,
+              "timeListened": 6209160,
+              "artists": ["Wallows"],
+              "url": "https://open.spotify.com/track/5naar7XewEOAjOywIp6Jjq",
+              "previewLink": "https://p.scdn.co/mp3-preview/4f514477aca7c4bfcb203b9feb9c415bb843afa0?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:5naar7XewEOAjOywIp6Jjq",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b27384feca0133d9a8e6539a8325"
+            },
+            "url": "https://open.spotify.com/artist/0NIPkIjTV8mB795yEIiPYL",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebdea0fc37a1f39060e74c569b"
+          },
+          {
+            "name": "Rainbow Kitten Surprise",
+            "plays": 68,
+            "timeListened": 12923552,
+            "topSong": {
+              "name": "Cocaine Jesus",
+              "plays": 26,
+              "timeListened": 5960852,
+              "artists": ["Rainbow Kitten Surprise"],
+              "url": "https://open.spotify.com/track/3PVBgrzT0nVS1VzJ3MoSXP",
+              "previewLink": "https://p.scdn.co/mp3-preview/066cf1e15ff9b94105f51f0bbb824cb114658f8c?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:3PVBgrzT0nVS1VzJ3MoSXP",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b2735a69ce80969485b90c5695e7"
+            },
+            "url": "https://open.spotify.com/artist/4hz8tIajF2INpgM0qzPJz2",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb1b8f08f741213f04e4c3a25a"
+          },
+          {
+            "name": "Lincoln",
+            "plays": 50,
+            "timeListened": 5486465,
+            "topSong": {
+              "name": "Saint Bernard",
+              "plays": 50,
+              "timeListened": 5486465,
+              "artists": ["Lincoln"],
+              "url": "https://open.spotify.com/track/3JPnVN4wYlmQnuD7OgDx88",
+              "previewLink": "https://p.scdn.co/mp3-preview/07f0d73ebde190f37ac139fee8036e386a51a247?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:3JPnVN4wYlmQnuD7OgDx88",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d1546c70238fa6aa13610c03"
+            },
+            "url": "https://open.spotify.com/artist/6RcxmUOBnyAQr2rRsNfQI5",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb929e2fff120ef04df44df296"
+          }
+        ]
+      },
+      {
+        "name": "rap",
+        "plays": 1058,
+        "timeListened": 228133328,
+        "topArtists": [
+          {
+            "name": "Kendrick Lamar",
+            "plays": 119,
+            "timeListened": 31039880,
+            "topSong": {
+              "name": "Money Trees",
+              "plays": 26,
+              "timeListened": 9148557,
+              "artists": ["Kendrick Lamar", "Jay Rock"],
+              "url": "https://open.spotify.com/track/2HbKqm4o0w5wEeEFXm2sD4",
+              "previewLink": null,
+              "trackUri": "spotify:track:2HbKqm4o0w5wEeEFXm2sD4",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d28d2ebdedb220e479743797"
+            },
+            "url": "https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb437b9e2a82505b3d93ff1022"
+          },
+          {
+            "name": "Chance the Rapper",
+            "plays": 112,
+            "timeListened": 22643077,
+            "topSong": {
+              "name": "Juice",
+              "plays": 21,
+              "timeListened": 3830197,
+              "artists": ["Chance the Rapper"],
+              "url": "https://open.spotify.com/track/4J2s7nWDdA7i92sojYX8RJ",
+              "previewLink": "https://p.scdn.co/mp3-preview/163b36b5a4285ac3450043f4ef37dda870469fe7?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:4J2s7nWDdA7i92sojYX8RJ",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273cf2c85c09079470c6662eccf"
+            },
+            "url": "https://open.spotify.com/artist/1anyVhU62p31KFi8MEzkbf",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eba6ab3c4df02cec59758ae3fa"
+          },
+          {
+            "name": "J. Cole",
+            "plays": 95,
+            "timeListened": 20705297,
+            "topSong": {
+              "name": "MIDDLE CHILD",
+              "plays": 13,
+              "timeListened": 2490501,
+              "artists": ["J. Cole"],
+              "url": "https://open.spotify.com/track/2JvzF1RMd7lE3KmFlsyZD8",
+              "previewLink": null,
+              "trackUri": "spotify:track:2JvzF1RMd7lE3KmFlsyZD8",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b2737f37a4001ae7d8be430bd91b"
+            },
+            "url": "https://open.spotify.com/artist/6l3HvQ5sa6mXTsMTB19rO5",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebadd503b411a712e277895c8a"
+          },
+          {
+            "name": "Kanye West",
+            "plays": 84,
+            "timeListened": 21223707,
+            "topSong": {
+              "name": "Runaway",
+              "plays": 17,
+              "timeListened": 7975291,
+              "artists": ["Kanye West", "Pusha T"],
+              "url": "https://open.spotify.com/track/3DK6m7It6Pw857FcQftMds",
+              "previewLink": null,
+              "trackUri": "spotify:track:3DK6m7It6Pw857FcQftMds",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d9194aa18fa4c9362b47464f"
+            },
+            "url": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb867008a971fae0f4d913f63a"
+          },
+          {
+            "name": "Childish Gambino",
+            "plays": 74,
+            "timeListened": 17581747,
+            "topSong": {
+              "name": "Retro (Rough)",
+              "plays": 11,
+              "timeListened": 2229326,
+              "artists": ["Childish Gambino"],
+              "url": "https://open.spotify.com/track/7Dj5qxfo9DmBCPMUYZFLxE",
+              "previewLink": "https://p.scdn.co/mp3-preview/0de934d3325a3f75f61deb7cff984cbf7b8d9556?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:7Dj5qxfo9DmBCPMUYZFLxE",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d98a6832141788d8c355852b"
+            },
+            "url": "https://open.spotify.com/artist/73sIBHcqh3Z3NyqHKZ7FOL",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb3ef779aa0d271adb2b6a3ded"
+          }
+        ]
+      },
+      {
+        "name": "bedroom soul",
+        "plays": 890,
+        "timeListened": 149640895,
+        "topArtists": [
+          {
+            "name": "Dijon",
+            "plays": 407,
+            "timeListened": 65126235,
+            "topSong": {
+              "name": "rock n roll",
+              "plays": 47,
+              "timeListened": 6666838,
+              "artists": ["Dijon"],
+              "url": "https://open.spotify.com/track/2mqSzhWWZePP0un56ikszA",
+              "previewLink": "https://p.scdn.co/mp3-preview/d9d460292402b7e7f06820b219ece2445f0e3282?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:2mqSzhWWZePP0un56ikszA",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d060eda49373a6da42963a5f"
+            },
+            "url": "https://open.spotify.com/artist/0knGpCTbmG4ctl1wzYRZs4",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb8da3e6e26f2cd05958f17a65"
+          },
+          {
+            "name": "Omar Apollo",
+            "plays": 327,
+            "timeListened": 56031449,
+            "topSong": {
+              "name": "Endlessly",
+              "plays": 39,
+              "timeListened": 5955124,
+              "artists": ["Omar Apollo"],
+              "url": "https://open.spotify.com/track/4VUXAoJESfRV3ceUYtzfpQ",
+              "previewLink": "https://p.scdn.co/mp3-preview/dfe9b176d7f38e856aebd2af6a5447b91af4714e?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:4VUXAoJESfRV3ceUYtzfpQ",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b2731849168b94c93280ecaa8049"
+            },
+            "url": "https://open.spotify.com/artist/5FxD8fkQZ6KcsSYupDVoSO",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb0e2a3a2c664a4bbb14e44f8e"
+          },
+          {
+            "name": "Jelani Aryeh",
+            "plays": 63,
+            "timeListened": 11405301,
+            "topSong": {
+              "name": "From These Heights",
+              "plays": 17,
+              "timeListened": 2847490,
+              "artists": ["Jelani Aryeh"],
+              "url": "https://open.spotify.com/track/74IoFNuC2nDDFkrt4MAgpS",
+              "previewLink": "https://p.scdn.co/mp3-preview/09bf2cb23cc07ddbbfaa07c00bd7e4c990198874?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:74IoFNuC2nDDFkrt4MAgpS",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273580cf044e12fa1ee398f0158"
+            },
+            "url": "https://open.spotify.com/artist/7A47sEe0ih6WpKmNCRMu86",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb3773bf67bcd0fb1667ebe6bd"
+          },
+          {
+            "name": "RIZ LA VIE",
+            "plays": 35,
+            "timeListened": 7223032,
+            "topSong": {
+              "name": "Napkins",
+              "plays": 13,
+              "timeListened": 2772171,
+              "artists": ["RIZ LA VIE"],
+              "url": "https://open.spotify.com/track/0YvzawIC5nFFYj5YAvv5HP",
+              "previewLink": "https://p.scdn.co/mp3-preview/8f66f1da4040feb7a7567bc195c1b67c5b3f24ee?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:0YvzawIC5nFFYj5YAvv5HP",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273cbd5d8d25bb9ed4f81c2911a"
+            },
+            "url": "https://open.spotify.com/artist/0QkgnHpxSCOYdTnhUR9S5k",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eba52afa171ae7d83afe0cee32"
+          },
+          {
+            "name": "Current Blue",
+            "plays": 16,
+            "timeListened": 1794372,
+            "topSong": {
+              "name": "drive",
+              "plays": 5,
+              "timeListened": 508795,
+              "artists": ["Current Blue"],
+              "url": "https://open.spotify.com/track/23AjAdVmqrfRqvme3OO3Zj",
+              "previewLink": "https://p.scdn.co/mp3-preview/d4586196f330fe0f1a1e29a890e90dbc53d09674?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:23AjAdVmqrfRqvme3OO3Zj",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273c503e7faac53661e185d61c9"
+            },
+            "url": "https://open.spotify.com/artist/6wW4D3fGgRABc3cAotb0RS",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb5398b0a2d1f04e03921eba14"
+          }
+        ]
+      },
+      {
+        "name": "hip hop",
+        "plays": 798,
+        "timeListened": 180247370,
+        "topArtists": [
+          {
+            "name": "Kendrick Lamar",
+            "plays": 119,
+            "timeListened": 31039880,
+            "topSong": {
+              "name": "Money Trees",
+              "plays": 26,
+              "timeListened": 9148557,
+              "artists": ["Kendrick Lamar", "Jay Rock"],
+              "url": "https://open.spotify.com/track/2HbKqm4o0w5wEeEFXm2sD4",
+              "previewLink": null,
+              "trackUri": "spotify:track:2HbKqm4o0w5wEeEFXm2sD4",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d28d2ebdedb220e479743797"
+            },
+            "url": "https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb437b9e2a82505b3d93ff1022"
+          },
+          {
+            "name": "Chance the Rapper",
+            "plays": 112,
+            "timeListened": 22643077,
+            "topSong": {
+              "name": "Juice",
+              "plays": 21,
+              "timeListened": 3830197,
+              "artists": ["Chance the Rapper"],
+              "url": "https://open.spotify.com/track/4J2s7nWDdA7i92sojYX8RJ",
+              "previewLink": "https://p.scdn.co/mp3-preview/163b36b5a4285ac3450043f4ef37dda870469fe7?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:4J2s7nWDdA7i92sojYX8RJ",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273cf2c85c09079470c6662eccf"
+            },
+            "url": "https://open.spotify.com/artist/1anyVhU62p31KFi8MEzkbf",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eba6ab3c4df02cec59758ae3fa"
+          },
+          {
+            "name": "J. Cole",
+            "plays": 95,
+            "timeListened": 20705297,
+            "topSong": {
+              "name": "MIDDLE CHILD",
+              "plays": 13,
+              "timeListened": 2490501,
+              "artists": ["J. Cole"],
+              "url": "https://open.spotify.com/track/2JvzF1RMd7lE3KmFlsyZD8",
+              "previewLink": null,
+              "trackUri": "spotify:track:2JvzF1RMd7lE3KmFlsyZD8",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b2737f37a4001ae7d8be430bd91b"
+            },
+            "url": "https://open.spotify.com/artist/6l3HvQ5sa6mXTsMTB19rO5",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebadd503b411a712e277895c8a"
+          },
+          {
+            "name": "Kanye West",
+            "plays": 84,
+            "timeListened": 21223707,
+            "topSong": {
+              "name": "Runaway",
+              "plays": 17,
+              "timeListened": 7975291,
+              "artists": ["Kanye West", "Pusha T"],
+              "url": "https://open.spotify.com/track/3DK6m7It6Pw857FcQftMds",
+              "previewLink": null,
+              "trackUri": "spotify:track:3DK6m7It6Pw857FcQftMds",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d9194aa18fa4c9362b47464f"
+            },
+            "url": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb867008a971fae0f4d913f63a"
+          },
+          {
+            "name": "Childish Gambino",
+            "plays": 74,
+            "timeListened": 17581747,
+            "topSong": {
+              "name": "Retro (Rough)",
+              "plays": 11,
+              "timeListened": 2229326,
+              "artists": ["Childish Gambino"],
+              "url": "https://open.spotify.com/track/7Dj5qxfo9DmBCPMUYZFLxE",
+              "previewLink": "https://p.scdn.co/mp3-preview/0de934d3325a3f75f61deb7cff984cbf7b8d9556?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:7Dj5qxfo9DmBCPMUYZFLxE",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d98a6832141788d8c355852b"
+            },
+            "url": "https://open.spotify.com/artist/73sIBHcqh3Z3NyqHKZ7FOL",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb3ef779aa0d271adb2b6a3ded"
+          }
+        ]
+      },
+      {
+        "name": "bedroom pop",
+        "plays": 645,
+        "timeListened": 112228002,
+        "topArtists": [
+          {
+            "name": "Omar Apollo",
+            "plays": 327,
+            "timeListened": 56031449,
+            "topSong": {
+              "name": "Endlessly",
+              "plays": 39,
+              "timeListened": 5955124,
+              "artists": ["Omar Apollo"],
+              "url": "https://open.spotify.com/track/4VUXAoJESfRV3ceUYtzfpQ",
+              "previewLink": "https://p.scdn.co/mp3-preview/dfe9b176d7f38e856aebd2af6a5447b91af4714e?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:4VUXAoJESfRV3ceUYtzfpQ",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b2731849168b94c93280ecaa8049"
+            },
+            "url": "https://open.spotify.com/artist/5FxD8fkQZ6KcsSYupDVoSO",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb0e2a3a2c664a4bbb14e44f8e"
+          },
+          {
+            "name": "Rex Orange County",
+            "plays": 78,
+            "timeListened": 14024818,
+            "topSong": {
+              "name": "10/10",
+              "plays": 27,
+              "timeListened": 3960192,
+              "artists": ["Rex Orange County"],
+              "url": "https://open.spotify.com/track/4tVphly4D1PB8tJC9gHMcJ",
+              "previewLink": "https://p.scdn.co/mp3-preview/e373c45b8ad092cf910dcec7715038ccdc65137b?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:4tVphly4D1PB8tJC9gHMcJ",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273733e6d7818eef87d20df86b5"
+            },
+            "url": "https://open.spotify.com/artist/7pbDxGE6nQSZVfiFdq9lOL",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebffb90f91cb2f487d7309f7bc"
+          },
+          {
+            "name": "Still Woozy",
+            "plays": 34,
+            "timeListened": 4974931,
+            "topSong": {
+              "name": "Lucy",
+              "plays": 14,
+              "timeListened": 1995000,
+              "artists": ["Still Woozy", "ODIE"],
+              "url": "https://open.spotify.com/track/5RxpYHVbGJPOvSEATQyg9P",
+              "previewLink": null,
+              "trackUri": "spotify:track:5RxpYHVbGJPOvSEATQyg9P",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b27318ffd6edc9a59a7234d0347b"
+            },
+            "url": "https://open.spotify.com/artist/4iMO20EPodreIaEl8qW66y",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb213487aac43637b03baf9db8"
+          },
+          {
+            "name": "The Marías",
+            "plays": 27,
+            "timeListened": 4370363,
+            "topSong": {
+              "name": "DÁKITI – Spotify Singles",
+              "plays": 15,
+              "timeListened": 2260549,
+              "artists": ["The Marías"],
+              "url": "https://open.spotify.com/track/2y9xyQNtut1KeOHSSkuzik",
+              "previewLink": "https://p.scdn.co/mp3-preview/5324dccb12cdd20dd93a467e75cb8748f03dd3fe?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:2y9xyQNtut1KeOHSSkuzik",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273955ca3ed982d8895750c0ed3"
+            },
+            "url": "https://open.spotify.com/artist/2sSGPbdZJkaSE2AbcGOACx",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eba37a2e21b6b2d1aa22826548"
+          },
+          {
+            "name": "Gus Dapperton",
+            "plays": 26,
+            "timeListened": 5748316,
+            "topSong": {
+              "name": "Prune, You Talk Funny",
+              "plays": 13,
+              "timeListened": 2765113,
+              "artists": ["Gus Dapperton"],
+              "url": "https://open.spotify.com/track/3X8fDZL2mX4bz39SWWCl03",
+              "previewLink": "https://p.scdn.co/mp3-preview/1522296fe0a88dd41287c3873fd916b0b11cf7ca?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:3X8fDZL2mX4bz39SWWCl03",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273e789b80e94207968597cbcaa"
+            },
+            "url": "https://open.spotify.com/artist/6sHCvZe1PHrOAuYlwTLNH4",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebf0618341e2ce028549d09cb1"
+          }
+        ]
+      },
+      {
+        "name": "alternative pop rock",
+        "plays": 577,
+        "timeListened": 83881126,
+        "topArtists": [
+          {
+            "name": "Dominic Fike",
+            "plays": 577,
+            "timeListened": 83881126,
+            "topSong": {
+              "name": "Wurli",
+              "plays": 48,
+              "timeListened": 7139337,
+              "artists": ["Dominic Fike"],
+              "url": "https://open.spotify.com/track/5MSshyHGM9ajWSEoBcR0jv",
+              "previewLink": "https://p.scdn.co/mp3-preview/33a098b911421fbf2b0aa018b5aed28d45433a22?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:5MSshyHGM9ajWSEoBcR0jv",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273cfc824b65a3b1755d98a7e23"
+            },
+            "url": "https://open.spotify.com/artist/6USv9qhCn6zfxlBQIYJ9qs",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebbe491d3676793a1697c61254"
+          }
+        ]
+      },
+      {
+        "name": "alternative r&b",
+        "plays": 383,
+        "timeListened": 65773389,
+        "topArtists": [
+          {
+            "name": "Saba",
+            "plays": 93,
+            "timeListened": 11034642,
+            "topSong": {
+              "name": "an Interlude Called “Circus” (feat. Eryn Allen Kane)",
+              "plays": 54,
+              "timeListened": 3738744,
+              "artists": ["Saba", "Eryn Allen Kane"],
+              "url": "https://open.spotify.com/track/2Lmpxi7j95HOvsR6zj1Fl3",
+              "previewLink": "https://p.scdn.co/mp3-preview/4355c484ea69f9d710510e42022fdc1fe1b92f96?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:2Lmpxi7j95HOvsR6zj1Fl3",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273aac20d5f8a96a41831a10c80"
+            },
+            "url": "https://open.spotify.com/artist/7Hjbimq43OgxaBRpFXic4x",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebcbf85bfa1a10a9c2f2aa5ea6"
+          },
+          {
+            "name": "Masego",
+            "plays": 63,
+            "timeListened": 10251833,
+            "topSong": {
+              "name": "What You Wanna Try",
+              "plays": 29,
+              "timeListened": 4677020,
+              "artists": ["Masego"],
+              "url": "https://open.spotify.com/track/526fD9LiAEi3KKvhhYfWmm",
+              "previewLink": null,
+              "trackUri": "spotify:track:526fD9LiAEi3KKvhhYfWmm",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273799cf48c9e6300054dac9467"
+            },
+            "url": "https://open.spotify.com/artist/3ycxRkcZ67ALN3GQJ57Vig",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb161fef4ab6a8ff32c699d6fa"
+          },
+          {
+            "name": "Berhana",
+            "plays": 28,
+            "timeListened": 4892507,
+            "topSong": {
+              "name": "Grey Luh",
+              "plays": 8,
+              "timeListened": 1825080,
+              "artists": ["Berhana"],
+              "url": "https://open.spotify.com/track/1x1BKrrpq7CfOZPBeUsx16",
+              "previewLink": "https://p.scdn.co/mp3-preview/6baa3b2cf418e905edadc9f7b70c190976e0171e?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:1x1BKrrpq7CfOZPBeUsx16",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b27369df217578b894639504e7a0"
+            },
+            "url": "https://open.spotify.com/artist/0WjtdWS6su0f3jrW9aqEHl",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebce52e69319230a25ff0c18d0"
+          },
+          {
+            "name": "Q",
+            "plays": 25,
+            "timeListened": 4644290,
+            "topSong": {
+              "name": "I Might Slip Away if I Don't Feel Nothing",
+              "plays": 7,
+              "timeListened": 707364,
+              "artists": ["Q"],
+              "url": "https://open.spotify.com/track/29kixq8kxaIuxN0TAZomaU",
+              "previewLink": "https://p.scdn.co/mp3-preview/612bb6b42a711e0460cd4b43a417dc9a96abaf8b?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:29kixq8kxaIuxN0TAZomaU",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273ff588b61d790ce4841600597"
+            },
+            "url": "https://open.spotify.com/artist/22vqVhfPJab5kkU9txDGX3",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb5c6fd1dbbed9660dd1ccf40f"
+          },
+          {
+            "name": "KAYTRANADA",
+            "plays": 23,
+            "timeListened": 4409525,
+            "topSong": {
+              "name": "Intimidated (feat. H.E.R.)",
+              "plays": 20,
+              "timeListened": 3907679,
+              "artists": ["KAYTRANADA", "H.E.R."],
+              "url": "https://open.spotify.com/track/0dFdGPVLs3k0z9ezYWZzUa",
+              "previewLink": "https://p.scdn.co/mp3-preview/f8a126e1c8c8b741ecfa53e0bb9f6ea7b2fb7e0b?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:0dFdGPVLs3k0z9ezYWZzUa",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273f310d5609e266549b3094564"
+            },
+            "url": "https://open.spotify.com/artist/6qgnBH6iDM91ipVXv28OMu",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebf8cb4e620836d2131fa92939"
+          }
+        ]
+      },
+      {
+        "name": "pop rap",
+        "plays": 370,
+        "timeListened": 72823453,
+        "topArtists": [
+          {
+            "name": "Chance the Rapper",
+            "plays": 112,
+            "timeListened": 22643077,
+            "topSong": {
+              "name": "Juice",
+              "plays": 21,
+              "timeListened": 3830197,
+              "artists": ["Chance the Rapper"],
+              "url": "https://open.spotify.com/track/4J2s7nWDdA7i92sojYX8RJ",
+              "previewLink": "https://p.scdn.co/mp3-preview/163b36b5a4285ac3450043f4ef37dda870469fe7?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:4J2s7nWDdA7i92sojYX8RJ",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273cf2c85c09079470c6662eccf"
+            },
+            "url": "https://open.spotify.com/artist/1anyVhU62p31KFi8MEzkbf",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eba6ab3c4df02cec59758ae3fa"
+          },
+          {
+            "name": "Drake",
+            "plays": 64,
+            "timeListened": 13523463,
+            "topSong": {
+              "name": "One Dance",
+              "plays": 17,
+              "timeListened": 2657951,
+              "artists": ["Drake", "Wizkid", "Kyla"],
+              "url": "https://open.spotify.com/track/1zi7xx7UVEFkmKfv06H8x0",
+              "previewLink": null,
+              "trackUri": "spotify:track:1zi7xx7UVEFkmKfv06H8x0",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b2739416ed64daf84936d89e671c"
+            },
+            "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9"
+          },
+          {
+            "name": "Tory Lanez",
+            "plays": 55,
+            "timeListened": 10141207,
+            "topSong": {
+              "name": "The Color Violet",
+              "plays": 34,
+              "timeListened": 7272478,
+              "artists": ["Tory Lanez"],
+              "url": "https://open.spotify.com/track/3azJifCSqg9fRij2yKIbWz",
+              "previewLink": "https://p.scdn.co/mp3-preview/1d7c627bf549328110519c4bd21ac39d7ca50ea1?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:3azJifCSqg9fRij2yKIbWz",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b2730c5f23cbf0b1ab7e37d0dc67"
+            },
+            "url": "https://open.spotify.com/artist/2jku7tDXc6XoB6MO2hFuqg",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebbd5d3e1b363c3e26710661c3"
+          },
+          {
+            "name": "IDK",
+            "plays": 33,
+            "timeListened": 4009363,
+            "topSong": {
+              "name": "Zaza Tree",
+              "plays": 27,
+              "timeListened": 3579447,
+              "artists": ["IDK"],
+              "url": "https://open.spotify.com/track/6mNOqBMluf9aEXgNg1O831",
+              "previewLink": "https://p.scdn.co/mp3-preview/516cbe00dd5d2e478370586632e102e6e8e2a672?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:6mNOqBMluf9aEXgNg1O831",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273e96fd4e6489a84143ef9f34a"
+            },
+            "url": "https://open.spotify.com/artist/6aiFCgyKNwF9Rv5TOxnE8E",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb14755a331872e2b9c1c5efe2"
+          },
+          {
+            "name": "Jaden",
+            "plays": 23,
+            "timeListened": 5160761,
+            "topSong": {
+              "name": "Summertime In Paris",
+              "plays": 12,
+              "timeListened": 3251520,
+              "artists": ["Jaden", "WILLOW"],
+              "url": "https://open.spotify.com/track/6XNANAB7sFvkfho6bMCp7o",
+              "previewLink": null,
+              "trackUri": "spotify:track:6XNANAB7sFvkfho6bMCp7o",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b27360ec4df52c2d724bc53ffec5"
+            },
+            "url": "https://open.spotify.com/artist/0xOeVMOz2fVg5BJY3N6akT",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb0376b56af63682d48579fa85"
+          }
+        ]
+      },
+      {
+        "name": "canadian contemporary r&b",
+        "plays": 355,
+        "timeListened": 78104139,
+        "topArtists": [
+          {
+            "name": "Daniel Caesar",
+            "plays": 283,
+            "timeListened": 64504146,
+            "topSong": {
+              "name": "Homiesexual (with Ty Dolla $ign)",
+              "plays": 39,
+              "timeListened": 8693895,
+              "artists": ["Daniel Caesar", "Ty Dolla $ign"],
+              "url": "https://open.spotify.com/track/4s3RSUwPDxCeWaLEiNOPq3",
+              "previewLink": null,
+              "trackUri": "spotify:track:4s3RSUwPDxCeWaLEiNOPq3",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b2737c68face1dc58127f3a7b1cc"
+            },
+            "url": "https://open.spotify.com/artist/20wkVLutqVOYrc0kxFs7rA",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebe5bc630548fb3517cf90edb8"
+          },
+          {
+            "name": "ODIE",
+            "plays": 57,
+            "timeListened": 10635177,
+            "topSong": {
+              "name": "Phenomenon",
+              "plays": 15,
+              "timeListened": 2665435,
+              "artists": ["ODIE"],
+              "url": "https://open.spotify.com/track/2edZase3fgTjQMWKPPar5N",
+              "previewLink": "https://p.scdn.co/mp3-preview/c2446ca5bd1ccd211ace4e23b68bdec062776d7d?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:2edZase3fgTjQMWKPPar5N",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273e8f1f55f14d93b24f7cf8d5e"
+            },
+            "url": "https://open.spotify.com/artist/5aMIbwZQvP2MHPMVC5zCGj",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb5d275d1a3ae366105c944721"
+          },
+          {
+            "name": "TOBi",
+            "plays": 5,
+            "timeListened": 1155555,
+            "topSong": {
+              "name": "City Blues",
+              "plays": 5,
+              "timeListened": 1155555,
+              "artists": ["TOBi"],
+              "url": "https://open.spotify.com/track/4QbTcp2z5K8pST7UHObaKE",
+              "previewLink": "https://p.scdn.co/mp3-preview/3e5ed5024aa89486a9f34842ab286c749333171b?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:4QbTcp2z5K8pST7UHObaKE",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273426c67efe971bdac672cb623"
+            },
+            "url": "https://open.spotify.com/artist/0P54cVemq1DCHUfUMlWAoN",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebf5eebd33f89345159ae67fa1"
+          },
+          {
+            "name": "J. Hutton",
+            "plays": 5,
+            "timeListened": 1016125,
+            "topSong": {
+              "name": "Pink Couch",
+              "plays": 5,
+              "timeListened": 1016125,
+              "artists": ["J. Hutton"],
+              "url": "https://open.spotify.com/track/31hC6oXJsPvgQCiZRwCps7",
+              "previewLink": "https://p.scdn.co/mp3-preview/e73a7c3a4b15f34f742b19c914ed51da69604fd2?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:31hC6oXJsPvgQCiZRwCps7",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b2735c88bb0d510b49daf4bd1cb7"
+            },
+            "url": "https://open.spotify.com/artist/5vh43dR2cVUqLp61pzFcNm",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb7e90901526d0f6cd2d231105"
+          },
+          {
+            "name": "The Weeknd",
+            "plays": 5,
+            "timeListened": 793136,
+            "topSong": {
+              "name": "Save Your Tears",
+              "plays": 4,
+              "timeListened": 681510,
+              "artists": ["The Weeknd"],
+              "url": "https://open.spotify.com/track/5QO79kh1waicV47BqGRL3g",
+              "previewLink": null,
+              "trackUri": "spotify:track:5QO79kh1waicV47BqGRL3g",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b2738863bc11d2aa12b54f5aeb36"
+            },
+            "url": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb214f3cf1cbe7139c1e26ffbb"
+          }
+        ]
+      },
+      {
+        "name": "pop",
+        "plays": 350,
+        "timeListened": 65979124,
+        "topArtists": [
+          {
+            "name": "Post Malone",
+            "plays": 61,
+            "timeListened": 11655700,
+            "topSong": {
+              "name": "Sunflower - Spider-Man: Into the Spider-Verse",
+              "plays": 20,
+              "timeListened": 3073468,
+              "artists": ["Post Malone", "Swae Lee"],
+              "url": "https://open.spotify.com/track/0RiRZpuVRbi7oqRdSMwhQY",
+              "previewLink": null,
+              "trackUri": "spotify:track:0RiRZpuVRbi7oqRdSMwhQY",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b2739478c87599550dd73bfa7e02"
+            },
+            "url": "https://open.spotify.com/artist/246dkjvS1zLTtiykXe5h60",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb6be070445b03e0b63147c2c1"
+          },
+          {
+            "name": "Lorde",
+            "plays": 44,
+            "timeListened": 10281441,
+            "topSong": {
+              "name": "Ribs",
+              "plays": 35,
+              "timeListened": 8544636,
+              "artists": ["Lorde"],
+              "url": "https://open.spotify.com/track/2MvvoeRt8NcOXWESkxWn3g",
+              "previewLink": null,
+              "trackUri": "spotify:track:2MvvoeRt8NcOXWESkxWn3g",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b273187331e276c898d39764cc98"
+            },
+            "url": "https://open.spotify.com/artist/163tK9Wjr9P9DmM0AVK7lm",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebc4902f080d3620b3e6da80c3"
+          },
+          {
+            "name": "The 1975",
+            "plays": 44,
+            "timeListened": 11219259,
+            "topSong": {
+              "name": "The 1975",
+              "plays": 20,
+              "timeListened": 5219838,
+              "artists": ["The 1975"],
+              "url": "https://open.spotify.com/track/7omxuGYsym1n2RlVf86OF9",
+              "previewLink": "https://p.scdn.co/mp3-preview/90c416b242a2735a8de84f2d5268d1e95de0948e?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:7omxuGYsym1n2RlVf86OF9",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b2731f44db452a68e229650a302c"
+            },
+            "url": "https://open.spotify.com/artist/3mIj9lX2MWuHmhNCA7LSCW",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5eb89348336354096fd4e36ca73"
+          },
+          {
+            "name": "Halsey",
+            "plays": 41,
+            "timeListened": 3120208,
+            "topSong": {
+              "name": "Dominic’s Interlude",
+              "plays": 41,
+              "timeListened": 3120208,
+              "artists": ["Halsey", "Dominic Fike"],
+              "url": "https://open.spotify.com/track/2sOOXgEGB7nhKO8mmc1GhI",
+              "previewLink": null,
+              "trackUri": "spotify:track:2sOOXgEGB7nhKO8mmc1GhI",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b2737636e1c9e67eaafc9f49aefd"
+            },
+            "url": "https://open.spotify.com/artist/26VFTg2z8YR0cCuwLzESi2",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebd707e1c5177614c4ec95a06c"
+          },
+          {
+            "name": "Harry Styles",
+            "plays": 40,
+            "timeListened": 7258640,
+            "topSong": {
+              "name": "Late Night Talking",
+              "plays": 10,
+              "timeListened": 1544980,
+              "artists": ["Harry Styles"],
+              "url": "https://open.spotify.com/track/1qEmFfgcLObUfQm0j1W2CK",
+              "previewLink": "https://p.scdn.co/mp3-preview/50f056e2ab4a1bef762661dbbf2da751beeffe39?cid=ecc3ee32f1254bd3b0f405cfc120f40f",
+              "trackUri": "spotify:track:1qEmFfgcLObUfQm0j1W2CK",
+              "coverUrl": "https://i.scdn.co/image/ab67616d0000b2732e8ed79e177ff6011076f5f0"
+            },
+            "url": "https://open.spotify.com/artist/6KImCVD70vtIoJWnq6nGn3",
+            "coverUrl": "https://i.scdn.co/image/ab6761610000e5ebf7db7c8ede90a019c54590bb"
+          }
+        ]
+      }
+    ]
+  },
+  "activity": {
+    "byHour": [
+      533, 501, 403, 378, 426, 438, 278, 247, 171, 146, 123, 100, 98, 191, 127, 166, 219, 252, 330,
+      522, 472, 458, 470, 489
+    ],
+    "byMonth": [
+      170844784, 90499774, 122875105, 97561264, 93162783, 71927316, 158348569, 82360198, 88625703,
+      128835979, 136442427, 159110506
+    ]
+  }
+}

@@ -27,6 +27,7 @@ export enum UploadError {
   IncompleteFiles,
   TooLarge,
   InsufficientData,
+  Unknown,
 }
 
 export const errorData: Record<UploadError, { title: string; message: string }> = {
@@ -51,10 +52,17 @@ export const errorData: Record<UploadError, { title: string; message: string }> 
     message:
       'Unfortunately, your Spotify listening cannot be processed as you haven\'t listened enough this year. To receive meaningful insigts through Wrappedify, you must listen to at least <span class="keyword-pink">5 unique artists</span> and <span class="keyword-pink">30 different songs</span>. Further, each listen should be at least <span class="keyword-pink">30 seconds</span> in length. Sorry for now, but please come back as soon as you pick up your listening!',
   },
+  [UploadError.Unknown]: {
+    title: 'Unexpected error during file upload.',
+    message:
+      'Whoops, something unexpected happened while uploading your files. Please wait a bit and try again.',
+  },
 };
 
 export const aggregateListening = (data: ListeningRecord[]): ListeningData => {
   return data.reduce((data, r) => {
+    if (r.artistName === 'Unknown Artist') return data;
+
     if (!(r.artistName in data)) {
       data[r.artistName] = {};
     }

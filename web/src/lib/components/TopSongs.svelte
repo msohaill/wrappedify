@@ -47,18 +47,14 @@
     by <span class="keyword-green">{first.artists.join(', ')}</span> to
     <span class="keyword-green">{second.name}</span>
     by <span class="keyword-green">{second.artists.join(', ')}</span>, you listen like no one else.
-    You've jammed to <span class="keyword-green">{info.total.tracks}</span> songs this year, so we went
-    ahead and created a playlist of your personal favourites.
+    You've jammed to <span class="keyword-green">{info.total.tracks.toLocaleString()}</span> songs this
+    year, so we went ahead and created a playlist of your personal favourites.
   </p>
 
   <div class="highlights">
     {#each info.top.tracks.slice(0, 5) as track, i}
       <div class="highlighted-track">
-        <img
-          src={track.coverUrl || unknownCover}
-          alt="Cover for {track.name}"
-          class="w-32 sm:w-32 mb-4"
-        />
+        <img src={track.coverUrl || unknownCover} alt="Cover for {track.name}" class="mb-4" />
         <h3>{track.name}</h3>
         <p class="text-neutral-300 text-[9pt]">{track.artists.join(', ')}</p>
         <p class="my-4">
@@ -120,7 +116,7 @@
   }
 
   .highlighted-track {
-    @apply bg-black bg-opacity-30 p-2.5 pb-5 sm:p-5 flex flex-col items-center;
+    @apply bg-black bg-opacity-30 p-2.5 pb-5 sm:p-5 flex flex-col items-center w-40 sm:w-[10.5rem];
     @apply transition-colors hover:bg-opacity-50;
   }
 

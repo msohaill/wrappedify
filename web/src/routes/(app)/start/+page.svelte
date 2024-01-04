@@ -3,7 +3,8 @@
   import ErrorModal from '$lib/components/ErrorModal.svelte';
   import Metadata from '$lib/components/Metadata.svelte';
   import type { ListeningRecord } from '$lib/types';
-  import { steps, UploadError, errorData, aggregateListening } from './utils';
+  import sampleData from '$static/sample-data.json';
+  import { UploadError, aggregateListening, errorData, steps } from './utils';
 
   let files: FileList;
   let fileInput: HTMLInputElement;
@@ -38,19 +39,22 @@
       return;
     }
 
-    const listeningData = (await Promise.all(files.map(f => f.text())))
+    const ref = new Date();
+    ref.setMonth(ref.getMonth() - 2);
+
+    const rawData = (await Promise.all(files.map(f => f.text())))
       .map(t => JSON.parse(t))
       .reduce((p, c) => p.concat(c), [])
       .map((record: any) => ({ ...record, endTime: new Date(Date.parse(record.endTime + 'Z')) }))
       .filter(
         (record: ListeningRecord) =>
-          record.endTime.getFullYear() == 2021 && record.msPlayed > 30000,
+          record.endTime.getFullYear() == ref.getFullYear() && record.msPlayed > 30000,
       );
 
-    const listeningInfo = aggregateListening(listeningData);
+    const listeningData = aggregateListening(rawData);
 
-    const uniqueArtists = Object.keys(listeningInfo).length;
-    const uniqueSongs = Object.values(listeningInfo).reduce(
+    const uniqueArtists = Object.keys(listeningData).length;
+    const uniqueSongs = Object.values(listeningData).reduce(
       (total, tracks) => total + Object.keys(tracks).length,
       0,
     );
@@ -62,9 +66,37 @@
       return;
     }
 
-    console.log(JSON.stringify(listeningInfo));
+    const resp = await fetch('/api/state', {
+      method: 'POST',
+      body: JSON.stringify(['hasUploaded']),
+    });
+
+    if (resp.status != 200) {
+      fileInput.value = '';
+      error = UploadError.Unknown;
+      isError = true;
+      return;
+    }
 
     goto('/processing');
+  };
+
+  const triggerSample = async () => {
+    const resp = await fetch('/api/state', {
+      method: 'POST',
+      body: JSON.stringify(['hasUploaded', 'hasRetrievedInfo']),
+    });
+
+    if (resp.status != 200) {
+      fileInput.value = '';
+      error = UploadError.Unknown;
+      isError = true;
+      return;
+    }
+
+    localStorage.setItem('wrappedifyListening', JSON.stringify(sampleData));
+
+    goto('/your-data');
   };
 
   $: if (files) handleFileUpload(Array.from(files));
@@ -103,7 +135,9 @@
   <label class="button bg-[rgb(35,47,110)] mb-[-80px] cursor-pointer" for="file-upload"
     >Select files</label
   >
-  <button class="sample">Or, click here to try Wrappedify with sample data.</button>
+  <button class="sample" on:click={triggerSample}
+    >Or, click here to try Wrappedify with sample data.</button
+  >
 </div>
 
 <style lang="postcss">
