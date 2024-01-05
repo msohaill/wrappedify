@@ -5,11 +5,14 @@
   import type { ListeningRecord } from '$lib/types';
   import sampleData from '$static/sample-data.json';
   import { UploadError, aggregateListening, errorData, steps } from './utils';
+  import { PUBLIC_SERVER_ENDPOINT as serverEndpoint } from '$env/static/public';
+  import DiamondLoader from '$lib/components/DiamondLoader.svelte';
 
   let files: FileList;
   let fileInput: HTMLInputElement;
   let error = UploadError.None;
   let isError = false;
+  let loading = false;
 
   const handleFileUpload = async (files: File[]) => {
     const badNames = files.filter(f => !/^StreamingHistory\d+\.json$/.test(f.name));
@@ -45,7 +48,7 @@
     const rawData = (await Promise.all(files.map(f => f.text())))
       .map(t => JSON.parse(t))
       .reduce((p, c) => p.concat(c), [])
-      .map((record: any) => ({ ...record, endTime: new Date(Date.parse(record.endTime + 'Z')) }))
+      .map((record: any) => ({ ...record, endTime: new Date(record.endTime + 'Z') }))
       .filter(
         (record: ListeningRecord) =>
           record.endTime.getFullYear() == ref.getFullYear() && record.msPlayed > 30000,
@@ -66,17 +69,35 @@
       return;
     }
 
-    const resp = await fetch('/api/state', {
+    const cookieResp = await fetch('/api/state', {
       method: 'POST',
       body: JSON.stringify(['hasUploaded']),
     });
 
-    if (resp.status != 200) {
+    if (cookieResp.status != 200) {
       fileInput.value = '';
       error = UploadError.Unknown;
       isError = true;
       return;
     }
+
+    loading = true;
+    const serverResp = await fetch(`${serverEndpoint}/listening`, {
+      method: 'POST',
+      body: JSON.stringify({ listeningData }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    loading = false;
+
+    if (serverResp.status != 200) {
+      fileInput.value = '';
+      error = UploadError.Unknown;
+      isError = true;
+      return;
+    }
+
+    const { jobId } = await serverResp.json();
+    localStorage.setItem('jobId', jobId);
 
     goto('/processing');
   };
@@ -138,6 +159,13 @@
   <button class="sample" on:click={triggerSample}
     >Or, click here to try Wrappedify with sample data.</button
   >
+  {#if loading}
+    <div
+      class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-[60] flex items-center justify-center"
+    >
+      <DiamondLoader color="white" size="42" />
+    </div>
+  {/if}
 </div>
 
 <style lang="postcss">

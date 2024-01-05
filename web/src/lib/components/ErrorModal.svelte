@@ -16,7 +16,6 @@
     in:fade={{ duration: 300 }}
     out:fade={{ duration: 100 }}
     tabindex={0}
-    autofocus
     class="modal"
     on:click|self={() => (open = false)}
     on:keydown={handleKeyDown}
@@ -48,7 +47,7 @@
   }
 
   .modal-content {
-    @apply flex flex-col w-[800px] h-[300px] p-8 relative rounded-[30px] gap-10;
+    @apply flex flex-col w-[800px] min-h-[300px] p-8 relative rounded-[30px] gap-10;
     background: rgba(27, 21, 31, 0.9)
       radial-gradient(circle at top left, rgba(194, 109, 122, 0.4), transparent 50%);
   }

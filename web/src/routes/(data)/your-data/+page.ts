@@ -9,7 +9,7 @@ export const load: PageLoad = ({ url, fetch }) => {
   const storedInfo = JSON.parse(localStorage.getItem('wrappedifyListening') as string);
   const info: ListeningInformation = {
     ...storedInfo,
-    wrappedDate: new Date(Date.parse(storedInfo.wrappedDate)),
+    wrappedDate: new Date(storedInfo.wrappedDate),
   };
 
   if (code) {

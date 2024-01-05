@@ -25,9 +25,14 @@
     <p class="md:text-[10pt] text-[8pt]">
       Wrapped up to {wrappedDate.toLocaleString('en-CA', { month: 'short', day: 'numeric' })}
     </p>
-    <p class="text-[8pt] underline decoration-dotted underline-offset-4">
+    <a
+      class="text-[8pt] underline decoration-dotted underline-offset-4"
+      href="https://www.google.com/search?q=how+to+clear+cookies"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       Clear cookies to use new data
-    </p>
+    </a>
   </div>
 </nav>
 

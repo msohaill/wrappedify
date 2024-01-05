@@ -12,16 +12,16 @@
 
 <svelte:head>
   {#if !dev}
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXV78TSSFG"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1ESEB7QTES"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
       gtag('js', new Date());
-      gtag('config', 'G-VXV78TSSFG');
-    </script> -->
+
+      gtag('config', 'G-1ESEB7QTES');
+    </script>
   {/if}
 </svelte:head>
 
@@ -29,13 +29,23 @@
 <div id="bg" />
 
 {#if isReducedMotion}
-  <div>
+  <div id="content">
     <slot />
   </div>
 {:else}
   {#key data.pathname}
-    <div in:fly={{ x: -10, duration: 350, delay: 350 }} out:fly={{ y: 5, duration: 350 }}>
+    <div
+      id="content"
+      in:fly={{ x: -10, duration: 350, delay: 350 }}
+      out:fly={{ y: 5, duration: 350 }}
+    >
       <slot />
     </div>
   {/key}
 {/if}
+
+<style lang="postcss">
+  #content {
+    @apply flex flex-col justify-between min-h-screen;
+  }
+</style>

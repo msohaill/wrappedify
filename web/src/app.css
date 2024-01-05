@@ -55,10 +55,6 @@ html {
   background-color: #392b40;
 }
 
-body {
-  @apply flex flex-col justify-between min-h-screen;
-}
-
 main {
   @apply motion-safe:scroll-smooth px-5 sm:px-14 sm:mt-16 pb-14;
   background-image: url('$static/noise-overlay.png');

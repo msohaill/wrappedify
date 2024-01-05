@@ -3,12 +3,13 @@ import { config } from 'dotenv';
 config();
 
 export default {
-  port: process.env.PORT || '8080',
+  port: Number.parseInt(process.env.PORT || '8080'),
   spotify: {
-    clientId: process.env.CLIENT_ID as string,
-    clientSecret: process.env.CLIENT_SECRET as string,
+    clientId: process.env.CLIENT_ID || 'clientId',
+    clientSecret: process.env.CLIENT_SECRET || 'clientSecret',
   },
   redis: {
-    url: process.env.REDIS_URL,
+    host: process.env.REDIS_HOST || 'localhost',
+    port: Number.parseInt(process.env.REDIS_PORT || '6379'),
   },
 };

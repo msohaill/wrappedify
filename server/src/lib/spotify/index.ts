@@ -1,5 +1,5 @@
 import { Artist, Client, Track } from 'spotify-api.js';
-import env from '../../src/env';
+import env from '../../env';
 
 let client: Client;
 const popularMarkets: string[] = ['CA', 'MX', 'GB', 'DE', 'JP', 'BR'];
