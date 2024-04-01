@@ -15,7 +15,7 @@
   let loading = false;
 
   const handleFileUpload = async (files: File[]) => {
-    const badNames = files.filter(f => !/^StreamingHistory\d+\.json$/.test(f.name));
+    const badNames = files.filter(f => !/^StreamingHistory_music_\d+\.json$/.test(f.name));
     if (badNames.length) {
       fileInput.value = '';
       error = UploadError.IncorrectFiles;
@@ -25,7 +25,7 @@
 
     const unorderedNames = files
       .sort()
-      .map(f => f.name.slice(16, -5))
+      .map(f => f.name.slice(23, -5))
       .filter((n, i) => i.toString() != n);
     if (unorderedNames.length) {
       fileInput.value = '';
@@ -69,18 +69,6 @@
       return;
     }
 
-    const cookieResp = await fetch('/api/state', {
-      method: 'POST',
-      body: JSON.stringify(['hasUploaded']),
-    });
-
-    if (cookieResp.status != 200) {
-      fileInput.value = '';
-      error = UploadError.Unknown;
-      isError = true;
-      return;
-    }
-
     loading = true;
     const serverResp = await fetch(`${serverEndpoint}/listening`, {
       method: 'POST',
@@ -90,6 +78,18 @@
     loading = false;
 
     if (serverResp.status != 200) {
+      fileInput.value = '';
+      error = UploadError.Unknown;
+      isError = true;
+      return;
+    }
+
+    const cookieResp = await fetch('/api/state', {
+      method: 'POST',
+      body: JSON.stringify(['hasUploaded']),
+    });
+
+    if (cookieResp.status != 200) {
       fileInput.value = '';
       error = UploadError.Unknown;
       isError = true;
@@ -139,7 +139,17 @@
           <p class="leading-snug">{@html step.desc}</p>
         </div>
         {#if step.image}
-          <img src={step.image} alt="Graphic for step {i + 1}" class="step-image" />
+          <div class="image-container">
+            <div
+              class="w-[10vw] h-[10vw] {step
+                .colours[0]} absolute top-[0vw] left-[-2vw] -z-50 rounded-full"
+            />
+            <img src={step.image} alt="Graphic for step {i + 1}" class="step-image" />
+            <div
+              class="w-[10vw] h-[10vw] {step
+                .colours[1]} absolute bottom-[-1vw] right-[-1vw] -z-50 rounded-full"
+            />
+          </div>
         {/if}
       </div>
     {/each}
@@ -173,8 +183,24 @@
     @apply flex justify-between w-full sm:gap-20 gap-5 even:flex-row-reverse items-center;
   }
 
+  .image-container {
+    @apply w-[20vw] shrink-0 relative;
+  }
+
+  .white {
+    @apply bg-[#ffffff];
+  }
+
+  .blue {
+    @apply bg-[#18205f];
+  }
+
+  .purple {
+    @apply bg-[#2b2031];
+  }
+
   .step-image {
-    @apply w-1/4;
+    @apply rounded-full border-white border-2;
   }
 
   .sample {

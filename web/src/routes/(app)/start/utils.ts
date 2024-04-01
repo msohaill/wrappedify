@@ -1,23 +1,26 @@
 import type { ListeningData, ListeningInformation, ListeningRecord } from '$lib/types';
-import first from '$static/start-1.png';
-import second from '$static/start-2.png';
-import third from '$static/start-3.png';
+import first from '$static/login.png';
+import second from '$static/privacy.png';
+import third from '$static/request.png';
 
 export const steps = [
   {
-    desc: 'To understand your listening, you must download your Spotify data. This guide walks you through step-by-step. First, log on to  <a class="decoration-dotted underline underline-offset-4" href="https://www.spotify.com/" target="_blank" rel="noopener noreferrer">Spotify<a/> and navigate to the <em>Account</em> page by clicking the <em>Profile</em> menu in the top right.',
+    desc: 'To understand your listening, you must download your Spotify data. This guide walks you through step-by-step. First, log on to  <a class="decoration-dotted underline underline-offset-4" href="https://www.spotify.com/ca-en/account/" target="_blank" rel="noopener noreferrer">Spotify<a/>.',
     image: first,
+    colours: ['white', 'blue'],
   },
   {
-    desc: 'Navigate to <em>Privacy settings</em> using the menu that appears on the left.',
+    desc: 'Scroll to <em>Security and privacy</em> and visit the <em>Privacy settings</em> page.',
     image: second,
+    colours: ['white', 'purple'],
   },
   {
-    desc: 'Scroll down towards the bottom of the page and request your data. Now, simply wait a few days to recieve an e-mail from Spotify containing a link to download your personal data.',
+    desc: 'Scroll down towards the bottom of the page and request your <em>Account data</em>. Now, simply wait a few days to recieve an e-mail from Spotify containing a link to download your personal data.',
     image: third,
+    colours: ['blue', 'purple'],
   },
   {
-    desc: 'Once you have downloaded the ZIP file, unzip it and select all files following the naming format <em>StreamingHistory#.json</em>. It is important that you select <em>all</em> and <em>only</em> those files that follow the specified naming convention.',
+    desc: 'Once you have downloaded the ZIP file, unzip it and select all files following the naming format <em>StreamingHistory_music_#.json</em>. It is important that you select <em>all</em> and <em>only</em> those files that follow the specified naming convention.',
   },
 ];
 
@@ -35,7 +38,7 @@ export const errorData: Record<UploadError, { title: string; message: string }> 
   [UploadError.IncorrectFiles]: {
     title: 'Invalid files selected.',
     message:
-      'Some of the uploaded files do not follow the specified naming format (<em>StreamingHistory#.json</em>).<br><br>Please try again and make sure to select <em>only</em> files in your Spotify personal data folder that follow the specified naming convention.',
+      'Some of the uploaded files do not follow the specified naming format (<em>StreamingHistory_music_#.json</em>).<br><br>Please try again and make sure to select <em>only</em> files in your Spotify personal data folder that follow the specified naming convention.',
   },
   [UploadError.IncompleteFiles]: {
     title: 'Please select all files.',
