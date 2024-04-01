@@ -7,6 +7,7 @@
   import { UploadError, aggregateListening, errorData, steps } from './utils';
   import { PUBLIC_SERVER_ENDPOINT as serverEndpoint } from '$env/static/public';
   import DiamondLoader from '$lib/components/DiamondLoader.svelte';
+  import { fade } from 'svelte/transition';
 
   let files: FileList;
   let fileInput: HTMLInputElement;
@@ -171,8 +172,11 @@
   >
   {#if loading}
     <div
-      class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-[60] flex items-center justify-center"
+      class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-[60] flex flex-col items-center justify-center gap-4"
     >
+      <p class="text-[9pt]" in:fade={{ delay: 2000 }}>
+        <em>Please wait while our servers spring to life!</em>
+      </p>
       <DiamondLoader color="white" size="42" />
     </div>
   {/if}
