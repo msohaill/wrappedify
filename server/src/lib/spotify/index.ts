@@ -1,7 +1,9 @@
 import { Artist, Client, Track } from 'spotify-api.js';
-import env from '../../env';
+import env from '../../env.js';
+import pLimit from 'p-limit';
 
 let client: Client;
+let limit = pLimit(24);
 const popularMarkets: string[] = ['CA', 'MX', 'GB', 'DE', 'JP', 'BR'];
 
 export default class SpotifyClient {
@@ -14,9 +16,8 @@ export default class SpotifyClient {
   };
 
   static getArtist = async (name: string, market?: string): Promise<Artist | undefined> => {
-    const results = await client.artists.search(
-      `artist:${name.replace("'", '').substring(0, 92)}`,
-      { limit: 50 },
+    const results = await limit(() =>
+      client.artists.search(`artist:${name.replace("'", '').substring(0, 92)}`, { limit: 50 }),
     );
     for (const artist of results) {
       if (artist.name.toLowerCase() === name.toLowerCase()) {
@@ -35,11 +36,13 @@ export default class SpotifyClient {
     artist: string,
     market?: string,
   ): Promise<Track | undefined> => {
-    const results = await client.tracks.search(
-      `artist:${artist.replace("'", '').substring(0, 25)} track:${title
-        .replace("'", '')
-        .substring(0, 60)}`,
-      { limit: 50, market },
+    const results = await limit(() =>
+      client.tracks.search(
+        `artist:${artist.replace("'", '').substring(0, 25)} track:${title
+          .replace("'", '')
+          .substring(0, 60)}`,
+        { limit: 50, market },
+      ),
     );
     for (const track of results) {
       if (

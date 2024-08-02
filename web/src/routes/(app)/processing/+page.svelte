@@ -30,7 +30,7 @@
     poll();
 
     socket.on('progressUpdate', ({ total, completed }: { total: number; completed: number }) => {
-      progress.set((completed / total) * 100);
+      progress.update(p => Math.max((completed / total) * 100, p));
       if (completed === total) {
         finished = true;
         clearTimeout(pollTimeout);
@@ -41,6 +41,8 @@
     socket.on('taskFailed', () => {
       clearTimeout(pollTimeout);
       socket.close();
+      localStorage.removeItem('jobId');
+
       goto('/');
     });
 

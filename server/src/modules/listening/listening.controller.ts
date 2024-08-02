@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import logger from '../../lib/logger';
-import { addListeningTask, taskQueue } from './listening.service';
+import logger from '../../lib/logger/index.js';
+import { addListeningTask, taskQueue } from './listening.service.js';
 
 const router = Router();
 

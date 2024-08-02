@@ -1,5 +1,5 @@
 import express from 'express';
-import logger from '../lib/logger';
+import logger from '../lib/logger/index.js';
 
 export default (
   err: Error,

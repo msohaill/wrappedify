@@ -5,13 +5,13 @@ import { createServer } from 'http';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import { Server } from 'socket.io';
-import env from './env';
-import logger from './lib/logger';
-import SpotifyClient from './lib/spotify';
-import errorHandlerMiddleware from './middlewares/error-handler.middleware';
-import loggerMiddleware from './middlewares/logger.middleware';
-import listeningController from './modules/listening/listening.controller';
-import { handleSocket } from './modules/listening/listening.service';
+import env from './env.js';
+import logger from './lib/logger/index.js';
+import SpotifyClient from './lib/spotify/index.js';
+import errorHandlerMiddleware from './middlewares/error-handler.middleware.js';
+import loggerMiddleware from './middlewares/logger.middleware.js';
+import listeningController from './modules/listening/listening.controller.js';
+import { handleSocket } from './modules/listening/listening.service.js';
 
 (async () => {
   const app = express();

@@ -1,9 +1,9 @@
 import { Job, Queue, Worker } from 'bullmq';
 import { Socket } from 'socket.io';
-import env from '../../env';
-import logger from '../../lib/logger';
-import SpotifyClient from '../../lib/spotify';
-import { TOP_ALBUMS, TOP_ARTISTS, TOP_GENRES, TOP_GENRE_SONGS, TOP_TRACKS } from './constants';
+import env from '../../env.js';
+import logger from '../../lib/logger/index.js';
+import SpotifyClient from '../../lib/spotify/index.js';
+import { TOP_ALBUMS, TOP_ARTISTS, TOP_GENRES, TOP_GENRE_SONGS, TOP_TRACKS } from './constants.js';
 import {
   AlbumDetail,
   ArtistDetail,
@@ -11,7 +11,7 @@ import {
   ListeningData,
   ListeningInformation,
   TrackDetail,
-} from './types';
+} from './types.js';
 
 const preprocessData = (
   data: ListeningData,
@@ -103,31 +103,34 @@ const analyzeArtistsGenres = async (
   job: Job,
 ): Promise<void> => {
   const genreInfo = {} as Record<string, GenreDetail>;
+  let completed = (job.progress as { total: number; completed: number }).completed;
 
-  for (const artist of Object.values(artistInfo)) {
-    const spotifyArtist = await SpotifyClient.getArtist(artist.name);
+  await Promise.all(
+    Object.values(artistInfo).map(async artist => {
+      const spotifyArtist = await SpotifyClient.getArtist(artist.name);
 
-    if (!spotifyArtist || !spotifyArtist.genres) {
+      if (!spotifyArtist || !spotifyArtist.genres) {
+        const previousProgress = job.progress as { total: number; completed: number };
+        await job.updateProgress({ ...previousProgress, completed: completed++ });
+        return;
+      }
+
+      artist.url = spotifyArtist.externalURL.spotify;
+      if (spotifyArtist.images && spotifyArtist.images.length > 0)
+        artist.coverUrl = spotifyArtist.images[0].url;
+
+      for (const genre of spotifyArtist.genres) {
+        if (!(genre in genreInfo))
+          genreInfo[genre] = { name: genre, plays: 0, timeListened: 0, topArtists: [] };
+        genreInfo[genre].plays += artist.plays;
+        genreInfo[genre].timeListened += artist.timeListened;
+        genreInfo[genre].topArtists.push(artist);
+      }
+
       const previousProgress = job.progress as { total: number; completed: number };
-      job.updateProgress({ ...previousProgress, completed: previousProgress.completed + 1 });
-      continue;
-    }
-
-    artist.url = spotifyArtist.externalURL.spotify;
-    if (spotifyArtist.images && spotifyArtist.images.length > 0)
-      artist.coverUrl = spotifyArtist.images[0].url;
-
-    for (const genre of spotifyArtist.genres) {
-      if (!(genre in genreInfo))
-        genreInfo[genre] = { name: genre, plays: 0, timeListened: 0, topArtists: [] };
-      genreInfo[genre].plays += artist.plays;
-      genreInfo[genre].timeListened += artist.timeListened;
-      genreInfo[genre].topArtists.push(artist);
-    }
-
-    const previousProgress = job.progress as { total: number; completed: number };
-    job.updateProgress({ ...previousProgress, completed: previousProgress.completed + 1 });
-  }
+      await job.updateProgress({ ...previousProgress, completed: completed++ });
+    }),
+  );
 
   info.total.genres = Object.keys(genreInfo).length;
   info.top.genres = Object.values(genreInfo)
@@ -145,51 +148,54 @@ const analyzeSongsAlbums = async (
   job: Job,
 ): Promise<void> => {
   const albumInfo: Record<string, AlbumDetail> = {};
+  let completed = (job.progress as { total: number; completed: number }).completed;
 
-  for (const track of Object.values(trackInfo)) {
-    const spotifyTrack = await SpotifyClient.getTrack(track.name, track.artists[0]);
+  await Promise.all(
+    Object.values(trackInfo).map(async track => {
+      const spotifyTrack = await SpotifyClient.getTrack(track.name, track.artists[0]);
 
-    if (!spotifyTrack) {
+      if (!spotifyTrack) {
+        const previousProgress = job.progress as { total: number; completed: number };
+        job.updateProgress({ ...previousProgress, completed: completed++ });
+        return;
+      }
+
+      track.url = spotifyTrack.externalURL.spotify;
+      track.artists = spotifyTrack.artists.map(a => a.name);
+      track.previewLink = spotifyTrack.previewURL;
+      track.trackUri = spotifyTrack.uri;
+
+      if (!spotifyTrack.album) {
+        const previousProgress = job.progress as { total: number; completed: number };
+        await job.updateProgress({ ...previousProgress, completed: completed++ });
+        return;
+      }
+
+      track.coverUrl = spotifyTrack.album.images[0].url;
+
+      const albumKey =
+        spotifyTrack.album.name + '-' + spotifyTrack.album.artists.map(a => a.name).join(',');
+
+      if (!(albumKey in albumInfo))
+        albumInfo[albumKey] = {
+          name: spotifyTrack.album.name,
+          plays: 0,
+          timeListened: 0,
+          artists: spotifyTrack.album.artists.map(a => a.name),
+          topSong: track,
+          url: spotifyTrack.album.externalURL.spotify,
+          coverUrl: spotifyTrack.album.images[0].url,
+        };
+
+      albumInfo[albumKey].plays += track.plays;
+      albumInfo[albumKey].timeListened += track.timeListened;
+
+      if (albumInfo[albumKey].topSong.plays < track.plays) albumInfo[albumKey].topSong = track;
+
       const previousProgress = job.progress as { total: number; completed: number };
-      job.updateProgress({ ...previousProgress, completed: previousProgress.completed + 1 });
-      continue;
-    }
-
-    track.url = spotifyTrack.externalURL.spotify;
-    track.artists = spotifyTrack.artists.map(a => a.name);
-    track.previewLink = spotifyTrack.previewURL;
-    track.trackUri = spotifyTrack.uri;
-
-    if (!spotifyTrack.album) {
-      const previousProgress = job.progress as { total: number; completed: number };
-      job.updateProgress({ ...previousProgress, completed: previousProgress.completed + 1 });
-      continue;
-    }
-
-    track.coverUrl = spotifyTrack.album.images[0].url;
-
-    const albumKey =
-      spotifyTrack.album.name + '-' + spotifyTrack.album.artists.map(a => a.name).join(',');
-
-    if (!(albumKey in albumInfo))
-      albumInfo[albumKey] = {
-        name: spotifyTrack.album.name,
-        plays: 0,
-        timeListened: 0,
-        artists: spotifyTrack.album.artists.map(a => a.name),
-        topSong: track,
-        url: spotifyTrack.album.externalURL.spotify,
-        coverUrl: spotifyTrack.album.images[0].url,
-      };
-
-    albumInfo[albumKey].plays += track.plays;
-    albumInfo[albumKey].timeListened += track.timeListened;
-
-    if (albumInfo[albumKey].topSong.plays < track.plays) albumInfo[albumKey].topSong = track;
-
-    const previousProgress = job.progress as { total: number; completed: number };
-    job.updateProgress({ ...previousProgress, completed: previousProgress.completed + 1 });
-  }
+      await job.updateProgress({ ...previousProgress, completed: previousProgress.completed + 1 });
+    }),
+  );
 
   info.total.albums = Object.keys(albumInfo).length;
   info.top.albums = Object.values(albumInfo)
@@ -211,18 +217,24 @@ const processListening = async (job: Job) => {
   );
 
   const [info, trackInfo, artistInfo] = preprocessData(data);
+  const total = Object.keys(trackInfo).length + Object.keys(artistInfo).length;
   job.updateProgress({
-    total: Object.keys(trackInfo).length + Object.keys(artistInfo).length,
+    total,
     completed: 0,
   });
   await analyzeArtistsGenres(info, artistInfo, job);
   await analyzeSongsAlbums(info, trackInfo, job);
 
+  job.updateProgress({ total, completed: total });
   return info;
 };
 
 export const taskQueue = new Queue('task-queue', {
   connection: { ...env.redis },
+  defaultJobOptions: {
+    attempts: 5,
+    backoff: 2000,
+  },
 });
 
 const taskWorker = new Worker('task-queue', processListening, {
@@ -246,7 +258,7 @@ export const handleSocket = (socket: Socket) => {
         socket.emit('progressUpdate', job.progress);
       } else {
         socket.emit('taskFailed');
-        logger.error('Error with job ' + jobId, job.failedReason);
+        logger.error('Error with job ' + jobId, job.stacktrace);
       }
     } else {
       logger.error('No job for ID ' + jobId);

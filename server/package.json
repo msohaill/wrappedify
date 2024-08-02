@@ -2,7 +2,8 @@
   "name": "wrappedify",
   "version": "1.0.0",
   "description": "Analyze your listening. Backend server for Wrappedify.",
-  "main": "src/app.js",
+  "type": "module",
+  "exports": "./src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
@@ -19,6 +20,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-winston": "^4.2.0",
+    "p-limit": "^6.1.0",
     "socket.io": "^4.7.3",
     "spotify-api.js": "^9.2.5",
     "winston": "^3.11.0"
