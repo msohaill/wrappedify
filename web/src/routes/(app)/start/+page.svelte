@@ -43,17 +43,24 @@
       return;
     }
 
-    const ref = new Date();
-    ref.setMonth(ref.getMonth() - 2);
-
-    const rawData = (await Promise.all(files.map(f => f.text())))
+    let rawData: ListeningRecord[] = (await Promise.all(files.map(f => f.text())))
       .map(t => JSON.parse(t))
       .reduce((p, c) => p.concat(c), [])
-      .map((record: any) => ({ ...record, endTime: new Date(record.endTime + 'Z') }))
-      .filter(
-        (record: ListeningRecord) =>
-          record.endTime.getFullYear() == ref.getFullYear() && record.msPlayed > 30000,
-      );
+      .map((record: any) => ({ ...record, endTime: new Date(record.endTime + 'Z') }));
+
+    const year = parseInt(
+      Object.entries(
+        rawData.reduce((counts: Record<number, number>, record: ListeningRecord) => {
+          const y = record.endTime.getFullYear();
+          counts[y] = (counts[y] || 0) + 1;
+          return counts;
+        }, {}),
+      ).reduce((a, b) => (a[1] > b[1] ? a : b))[0],
+    );
+
+    rawData = rawData.filter(
+      (record: ListeningRecord) => record.endTime.getFullYear() == year && record.msPlayed > 30000,
+    );
 
     const listeningData = aggregateListening(rawData);
 

@@ -23,7 +23,11 @@
   </div>
   <div class="info-footer">
     <p class="md:text-[10pt] text-[8pt]">
-      Wrapped up to {wrappedDate.toLocaleString('en-CA', { month: 'short', day: 'numeric' })}
+      Wrapped up to {wrappedDate.toLocaleString('en-CA', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+      })}
     </p>
     <a
       class="text-[8pt] underline decoration-dotted underline-offset-4"
