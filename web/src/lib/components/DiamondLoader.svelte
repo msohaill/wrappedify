@@ -15,9 +15,9 @@
   class:pause-animation={pause}
   class={className}
 >
-  <div />
-  <div />
-  <div />
+  <div></div>
+  <div></div>
+  <div></div>
 </span>
 
 <style>

@@ -26,7 +26,7 @@
 </svelte:head>
 
 <!-- Dummy div for background styling -->
-<div id="bg" />
+<div id="bg"></div>
 
 {#if isReducedMotion}
   <div id="content">

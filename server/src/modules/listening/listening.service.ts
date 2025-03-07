@@ -115,7 +115,7 @@ const analyzeArtistsGenres = async (
         return;
       }
 
-      artist.url = spotifyArtist.externalURL.spotify;
+      artist.url = spotifyArtist.external_urls.spotify;
       if (spotifyArtist.images && spotifyArtist.images.length > 0)
         artist.coverUrl = spotifyArtist.images[0].url;
 
@@ -156,13 +156,13 @@ const analyzeSongsAlbums = async (
 
       if (!spotifyTrack) {
         const previousProgress = job.progress as { total: number; completed: number };
-        job.updateProgress({ ...previousProgress, completed: completed++ });
+        await job.updateProgress({ ...previousProgress, completed: completed++ });
         return;
       }
 
-      track.url = spotifyTrack.externalURL.spotify;
+      track.url = spotifyTrack.external_urls.spotify;
       track.artists = spotifyTrack.artists.map(a => a.name);
-      track.previewLink = spotifyTrack.previewURL;
+      track.previewLink = spotifyTrack.preview_url ?? undefined;
       track.trackUri = spotifyTrack.uri;
 
       if (!spotifyTrack.album) {
@@ -183,7 +183,7 @@ const analyzeSongsAlbums = async (
           timeListened: 0,
           artists: spotifyTrack.album.artists.map(a => a.name),
           topSong: track,
-          url: spotifyTrack.album.externalURL.spotify,
+          url: spotifyTrack.album.external_urls.spotify,
           coverUrl: spotifyTrack.album.images[0].url,
         };
 
@@ -225,7 +225,7 @@ const processListening = async (job: Job) => {
   await analyzeArtistsGenres(info, artistInfo, job);
   await analyzeSongsAlbums(info, trackInfo, job);
 
-  job.updateProgress({ total, completed: total });
+  await job.updateProgress({ total, completed: total });
   return info;
 };
 
@@ -238,7 +238,7 @@ export const taskQueue = new Queue('task-queue', {
 });
 
 const taskWorker = new Worker('task-queue', processListening, {
-  concurrency: 50,
+  concurrency: 8,
   connection: { ...env.redis },
   removeOnComplete: { age: 2 * 3600 },
   removeOnFail: { age: 2 * 3600 },

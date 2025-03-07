@@ -3,11 +3,13 @@
     PUBLIC_CLIENT_ID as clientID,
     PUBLIC_REDIRECT_URL as redirectURL,
   } from '$env/static/public';
+  import playlistCover from '$static/playlistcover.jpg?base64';
   import type { ListeningInformation } from '$lib/types';
   import unknownCover from '$static/no-cover.png';
   import { ExternalLink } from 'lucide-svelte';
-  import { Scopes } from 'spotify-api.js';
+  import { Scopes, SpotifyApi } from '@spotify/web-api-ts-sdk';
   import { onMount } from 'svelte';
+  import { page } from '$app/stores';
   import AudioToggle from './AudioToggle.svelte';
 
   export let info: ListeningInformation;
@@ -21,14 +23,24 @@
     return () => playingTrack.pause();
   });
 
-  const authUrl =
-    'https://accounts.spotify.com/authorize?' +
-    new URLSearchParams({
-      client_id: clientID,
-      response_type: 'code',
-      redirect_uri: redirectURL,
-      scope: Scopes.ModifyPublicPlaylists + ' ' + Scopes.ImageUpload,
-    }).toString();
+  const client = SpotifyApi.withUserAuthorization(clientID, redirectURL, Scopes.playlistModify);
+  const addPlaylist = async () => {
+    const userId = (await client.currentUser.profile()).id;
+    const playlist = await client.playlists.createPlaylist(userId, {
+      name: 'Your Top Songs of the Year',
+      description: `Your top songs for ${info.wrappedDate.getFullYear()}, courtesy of Wrappedify.`,
+    });
+
+    await client.playlists.addItemsToPlaylist(
+      playlist.id,
+      info.top.tracks.filter(t => t.trackUri).map(t => t.trackUri as string),
+    );
+    await client.playlists.addCustomPlaylistCoverImageFromBase64String(playlist.id, playlistCover);
+  };
+
+  if ($page.url.searchParams.has('code')) {
+    addPlaylist();
+  }
 </script>
 
 <div class="flex flex-col items-center">
@@ -73,7 +85,9 @@
       </div>
     {/each}
   </div>
-  <a class="button bg-[#9adba8] text-[#392b40] mt-16" href={authUrl}>Add playlist to library</a>
+  <button class="button bg-[#9adba8] text-[#392b40] mt-16" on:click={addPlaylist}
+    >Add playlist to library</button
+  >
   <table class="w-full mt-16">
     <thead>
       <tr>

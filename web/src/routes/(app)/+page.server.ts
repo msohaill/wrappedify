@@ -1,24 +1,20 @@
 import type { PageServerLoad } from './$types';
 import { PUBLIC_CLIENT_ID as clientID } from '$env/static/public';
 import { CLIENT_SECRET as clientSecret } from '$env/static/private';
-import { Client, Track } from 'spotify-api.js';
+import { SpotifyApi } from '@spotify/web-api-ts-sdk';
 import _ from 'lodash';
 
 export const load: PageServerLoad = async () => {
-  const client = await Client.create({
-    token: { clientID, clientSecret },
-    retryOnRateLimit: true,
-    refreshToken: true,
-  });
+  const client = SpotifyApi.withClientCredentials(clientID, clientSecret);
 
-  const topTracks = await client.playlists.getTracks('37i9dQZF1DXcBWIGoYBM5M');
+  const topTracks = (await client.playlists.getPlaylistItems('37i9dQZF1DXcBWIGoYBM5M')).items;
   const uniqueAlbums = Object.fromEntries(
     topTracks.map(t => [
-      (t.track as Track).album?.externalURL.spotify as string,
+      t.track.album.external_urls.spotify,
       {
-        url: (t.track as Track).album?.externalURL.spotify as string,
-        image: (t.track as Track).album?.images[0].url as string,
-        name: (t.track as Track).album?.name as string,
+        url: t.track.album.external_urls.spotify,
+        image: t.track.album.images[0].url,
+        name: t.track.album.name,
       },
     ]),
   );

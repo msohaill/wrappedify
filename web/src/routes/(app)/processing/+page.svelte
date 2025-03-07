@@ -1,15 +1,16 @@
 <script lang="ts">
+  import type { Socket } from 'socket.io-client';
   import { goto } from '$app/navigation';
   import { PUBLIC_SERVER_ENDPOINT as serverEndpoint } from '$env/static/public';
   import DiamondLoader from '$lib/components/DiamondLoader.svelte';
   import Metadata from '$lib/components/Metadata.svelte';
-  import io, { Socket } from 'socket.io-client';
+  import io from 'socket.io-client';
   import { onMount } from 'svelte';
   import { cubicOut } from 'svelte/easing';
-  import { tweened } from 'svelte/motion';
+  import { Tween } from 'svelte/motion';
   import { fly } from 'svelte/transition';
 
-  const progress = tweened(0, { easing: cubicOut });
+  const progress = new Tween(0, { easing: cubicOut });
   let socket: Socket;
   let connected = false;
   let finished = false;
@@ -30,7 +31,7 @@
     poll();
 
     socket.on('progressUpdate', ({ total, completed }: { total: number; completed: number }) => {
-      progress.update(p => Math.max((completed / total) * 100, p));
+      progress.set(Math.max((completed / total) * 100, progress.current));
       if (completed === total) {
         finished = true;
         clearTimeout(pollTimeout);
@@ -89,7 +90,7 @@
       <DiamondLoader color="white" size="40" />
     {:else if !finished}
       <div class="loading-shell" in:fly={{ y: 50 }}>
-        <div class="loading-bar" style="width: {$progress}%" />
+        <div class="loading-bar" style="width: {progress.current}%"></div>
       </div>
     {:else}
       <div class="flex flex-col items-center gap-4" in:fly={{ y: 50, duration: 750 }}>

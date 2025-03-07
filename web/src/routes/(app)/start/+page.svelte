@@ -8,6 +8,7 @@
   import { PUBLIC_SERVER_ENDPOINT as serverEndpoint } from '$env/static/public';
   import DiamondLoader from '$lib/components/DiamondLoader.svelte';
   import { fade } from 'svelte/transition';
+  import _ from 'lodash';
 
   let files: FileList;
   let fileInput: HTMLInputElement;
@@ -25,8 +26,8 @@
     }
 
     const unorderedNames = files
-      .sort()
       .map(f => f.name.slice(23, -5))
+      .sort()
       .filter((n, i) => i.toString() != n);
     if (unorderedNames.length) {
       fileInput.value = '';
@@ -49,15 +50,11 @@
       .map((record: any) => ({ ...record, endTime: new Date(record.endTime + 'Z') }));
 
     const year = parseInt(
-      Object.entries(
-        rawData.reduce((counts: Record<number, number>, record: ListeningRecord) => {
-          const y = record.endTime.getFullYear();
-          counts[y] = (counts[y] || 0) + 1;
-          return counts;
-        }, {}),
-      ).reduce((a, b) => (a[1] > b[1] ? a : b))[0],
+      _.maxBy(
+        _.entries(_.countBy(rawData, (record: ListeningRecord) => record.endTime.getFullYear())),
+        e => e[1],
+      )![0],
     );
-
     rawData = rawData.filter(
       (record: ListeningRecord) => record.endTime.getFullYear() == year && record.msPlayed > 30000,
     );
@@ -151,12 +148,12 @@
             <div
               class="w-[10vw] h-[10vw] {step
                 .colours[0]} absolute top-[0vw] left-[-2vw] -z-50 rounded-full"
-            />
+            ></div>
             <img src={step.image} alt="Graphic for step {i + 1}" class="step-image" />
             <div
               class="w-[10vw] h-[10vw] {step
                 .colours[1]} absolute bottom-[-1vw] right-[-1vw] -z-50 rounded-full"
-            />
+            ></div>
           </div>
         {/if}
       </div>
