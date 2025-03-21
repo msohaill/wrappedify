@@ -47,32 +47,27 @@
     let rawData: ListeningRecord[] = (await Promise.all(files.map(f => f.text())))
       .map(t => JSON.parse(t))
       .reduce((p, c) => p.concat(c), [])
-      .map((record: any) => ({ ...record, endTime: new Date(record.endTime + 'Z') }));
+      .map((record: any) => ({ ...record, endTime: new Date(record.endTime + 'Z') }))
+      .filter((record: any) => record.msPlayed > 30000);
 
-    const year = parseInt(
-      _.maxBy(
-        _.entries(_.countBy(rawData, (record: ListeningRecord) => record.endTime.getFullYear())),
-        e => e[1],
-      )![0],
-    );
-    rawData = rawData.filter(
-      (record: ListeningRecord) => record.endTime.getFullYear() == year && record.msPlayed > 30000,
-    );
+    let validListening = _.pickBy(_.mapValues(_.groupBy(rawData, record => record.endTime.getFullYear()), d => aggregateListening(d)), d => {
+      const uniqueArtists = Object.keys(d).length;
+      const uniqueSongs = Object.values(d).reduce((total, tracks) => total + Object.keys(tracks).length, 0)
 
-    const listeningData = aggregateListening(rawData);
+      return uniqueArtists >= 5 && uniqueSongs >= 30;
+    });
 
-    const uniqueArtists = Object.keys(listeningData).length;
-    const uniqueSongs = Object.values(listeningData).reduce(
-      (total, tracks) => total + Object.keys(tracks).length,
-      0,
-    );
+    validListening = _.mapKeys(validListening, (d, y) => parseInt(y));
 
-    if (uniqueArtists < 5 || uniqueSongs < 30) {
+    if (_.isEmpty(validListening)) {
       fileInput.value = '';
       error = UploadError.InsufficientData;
       isError = true;
       return;
     }
+
+    const year = _.max(_.keys(validListening))!;
+    const listeningData = validListening[year];
 
     loading = true;
     const serverResp = await fetch(`${serverEndpoint}/listening`, {
