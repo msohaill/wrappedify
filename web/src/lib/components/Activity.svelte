@@ -57,7 +57,7 @@
   </h1>
   <hr class="my-3 w-full" />
   <p class="leading-snug w-full">
-    Sure, Spotify Wrappedy has funky graphics and an interface that allows you to easily share your
+    Sure, Spotify Wrapped has funky graphics and an interface that allows you to easily share your
     listening. But, do they have cool graphs that show you how you've listened?
   </p>
   <p class="w-full mt-3">We didn't think so either.</p>

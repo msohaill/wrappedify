@@ -1,11 +1,14 @@
 import { Artist, Market, SpotifyApi, Track } from '@spotify/web-api-ts-sdk';
 import env from '../../env.js';
-import pLimit from 'p-limit';
+import pLimit, { LimitFunction } from 'p-limit';
+
+const MAX_RETRIES = 15;
 
 export default class SpotifyClient {
   private static client: SpotifyApi;
   private static sleepFor: number;
-  private static limit = pLimit(8);
+  private static trackLimit = pLimit(4);
+  private static artistLimit = pLimit(4);
   private static popularMarkets: Market[] = ['CA', 'MX', 'GB', 'DE', 'JP', 'BR'];
 
   static connect = async () => {
@@ -19,46 +22,13 @@ export default class SpotifyClient {
             this.sleepFor = parseInt(response.headers.get('Retry-After') ?? '1') * 1000;
           }
         },
-        errorHandler: new (class ErrorHandler {
-          public async handleErrors(error: Error): Promise<boolean> {
-            if (error.message.includes('rate limits')) {
-              if (SpotifyClient.sleepFor > 0) {
-                await new Promise(resolve => setTimeout(resolve, SpotifyClient.sleepFor));
-                return true;
-              }
-            }
-            return false;
-          }
-        })(),
       },
     );
     await this.client.authenticate();
   };
 
-  static getArtist = async (name: string, market?: Market): Promise<Artist | undefined> => {
-    const results = await this.limit(() =>
-      this.client.search(
-        `artist:${name.replace("'", '').substring(0, 92)}`,
-        ['artist'],
-        market,
-        50,
-      ),
-    );
-
-    if (results == null) {
-      return await this.getArtist(name, market);
-    }
-
-    for (const artist of results.artists.items) {
-      if (artist.name.toLowerCase() === name.toLowerCase()) {
-        return artist;
-      }
-    }
-    if (market) return;
-    for (const artistMarket of this.popularMarkets) {
-      const artist = await this.getArtist(name, artistMarket);
-      if (artist) return artist;
-    }
+  static getArtistsById = async (ids: string[]): Promise<Artist[]> => {
+    return SpotifyClient.request(this.artistLimit, () => this.client.artists.get(ids));
   };
 
   static getTrack = async (
@@ -66,7 +36,7 @@ export default class SpotifyClient {
     artist: string,
     market?: Market,
   ): Promise<Track | undefined> => {
-    const results = await this.limit(() =>
+    const results = await SpotifyClient.request(this.trackLimit, () =>
       this.client.search(
         `artist:${artist.replace("'", '').substring(0, 25)} track:${title
           .replace("'", '')
@@ -95,4 +65,25 @@ export default class SpotifyClient {
       if (track) return track;
     }
   };
+
+  private static async request<T>(limiter: LimitFunction, req: () => Promise<T>): Promise<T> {
+    let attempt = 0;
+
+    while (attempt < MAX_RETRIES) {
+      try {
+        return await limiter(req);
+      } catch (err) {
+        if (err instanceof Error && (err as Error).message.includes('rate limits')) {
+          if (SpotifyClient.sleepFor > 0) {
+            await new Promise(resolve => setTimeout(resolve, SpotifyClient.sleepFor));
+            attempt++;
+          }
+        } else {
+          throw err;
+        }
+      }
+    }
+
+    throw new Error('Max retries exceeded for Spotify API request');
+  }
 }
