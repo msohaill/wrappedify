@@ -10,7 +10,7 @@
   export let playingTrack: HTMLAudioElement;
   export let show = false;
 
-  const barWidth = (plays: number) => (plays / info.top.genres[0].plays) * 100;
+  const barWidth = (plays: number) => (Math.log(plays) / Math.log(info.top.genres[0].plays)) * 100;
   let selectedGenre = -1;
 
   $: if (!show) selectedGenre = -1;
